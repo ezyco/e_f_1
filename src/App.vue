@@ -1,6 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="text-red-400">This is made red by tailwind css</div>
 </template>
 
 <script>
