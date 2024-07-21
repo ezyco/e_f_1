@@ -1,18 +1,17 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png">
+  <div class="overflow-x-hidden">
+    <!-- <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  <div class="overflow-x-hidden bg-[#0D2B33]">
-    <img :src="imageUrl" class="object-fit w-full h-full" />
-    <div id="curve" class="w-full h-[33vw] bg-no-repeat translate-y-[-20vw]">
-      <img
-        :src="logoUrl"
-        class="w-[27.4vw] h-[27.4vw] rounded-full object-cover m-auto translate-y-[2vw]"
-      />
-    </div>
-    <div class=" w-full translate-y-[-21vw] py-[2vw]">
-      <div class="text-center mx-auto text-white saira text-[4vw]">{{ cafeName }}</div>
-      <div class="m-[5vw] w-full overflow-hidden ">
-        <div class="bg-white w-full h-[10vw] pr-[7vw] p-[1vw] saira cursor-pointer rounded-md select-none whitespace-nowrap scroll-container space-x-[1vw] overflow-x-scroll flex" ref="scrollContainer">
+  <div :class=" {'h-0 pl-[5vw] w-full overflow-hidden':true,
+  'mt-0' :!isSticky,}
+" >
+        <div :class="
+        {
+          'bg-white w-[95%] h-[10vw] p-[1vw] saira cursor-pointer rounded-l-md select-none whitespace-nowrap scroll-container space-x-[1vw] overflow-x-scroll flex' :true,
+          'fixed top-0  z-50' : isSticky,
+          'absolute top-[80vw] z-50' : !isSticky,
+        }
+        " ref="stickyDiv">
           <div v-for="(item,index) in categories" :key="index"
           :class="{
       'text-[4vw] p-[1vw] rounded-sm drop-shadow-md transition-colors duration-200': true,
@@ -24,7 +23,21 @@
 
         </div>
       </div>
+  <div class="overflow-x-hidden bg-[#0D2B33]">
+    <img :src="imageUrl" class="object-fit w-full h-full" />
+    <div id="curve" class="w-full h-[33vw] bg-no-repeat translate-y-[-20vw]">
+      <img
+        :src="logoUrl"
+        class="w-[27.4vw] h-[27.4vw] rounded-full object-cover m-auto translate-y-[2vw]"
+      />
+    </div>
+    <div class=" w-full translate-y-[-21vw] py-[2vw]">
+      <div class="text-center mx-auto text-white saira text-[4vw]">{{ cafeName }}</div>
+      <div class="m-[5vw] w-full overflow-hidden " >
+     
+      </div>
       <!-- list section -->
+       <div v-if="!isSticky" class="w-full h-[5vw]"></div>
        <FoodItem class="my-[1vw]" v-for="(item,index) in data" :key="index" :foodTitle="item.title" :foodPrice="item.price" :imageUrl="item.imageUrl"/>
     </div>
   </div>
@@ -32,6 +45,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <FooterComponent class="pb-[4vw]"/>
+  </div>
 </template>
 
 <script>
@@ -45,6 +59,8 @@ return {
   cafeName:'Top time cafe',
   categories:['khalta special blue yogurt','snacks','ice cream and sweets','fruit and candy','drinks'],
   chosenCategory: 0,
+  isSticky: false,
+  originalOffsetTop: 0,
   data:[
     {
       title:'Khalta cheetos with special blue yogurt',
@@ -87,12 +103,29 @@ return {
   methods:{
     changeCategory(index){
       this.chosenCategory = index;
-    }
+    },
+    handleScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > this.originalOffsetTop - 40) {
+        this.isSticky = true;
+      } else {
+        this.isSticky = false;
+      }
+    },
   },
   components:{
     FoodItem,
     FooterComponent,
-  }
+  },
+  mounted() {
+    this.originalOffsetTop = this.$refs.stickyDiv.offsetTop;
+
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
 }
 </script>
 
@@ -114,4 +147,8 @@ return {
 
     .scroll-container::-webkit-scrollbar-thumb:hover {
     }
+
+html{
+  overflow-x: hidden;
+}
 </style>
