@@ -1,5 +1,5 @@
 <template>
-    <div v-if="imageUrl.length>0" class="px-[4vw]  w-full" >
+    <div v-if="hasImage" class="px-[4vw]  w-full" >
         <div class="pl-[3vw] bg-white saira rounded-xl flex justify-between text-[4vw] h-[27.4vw] w-full cursor-pointer">
             <div class="flex flex-col">
                 <div class="py-[3vw] w-[45.2vw] flex flex-col justify-between" >
@@ -33,12 +33,18 @@ export default{
             required:true,
         },
         imageUrl:{
-            type:String,
+            type:Array[String],
+            default: () => [], 
             required:true,
         },
         isSuggested:{
             type:Boolean,
             required:true,
+        }
+    },
+    computed:{
+        hasImage(){
+             return this.imageUrl.length > 0;
         }
     }
 }
