@@ -1,12 +1,21 @@
 <template>
-    <div class="px-[4vw] w-full" >
+    <div v-if="imageUrl.length>0" class="px-[4vw]  w-full" >
         <div class="pl-[3vw] bg-white saira rounded-xl flex justify-between text-[4vw] h-[27.4vw] w-full cursor-pointer">
-            <div class="py-[3vw] w-[45.2vw] flex flex-col justify-between" >
+            <div class="flex flex-col">
+                <div class="py-[3vw] w-[45.2vw] flex flex-col justify-between" >
                <div> {{ foodTitle }}</div>
                <div>{{ foodPrice }}</div>
+               <div class="text-red-600 text-right" v-if="isSuggested"> Suggested </div>
             </div>
-     <img :src="imageUrl" class="h-full bg-cover rounded-xl">
+            </div>
+     <img :src="imageUrl" class="h-auto bg-cover rounded-xl">
     </div>
+    </div>
+    <div class="px-[4vw] w-full"  v-else>
+        <div class="p-[2vw] bg-white saira rounded-[2vw] flex justify-between text-[4vw] w-full cursor-pointer">
+            <div> {{ foodTitle }}</div>
+            <div>{{ foodPrice }}</div>
+                </div>
     </div>
     
 </template>
@@ -25,6 +34,10 @@ export default{
         },
         imageUrl:{
             type:String,
+            required:true,
+        },
+        isSuggested:{
+            type:Boolean,
             required:true,
         }
     }
