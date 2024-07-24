@@ -41,7 +41,7 @@
        <div class="flex w-fit duration-200" :style="listPosition">
        
        <div v-for="(category,index)  in categories" :key="index"  class="w-[100vw] min-h-[80vw] justify-center ">
-        <FoodItem   :class="{'my-[1vw] scale-100':true,'scale-0 h-0' : index !== enabledList && index !== chosenCategory}" v-for="(item,secondIndex) in sortedItems(categories[index])" @click="chooseItem(index,secondIndex)" :key="secondIndex" :foodTitle="item.title" :foodPrice="item.price" :isSuggested="item.isSuggested" :imageUrl="item.imagesUrl[0]"/>
+        <FoodItem   :class="{'my-[1vw] scale-100':true,'scale-0 h-0' : index !== enabledList && index !== chosenCategory}" v-for="(item,secondIndex) in sortedItems(categories[index])" @click="chooseItem(secondIndex)" :key="secondIndex" :foodTitle="item.title" :foodPrice="item.price" :isSuggested="item.isSuggested" :imageUrl="item.imagesUrl[0]"/>
        </div>
        </div>
     </div>
@@ -100,8 +100,14 @@ return {
       price :'20 AED',
       isSuggested: true,
       imagesUrl:[
-        'https://s3-alpha-sig.figma.com/img/668c/0c2c/76984a25241f76c6c0d9a8aaae06dd53?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EHLcB3mgg53MUdOw4ur1lifJ3j~lGLujrZQc7iSOebvUekLAruqTA6k-avPRuREm65y-SAdAf0pCLAhZKZCBGIsMnPwaT4oztiYkEhlgn8l5K7p8wwvdDf-SRNQGgRFYT6NCqGkusBrLbRm~buywQkN3vXGosxvw1DCzT9XpBsVk8zzGBM62YLsbxjS7tlr7HF-UAhA8D8WYNPrZsTvK14YU3wSosSOs2X-XGyN6OrkOnzbykxugmzr6VV2tOkoBV7HBq3qgPM4GAlSrGfV5AZuRlAvPWZFqjJ7z9fSgrn3cHl0q0RadWBgepD29cSvecYvZsxTTQCWzjn5oGFJirA__'
-             ],
+        'https://s3-alpha-sig.figma.com/img/668c/0c2c/76984a25241f76c6c0d9a8aaae06dd53?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EHLcB3mgg53MUdOw4ur1lifJ3j~lGLujrZQc7iSOebvUekLAruqTA6k-avPRuREm65y-SAdAf0pCLAhZKZCBGIsMnPwaT4oztiYkEhlgn8l5K7p8wwvdDf-SRNQGgRFYT6NCqGkusBrLbRm~buywQkN3vXGosxvw1DCzT9XpBsVk8zzGBM62YLsbxjS7tlr7HF-UAhA8D8WYNPrZsTvK14YU3wSosSOs2X-XGyN6OrkOnzbykxugmzr6VV2tOkoBV7HBq3qgPM4GAlSrGfV5AZuRlAvPWZFqjJ7z9fSgrn3cHl0q0RadWBgepD29cSvecYvZsxTTQCWzjn5oGFJirA__',
+        'https://s3-alpha-sig.figma.com/img/668c/0c2c/76984a25241f76c6c0d9a8aaae06dd53?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EHLcB3mgg53MUdOw4ur1lifJ3j~lGLujrZQc7iSOebvUekLAruqTA6k-avPRuREm65y-SAdAf0pCLAhZKZCBGIsMnPwaT4oztiYkEhlgn8l5K7p8wwvdDf-SRNQGgRFYT6NCqGkusBrLbRm~buywQkN3vXGosxvw1DCzT9XpBsVk8zzGBM62YLsbxjS7tlr7HF-UAhA8D8WYNPrZsTvK14YU3wSosSOs2X-XGyN6OrkOnzbykxugmzr6VV2tOkoBV7HBq3qgPM4GAlSrGfV5AZuRlAvPWZFqjJ7z9fSgrn3cHl0q0RadWBgepD29cSvecYvZsxTTQCWzjn5oGFJirA__',
+        'https://s3-alpha-sig.figma.com/img/668c/0c2c/76984a25241f76c6c0d9a8aaae06dd53?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EHLcB3mgg53MUdOw4ur1lifJ3j~lGLujrZQc7iSOebvUekLAruqTA6k-avPRuREm65y-SAdAf0pCLAhZKZCBGIsMnPwaT4oztiYkEhlgn8l5K7p8wwvdDf-SRNQGgRFYT6NCqGkusBrLbRm~buywQkN3vXGosxvw1DCzT9XpBsVk8zzGBM62YLsbxjS7tlr7HF-UAhA8D8WYNPrZsTvK14YU3wSosSOs2X-XGyN6OrkOnzbykxugmzr6VV2tOkoBV7HBq3qgPM4GAlSrGfV5AZuRlAvPWZFqjJ7z9fSgrn3cHl0q0RadWBgepD29cSvecYvZsxTTQCWzjn5oGFJirA__',
+        'https://s3-alpha-sig.figma.com/img/668c/0c2c/76984a25241f76c6c0d9a8aaae06dd53?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EHLcB3mgg53MUdOw4ur1lifJ3j~lGLujrZQc7iSOebvUekLAruqTA6k-avPRuREm65y-SAdAf0pCLAhZKZCBGIsMnPwaT4oztiYkEhlgn8l5K7p8wwvdDf-SRNQGgRFYT6NCqGkusBrLbRm~buywQkN3vXGosxvw1DCzT9XpBsVk8zzGBM62YLsbxjS7tlr7HF-UAhA8D8WYNPrZsTvK14YU3wSosSOs2X-XGyN6OrkOnzbykxugmzr6VV2tOkoBV7HBq3qgPM4GAlSrGfV5AZuRlAvPWZFqjJ7z9fSgrn3cHl0q0RadWBgepD29cSvecYvZsxTTQCWzjn5oGFJirA__',
+        'https://s3-alpha-sig.figma.com/img/668c/0c2c/76984a25241f76c6c0d9a8aaae06dd53?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EHLcB3mgg53MUdOw4ur1lifJ3j~lGLujrZQc7iSOebvUekLAruqTA6k-avPRuREm65y-SAdAf0pCLAhZKZCBGIsMnPwaT4oztiYkEhlgn8l5K7p8wwvdDf-SRNQGgRFYT6NCqGkusBrLbRm~buywQkN3vXGosxvw1DCzT9XpBsVk8zzGBM62YLsbxjS7tlr7HF-UAhA8D8WYNPrZsTvK14YU3wSosSOs2X-XGyN6OrkOnzbykxugmzr6VV2tOkoBV7HBq3qgPM4GAlSrGfV5AZuRlAvPWZFqjJ7z9fSgrn3cHl0q0RadWBgepD29cSvecYvZsxTTQCWzjn5oGFJirA__',
+
+          
+      ],
              category:'khalta special blue yogurt',
       description:'Khalta cheetos  with special blue yogurt with special blue yogurt  with special blue yogurt  with special blue yogurt  with special blue yogurt  with special blue yogurt',
     },
@@ -517,6 +523,7 @@ return {
      this.chosenIndex = index;
      this.isExpanded = true;
      this.showExpansionTab = true;
+     console.log(this.sortedItems(this.categories[this.chosenCategory])[this.chosenIndex].imagesUrl.length)
     },
     closeItem(){
       this.isExpanded = false;

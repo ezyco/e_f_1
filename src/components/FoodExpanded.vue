@@ -2,7 +2,7 @@
   <div
     @click="closeTab"
     :class="{
-      'w-full h-full flex flex-col justify-end fixed top-0 z-40 bg-[rgba(23,23,23,0.5)]  backdrop-blur-sm': true,
+      'w-full h-full  flex flex-col justify-end fixed top-0 z-40 bg-[rgba(23,23,23,0.5)]  backdrop-blur-sm': true,
       'bg-show': isOpen,
       'bg-hide': !isOpen,
     }"
@@ -79,7 +79,7 @@
 
         <!-- put the images slider here : -->
         <div
-          v-if="imageUrl.length > 0"
+          v-if="imageUrl.length > 1"
           class="flex space-x-[2vw] h-[16vw] pr-[3vw] mt-[2vw] overflow-x-scroll w-[97vw]"
         >
           <img
@@ -90,7 +90,7 @@
             class="h-full rounded-[1vw] scroll-container"
           />
         </div>
-        <div class="text-[5vw] font-medium mt-[4vw]">{{ foodTitle }}</div>
+        <div class="text-[5vw] font-medium mt-[4vw] saira">{{ foodTitle }}</div>
         <div class="mt-[4vw] font-light saira text-justify">
           {{ description }}
         </div>
