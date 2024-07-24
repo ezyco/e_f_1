@@ -60,9 +60,16 @@
           </svg>
         </div>
       </div>
-      <div class="px-[3vw] pb-[5vw]">
+      <div class="px-[3vw]  pb-[5vw]">
+        <div v-if="imageUrl.length>0" class="h-[63vw] mt-[4vw] w-full">
+          <div v-for="(image,index) in imageUrl" :key="index" class="w-full rounded-lg overflow-hidden">
+          <div class="overflow-hidden absolute rounded-xl w-full h-[63vw] ">
+            <img  :src="image" class=" h-[63vw] pr-[5vw] rounded-xl">
+          </div>
+        </div>
+        </div>
 
-
+<!-- put the images slider here : -->
         
         <div class="text-[5vw] font-medium mt-[4vw]">{{ foodTitle }}</div>
         <div class="mt-[4vw] font-light saira text-justify">
@@ -93,6 +100,7 @@ export default {
     },
     imageUrl: {
       type: Array[String],
+      default: () => [], 
       required: true,
     },
     isSuggested: {
@@ -111,10 +119,11 @@ export default {
   methods: {
     closeTab() {
       this.$emit("close-tab");
-
+// console.log(this.imageUrl[0]);
       setTimeout(() => {}, this.closeTime);
     },
   },
+ 
 };
 </script>
 
