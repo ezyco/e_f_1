@@ -3,7 +3,7 @@
     <div
       class="w-full h-full bg-white rounded-[3vw] flex justify-between px-[6vw] items-center"
     >
-      <div>
+      <div class="flex justify-center items-center">
         <svg
           width="20"
           height="23"
@@ -17,7 +17,7 @@
           />
         </svg>
       </div>
-      <div>
+      <div class="flex justify-center items-center">
         <svg
           width="22"
           height="20"
@@ -31,7 +31,7 @@
           />
         </svg>
       </div>
-      <div>
+      <div class="flex justify-center items-center">
         <svg
           width="18"
           height="18"
@@ -45,7 +45,7 @@
           />
         </svg>
       </div>
-      <div>
+      <div class="flex justify-center items-center">
         <svg
           width="22"
           height="22"
@@ -95,7 +95,7 @@
           />
         </svg>
       </div>
-      <div>
+      <div class="flex justify-center items-center">
         <svg
           width="22"
           height="22"
@@ -127,3 +127,18 @@
     </div>
   </div>
 </template>
+
+<script>
+export default{
+    data(){
+        return{
+            chosenRoute:2,
+        }
+    },
+    methods:{
+        changeRoute(index){
+                this.chosenRoute = index;
+        }
+    }
+}
+</script>
