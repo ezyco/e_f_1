@@ -60,22 +60,45 @@
           </svg>
         </div>
       </div>
-      <div class="px-[3vw]  pb-[5vw]">
-        <div v-if="imageUrl.length>0" class="h-[63vw] mt-[4vw] w-full">
-          <div v-for="(image,index) in imageUrl" :key="index" class="w-full rounded-lg overflow-hidden">
-          <div class="overflow-hidden absolute rounded-xl w-full h-[63vw] ">
-            <img  :src="image" class=" h-[63vw] pr-[5vw] rounded-xl">
+      <div class="px-[3vw] pb-[5vw]">
+        <div v-if="imageUrl.length > 0" class="h-[63vw] mt-[4vw] w-full">
+          <div
+            v-for="(image, index) in imageUrl"
+            :key="index"
+            class="w-full rounded-lg overflow-hidden"
+          >
+            <div class="overflow-hidden absolute rounded-xl w-full h-[63vw]">
+              <img
+ 
+
+              :src="image" :class="{'h-[63vw] pr-[6vw] rounded-xl':true,'image-hide':focusedImage !== index,
+  'image-show' :focusedImage === index}" />
+            </div>
           </div>
         </div>
-        </div>
 
-<!-- put the images slider here : -->
-        
+        <!-- put the images slider here : -->
+        <div
+          v-if="imageUrl.length > 0"
+          class="flex space-x-[2vw] h-[16vw] pr-[3vw] mt-[2vw] overflow-x-scroll w-[97vw]"
+        >
+          <img
+            v-for="(image, index) in imageUrl"
+            :key="index"
+            :src="image"
+            @click="changeFocusedImage(index)"
+            class="h-full rounded-[1vw] scroll-container"
+          />
+        </div>
         <div class="text-[5vw] font-medium mt-[4vw]">{{ foodTitle }}</div>
         <div class="mt-[4vw] font-light saira text-justify">
           {{ description }}
         </div>
-        <div class="w-full m-auto text-right text-[4.5vw] saira font-light pr-[2vw] mt-[2vw]">{{ foodPrice }}</div>
+        <div
+          class="w-full m-auto text-right text-[4.5vw] saira font-light pr-[2vw] mt-[2vw]"
+        >
+          {{ foodPrice }}
+        </div>
       </div>
     </div>
   </div>
@@ -86,7 +109,7 @@ export default {
   data() {
     return {
       closeTime: 300,
-      focusedImage:0
+      focusedImage: 0,
     };
   },
   props: {
@@ -100,7 +123,7 @@ export default {
     },
     imageUrl: {
       type: Array[String],
-      default: () => [], 
+      default: () => [],
       required: true,
     },
     isSuggested: {
@@ -119,11 +142,13 @@ export default {
   methods: {
     closeTab() {
       this.$emit("close-tab");
-// console.log(this.imageUrl[0]);
+      // console.log(this.imageUrl[0]);
       setTimeout(() => {}, this.closeTime);
     },
+    changeFocusedImage(index) {
+      this.focusedImage = index;
+    },
   },
- 
 };
 </script>
 
@@ -188,5 +213,49 @@ export default {
   animation-fill-mode: forwards;
   animation-direction: forwards;
   animation-timing-function: ease-in-out;
+}
+.scroll-container::-webkit-scrollbar {
+  height: 0px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+}
+.image-show{
+    animation-name: show-image;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-direction: forwards;
+  animation-timing-function: ease-in-out;
+}
+.image-hide{
+    animation-name: hide-image;
+  animation-duration: 150ms;
+  animation-fill-mode: forwards;
+  animation-direction: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes show-image {
+  0% {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  100%{
+    opacity: 100%;
+  }
+}
+@keyframes hide-image {
+  0% {
+    opacity: 100%;
+  }
+  100%{
+    opacity: 0%;
+  }
 }
 </style>
