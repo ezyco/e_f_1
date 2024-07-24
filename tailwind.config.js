@@ -4,7 +4,8 @@ module.exports = {
     "./src/App.vue",
     "./src/components/FoodItem.vue",
     "./src/components/FooterComponent.vue",
-    "./src/components/FoodExpanded.vue"
+    "./src/components/FoodExpanded.vue",
+    "./src/components/FooterNav.vue"
   ],
   theme: {
     extend: {},

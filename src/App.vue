@@ -46,6 +46,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <FoodExpanded @close-tab="closeItem" :isOpen="isExpanded"  :foodTitle="chosenItem.title" :isSuggested="chosenItem.isSuggested"  :imageUrl="chosenItem.imagesUrl" :foodPrice="chosenItem.price" :description="chosenItem.description" v-if="showExpansionTab"/>
 <FooterComponent  class="pb-[4vw]"/>
+<FooterNav />
   </div>
 </template>
 
@@ -53,6 +54,7 @@
 import FoodItem from "@/components/FoodItem.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 import FoodExpanded from "@/components/FoodExpanded.vue";
+import FooterNav from "@/components/FooterNav.vue";
 export default {
   data(){
 return {
@@ -252,6 +254,7 @@ return {
     FoodItem,
     FooterComponent,
     FoodExpanded,
+    FooterNav
   },
   mounted() {
     this.originalOffsetTop = this.$refs.stickyDiv.offsetTop;
