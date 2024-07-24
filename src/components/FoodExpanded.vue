@@ -172,12 +172,12 @@ export default {
     bottom: 0;
   }
   100% {
-    bottom: -50%;
+    bottom: -100%;
   }
 }
 @keyframes open-animation {
   0% {
-    bottom: -50%;
+    bottom: -100%;
   }
   100% {
     bottom: 0;
