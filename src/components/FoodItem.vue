@@ -1,5 +1,5 @@
 <template>
-    <div v-if="hasImage" class="px-[4vw]  w-full" >
+    <div v-if="hasImage" class="px-[4vw]  w-[95vw]" >
         <div class="pl-[3vw] bg-white saira rounded-xl flex justify-between text-[4vw] h-[27.4vw] w-full cursor-pointer">
             <div class="flex flex-col">
                 <div class="py-[3vw] w-[45.2vw] flex flex-col justify-between" >

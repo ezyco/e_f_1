@@ -38,7 +38,18 @@
       </div>
       <!-- list section -->
        <div v-if="!isSticky" class="w-full h-[5vw]"></div>
-       <FoodItem  class="my-[1vw]" v-for="(item,index) in sortedItems" @click="chooseItem(index)" :key="index" :foodTitle="item.title" :foodPrice="item.price" :isSuggested="item.isSuggested" :imageUrl="item.imagesUrl[0]"/>
+       <div class="flex w-fit overflow-scroll">
+       
+       <div class="w-[100vw] justify-center ">
+        <FoodItem  class="my-[1vw]" v-for="(item,index) in sortedItems" @click="chooseItem(index)" :key="index" :foodTitle="item.title" :foodPrice="item.price" :isSuggested="item.isSuggested" :imageUrl="item.imagesUrl[0]"/>
+       </div>
+       <div class="w-[100vw] justify-center ">
+        <FoodItem  class="my-[1vw]" v-for="(item,index) in sortedItems" @click="chooseItem(index)" :key="index" :foodTitle="item.title" :foodPrice="item.price" :isSuggested="item.isSuggested" :imageUrl="item.imagesUrl[0]"/>
+       </div>
+       <div class="w-[100vw] justify-center ">
+        <FoodItem  class="my-[1vw]" v-for="(item,index) in sortedItems" @click="chooseItem(index)" :key="index" :foodTitle="item.title" :foodPrice="item.price" :isSuggested="item.isSuggested" :imageUrl="item.imagesUrl[0]"/>
+       </div>
+       </div>
     </div>
   </div>
   <link rel="preconnect" href="https://fonts.googleapis.com">
