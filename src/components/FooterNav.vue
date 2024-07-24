@@ -1,9 +1,10 @@
 <template>
   <div class="rounded-[3vw] w-full fixed h-[24vw] bottom-0 p-[4vw]">
     <div
-      class="w-full h-full bg-white rounded-[3vw] flex justify-between px-[6vw] items-center"
+      class="w-full h-full bg-white rounded-[3vw] flex justify-between  items-center"
     >
-      <div class="flex justify-center items-center">
+     <div class="h-full basis-1/5 flex justify-center items-center">
+        <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===0}" @click="changeRoute(0)">
         <svg
           width="20"
           height="23"
@@ -17,7 +18,9 @@
           />
         </svg>
       </div>
-      <div class="flex justify-center items-center">
+     </div>
+      <div class="h-full basis-1/5 flex justify-center items-center">
+        <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===1}" @click="changeRoute(1)">
         <svg
           width="22"
           height="20"
@@ -31,7 +34,9 @@
           />
         </svg>
       </div>
-      <div class="flex justify-center items-center">
+      </div>
+     <div class="h-full basis-1/5 flex justify-center items-center">
+        <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===2}" @click="changeRoute(2)">
         <svg
           width="18"
           height="18"
@@ -45,7 +50,9 @@
           />
         </svg>
       </div>
-      <div class="flex justify-center items-center">
+     </div>
+    <div class="h-full basis-1/5 flex justify-center items-center">
+        <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===3}" @click="changeRoute(3)">
         <svg
           width="22"
           height="22"
@@ -95,7 +102,9 @@
           />
         </svg>
       </div>
-      <div class="flex justify-center items-center">
+    </div>
+   <div class="h-full basis-1/5 flex justify-center items-center">
+    <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===4}" @click="changeRoute(4)">
         <svg
           width="22"
           height="22"
@@ -117,13 +126,14 @@
           />
         </svg>
       </div>
+   </div>
     </div>
-    <div class="flex -translate-y-[11vw] w-full h-12  justify-between items-center">
-        <div class="text-[3vw] basis-1/5 text-center">Settings</div>
-        <div class="text-[3vw] basis-1/5 text-center">Edit</div>
-        <div class="text-[3vw] basis-1/5 text-center">Preview</div>
-        <div class="text-[3vw] basis-1/5 text-center">Server</div>
-        <div class="text-[3vw] basis-1/5 text-center">Profile</div>
+    <div class="flex -translate-y-[7vw] w-full h-12  justify-between items-start">
+        <div :class="{'text-[#1B7B4A] basis-1/5 transition-all duration-200 text-center':true,'text-[0vw]': chosenRoute!==0,'text-[3vw]':chosenRoute===0}">Settings</div>
+        <div :class="{'text-[#1B7B4A] basis-1/5 transition-all duration-200 text-center':true,'text-[0vw]': chosenRoute!==1,'text-[3vw]':chosenRoute===1}">Edit</div>
+        <div :class="{'text-[#1B7B4A] basis-1/5 transition-all duration-200 text-center':true,'text-[0vw]': chosenRoute!==2,'text-[3vw]':chosenRoute===2}">Preview</div>
+        <div :class="{'text-[#1B7B4A] basis-1/5 transition-all duration-200 text-center':true,'text-[0vw]': chosenRoute!==3,'text-[3vw]':chosenRoute===3}">Server</div>
+        <div :class="{'text-[#1B7B4A] basis-1/5 transition-all duration-200 text-center':true,'text-[0vw]': chosenRoute!==4,'text-[3vw]':chosenRoute===4}">Profile</div>
     </div>
   </div>
 </template>
@@ -138,6 +148,7 @@ export default{
     methods:{
         changeRoute(index){
                 this.chosenRoute = index;
+                console.log(this.chosenRoute)
         }
     }
 }
