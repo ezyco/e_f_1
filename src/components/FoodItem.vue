@@ -8,7 +8,7 @@
                <div class="text-red-600 text-right" v-if="isSuggested"> Suggested </div>
             </div>
             </div>
-     <img :src="imageUrl" class="h-auto bg-cover rounded-xl">
+     <img :src="imageUrl" class="h-full w-[41vw] bg-cover rounded-xl object-cover">
     </div>
     </div>
     <div class="px-[4vw] w-full"  v-else>

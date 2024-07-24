@@ -42,4 +42,5 @@
     </div>   
     </div>
    </div>
+   <div class="w-full h-[30vw] bg-[#0D2B33]"></div>
 </template>
