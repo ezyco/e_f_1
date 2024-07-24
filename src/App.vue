@@ -190,7 +190,7 @@ return {
   },
   computed: {
     sortedItems() {
-    return this.items.sort((a, b) => {
+    return this.items.slice().sort((a, b) => {
       // Define sorting order
       const aSuggested = a.isSuggested ? 0 : 1;
       const bSuggested = b.isSuggested ? 0 : 1;
