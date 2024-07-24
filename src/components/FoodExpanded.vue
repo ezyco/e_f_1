@@ -71,7 +71,7 @@
               <img
  
 
-              :src="image" :class="{'h-[63vw] pr-[6vw] rounded-xl':true,'image-hide':focusedImage !== index,
+              :src="image" :class="{'h-[63vw] pr-[6vw] w-[100vw] rounded-xl':true,'image-hide':focusedImage !== index,
   'image-show' :focusedImage === index}" />
             </div>
           </div>
@@ -87,7 +87,7 @@
             :key="index"
             :src="image"
             @click="changeFocusedImage(index)"
-            class="h-full w-[100vw] rounded-[1vw] object-cover scroll-container"
+            class="h-full rounded-[1vw] object-cover scroll-container"
           />
         </div>
         <div class="text-[5vw] font-medium mt-[4vw] saira">{{ foodTitle }}</div>
