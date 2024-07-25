@@ -150,7 +150,6 @@ export default{
     methods:{
         changeRoute(index){
                 this.chosenRoute = index;
-                console.log(this.chosenRoute)
         }
     }
 }
