@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-[3vw] w-full fixed h-[24vw] bottom-0 p-[4vw]">
+  <div class="rounded-[3vw] saira w-full fixed drop-shadow-lg h-[24vw] bottom-0 p-[4vw]">
     <div
       class="w-full h-full bg-white rounded-[3vw] flex justify-between  items-center"
     >
@@ -35,7 +35,7 @@
         </svg>
       </div>
       </div>
-     <div class="h-full basis-1/5 flex justify-center items-center" @click="changeRoute(2)">
+     <router-link to="/" class="h-full basis-1/5 flex justify-center items-center" @click="changeRoute(2)">
         <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===2}" >
         <svg :class="{'scale-[1] fill-[#CCCCCC]' : chosenRoute !==2 , 'scale-[1.5] fill-[#FFFFFF]': chosenRoute===2}"
           width="18"
@@ -51,8 +51,8 @@
           />
         </svg>
       </div>
-     </div>
-    <div class="h-full basis-1/5 flex justify-center items-center" @click="changeRoute(3)">
+     </router-link>
+    <router-link to="/server" class="h-full basis-1/5 flex justify-center items-center" @click="changeRoute(3)">
         <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===3}" >
         <svg :class="{'scale-[1] fill-[#CCCCCC]' : chosenRoute !==3 , 'scale-[1.5] fill-[#FFFFFF]': chosenRoute===3}"
           width="22"
@@ -103,7 +103,7 @@
           />
         </svg>
       </div>
-    </div>
+    </router-link>
    <div class="h-full basis-1/5 flex justify-center items-center" @click="changeRoute(4)">
     <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===4}" >
         <svg :class="{'scale-[1] fill-[#CCCCCC]' : chosenRoute !==4 , 'scale-[1.5] fill-[#FFFFFF]': chosenRoute===4}"
@@ -155,3 +155,10 @@ export default{
     }
 }
 </script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+.saira {
+  font-family: "Saira", sans-serif;
+}
+</style>

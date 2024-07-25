@@ -5,7 +5,10 @@ module.exports = {
     "./src/components/FoodItem.vue",
     "./src/components/FooterComponent.vue",
     "./src/components/FoodExpanded.vue",
-    "./src/components/FooterNav.vue"
+    "./src/components/FooterNav.vue",
+    "./src/components/MenuPage.vue",
+    "./src/components/ServerPage.vue",
+    "./src/components/ServerExpansionTab.vue",
   ],
   theme: {
     extend: {},
