@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import MenuPage from '@/components/MenuPage.vue';
 import ServerPage from '@/components/ServerPage.vue';
-
+import EditMenuPage from '@/components/EditMenuPage.vue';
 const routes = [
   {
     path: '/',
@@ -12,6 +12,11 @@ const routes = [
     path: '/server',
     name: 'ServerPage',
     component: ServerPage
+  },
+  {
+    path: '/edit',
+    name: 'EditMenuPage',
+    component: EditMenuPage
   },
 ];
 
