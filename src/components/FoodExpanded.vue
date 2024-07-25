@@ -95,9 +95,11 @@
           {{ description }}
         </div>
         <div
-          class="w-full m-auto text-right text-[4.5vw] saira font-light pr-[2vw] mt-[2vw]"
+          class="w-full m-auto flex justify-between items-center text-[4.5vw] saira font-light px-[2vw] mt-[2vw]"
         >
-          {{ foodPrice }}
+        <div v-if="isSuggested" class="text-[#FF0000] font-medium">Suggested</div> 
+        <div>{{ foodPrice }}</div>
+        
         </div>
       </div>
     </div>
@@ -138,6 +140,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    isSuggested:{
+      type: Boolean,
+      required: true,
+    }
   },
   methods: {
     closeTab() {
