@@ -140,10 +140,6 @@ export default {
       type: Boolean,
       required: true,
     },
-    isSuggested:{
-      type: Boolean,
-      required: true,
-    }
   },
   methods: {
     closeTab() {
