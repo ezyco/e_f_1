@@ -3,7 +3,7 @@
     <div
       class="w-full h-full bg-white rounded-[3vw] flex justify-between  items-center"
     >
-     <div class="h-full basis-1/5 flex justify-center items-center" @click="changeRoute(0)">
+     <router-link to="/settings" class="h-full basis-1/5 flex justify-center items-center" @click="changeRoute(0)">
         <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===0}" >
         <svg  :class="{'scale-[1] fill-[#CCCCCC]' : chosenRoute !==0 , 'scale-[1.2] fill-[#FFFFFF]': chosenRoute===0}"
           width="20"
@@ -18,7 +18,7 @@
             />
         </svg>
       </div>
-     </div>
+     </router-link>
       <router-link to="/edit" class="h-full basis-1/5 flex justify-center items-center" @click="changeRoute(1)">
         <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===1}" >
         <svg :class="{'scale-[1] fill-[#CCCCCC]' : chosenRoute !==1 , 'scale-[1.2] fill-[#FFFFFF]': chosenRoute===1}"

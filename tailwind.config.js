@@ -8,6 +8,7 @@ module.exports = {
     "./src/components/FooterNav.vue",
     "./src/components/MenuPage.vue",
     "./src/components/ServerPage.vue",
+    "./src/components/SettingsPage.vue",
     "./src/components/ServerExpansionTab.vue",
   ],
   theme: {
