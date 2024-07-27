@@ -10,6 +10,7 @@ module.exports = {
     "./src/components/ServerPage.vue",
     "./src/components/SettingsPage.vue",
     "./src/components/ServerExpansionTab.vue",
+    "src/components/SelectCurrencyExpansionTab.vue",
   ],
   theme: {
     extend: {},
