@@ -297,6 +297,7 @@ export default {
     },
     changeChosenOption(index) {
       this.chosenOption = index;
+      this.$emit("change-currency",index);
     },
   },
 };

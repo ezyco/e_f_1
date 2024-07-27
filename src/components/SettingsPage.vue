@@ -368,12 +368,13 @@
     >
       <div class="text-[#3A3A3A] saira">Currency</div>
       <div class="saira">
-        {{ chosenCurrency }}
+        {{ currencies[chosenCurrency] }}
       </div>
     </div>
   </div>
   <SelectCurrencyExpansionTab
     @close-tab="closeItem"
+    @change-currency="chooseCurrency"
     :isOpen="isExpanded"
     v-if="showExpansionTab"
   />
@@ -400,12 +401,16 @@ export default {
       coverError: null,
       chosenCoverDesign: 0,
       chosenLogoDesign: 0,
-      chosenCurrency: "AED",
+      chosenCurrency: 0,
+      currencies:["$","T","£","€","no price","₿","AED"]
     };
   },
   methods: {
     triggerLogoFileInput() {
       this.$refs.logoInput.click();
+    },
+    chooseCurrency(option){
+this.chosenCurrency = option
     },
     handleLogoFileChange(event) {
       const file = event.target.files[0];
