@@ -401,6 +401,13 @@
 
       </div>
     </div>
+    <div
+      class="py-[3vw] my-[3vw] flex justify-start items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
+      @click="chooseItem('lang')"
+    >
+      <div class="text-[#3A3A3A] saira">{{ languages[chosenLanguage] }}</div>
+   
+    </div>
   </div>
   <SelectCurrencyExpansionTab
     @close-tab="closeItem"
@@ -414,6 +421,13 @@
     @change-font="chooseFont"
     v-if="showFontExpansionTab" :fonts="fonts"
   />
+  <LanguageExpansionTab
+    @close-language-select-tab="closeLanguageTab"
+    :isOpen="isLanguageSelectionExpanded"
+    @change-lang="chooseLanguage"
+    :chosenOpt ="chosenLanguage"
+    v-if="showLanguuageExpansionTab" :languages="languages"
+  />
   <div class="w-full h-[30vw]"></div>
 </template>
 
@@ -421,14 +435,17 @@
 import ColorInput from 'vue-color-input';
 import SelectCurrencyExpansionTab from "@/components/SelectCurrencyExpansionTab.vue";
 import FontSelectionTab from "@/components/FontSelectionTab.vue"
+import LanguageExpansionTab from "@/components/LanguageExpansionTab.vue"
 export default {
   name: "SettingsPage",
   data() {
     return {
       showExpansionTab: false,
       showFontExpansionTab: false,
+      showLanguuageExpansionTab: false,
       isCurrencyExpanded: false,
       isFontSelectionExpanded: false,
+      isLanguageSelectionExpanded: false,
       closeExpansionTabTime: 300,
       chosenTitleColor: "rgb(11,11,11)",
       chosenBackgroundColor: "rgb(255,255,255)",
@@ -447,6 +464,8 @@ export default {
       subHeading:'',
       currencies:["$","T","£","€","no price","₿","AED"],
       fonts:['Saira','Saira 2','Saira 3','Saira 4','Saira 5','Saira 6','Saira 7','Saira 8','Saira 9','Saira 10','Saira 11'],
+      languages:['English','Persian'],
+      chosenLanguage:0,
     };
   },
   methods: {
@@ -474,6 +493,9 @@ this.chosenCurrency = option
     },
     chooseFont(option){
 this.chosenFont = option
+    },
+    chooseLanguage(option){
+this.chosenLanguage = option
     },
     handleLogoFileChange(event) {
       const file = event.target.files[0];
@@ -530,6 +552,12 @@ this.chosenFont = option
         this.showFontExpansionTab = false;
       }, this.closeExpansionTabTime);
     },
+    closeLanguageTab() {
+      this.isLanguageSelectionExpanded = false;
+      setTimeout(() => {
+        this.showLanguuageExpansionTab = false;
+      }, this.closeExpansionTabTime);
+    },
     chooseItem(tabName) {
       switch(tabName){
         case 'currency' : 
@@ -540,6 +568,10 @@ this.chosenFont = option
         this.isFontSelectionExpanded = true;
       this.showFontExpansionTab = true;
       break;
+      case 'lang' : 
+        this.isLanguageSelectionExpanded = true;
+      this.showLanguuageExpansionTab = true;
+        break;
       }
     
     },
@@ -577,7 +609,7 @@ this.chosenFont = option
     }
   },
   components: {
-    SelectCurrencyExpansionTab,ColorInput,FontSelectionTab,
+    SelectCurrencyExpansionTab,ColorInput,FontSelectionTab,LanguageExpansionTab,
   },
 };
 </script>

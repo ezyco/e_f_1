@@ -22,7 +22,7 @@
           <div
             class="m-auto basis-2/4 text-center text-black saira font-bold text-[4vw]"
           >
-            Currency
+            Font
           </div>
           <div class="m-auto basis-1/4 text-center text-black flex justify-end">
             <svg
