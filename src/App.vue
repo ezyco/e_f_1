@@ -38,6 +38,10 @@ export default{
 
 html{
   overflow-x: hidden;
+  color-scheme: only light;
+}
+:root{
+  color-scheme: only light;
 }
 .color-input.user .box {
 	width: 5.8vw !important;
