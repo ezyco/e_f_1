@@ -86,13 +86,15 @@
       class="py-[3vw] flex justify-between items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
     >
       <div class="text-[#3A3A3A] saira">Title Color</div>
-      <div class="flex space-x-2">
+      <div class="flex items-center space-x-2">
         <div class="saira">{{ upperCaseTitleColor }}</div>
-        <input
+        <!-- <input
           type="color"
           class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
           v-model="chosenTitleColor"
-        />
+        /> -->
+        <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="chosenTitleColor" />
+
       </div>
     </div>
   </div>
@@ -314,52 +316,60 @@
       class="py-[3vw] my-[3vw] flex justify-between items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
     >
       <div class="text-[#3A3A3A] saira">Background Color</div>
-      <div class="flex space-x-2">
+      <div class="flex items-center space-x-2">
         <div class="saira">{{ upperCaseBackgroundColor }}</div>
-        <input
+        <!-- <input
           type="color"
           class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
           v-model="chosenBackgroundColor"
-        />
+        /> -->
+        <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="chosenBackgroundColor" />
+
       </div>
     </div>
     <div
       class="py-[3vw] my-[3vw] flex justify-between items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
     >
       <div class="text-[#3A3A3A] saira">Tan Bar</div>
-      <div class="flex space-x-2">
+      <div class="flex items-center space-x-2">
         <div class="saira">{{ upperCaseTanBarColor }}</div>
-        <input
+        <!-- <input
           type="color"
           class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
           v-model="tanBarColor"
-        />
+        /> -->
+        <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="tanBarColor" />
+
       </div>
     </div>
     <div
       class="py-[3vw] my-[3vw] flex justify-between items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
     >
       <div class="text-[#3A3A3A] saira">Item Background</div>
-      <div class="flex space-x-2">
+      <div class="flex items-center space-x-2">
         <div class="saira">{{ upperCaseItemBackgroundColor }}</div>
-        <input
+        <!-- <input
           type="color"
           class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
           v-model="itemBackgroundColor"
-        />
+        /> -->
+        <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="itemBackgroundColor" />
+
       </div>
     </div>
     <div
       class="py-[3vw] my-[3vw] flex justify-between items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
     >
       <div class="text-[#3A3A3A] saira">Item Text</div>
-      <div class="flex space-x-2">
+      <div class="flex items-center space-x-2">
         <div class="saira">{{ upperCaseItemTextColor }}</div>
-        <input
+        <!-- <input
           type="color"
           class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
           v-model="itemTextColor"
-        />
+        /> -->
+        <ColorInput disable-text-inputs disable-alpha position="left top" v-model="itemTextColor" />
+
       </div>
     </div>
     <div
@@ -378,10 +388,12 @@
     :isOpen="isExpanded"
     v-if="showExpansionTab"
   />
+
   <div class="w-full h-[30vw]"></div>
 </template>
 
 <script>
+import ColorInput from 'vue-color-input';
 import SelectCurrencyExpansionTab from "@/components/SelectCurrencyExpansionTab.vue";
 export default {
   name: "SettingsPage",
@@ -390,11 +402,11 @@ export default {
       showExpansionTab: false,
       isExpanded: false,
       closeExpansionTabTime: 300,
-      chosenTitleColor: "#FFFFFF",
-      chosenBackgroundColor: "#FFFFFF",
-      itemBackgroundColor: "#FFFFFF",
-      itemTextColor: "#FFFFFF",
-      tanBarColor: "#FFFFFF",
+      chosenTitleColor: "rgb(0,0,0)",
+      chosenBackgroundColor: "rgb(0,0,0)",
+      itemBackgroundColor: "rgb(0,0,0)",
+      itemTextColor: "rgb(0,0,0)",
+      tanBarColor: "rgb(0,0,0)",
       logoImageUrl: null,
       logoError: null,
       coverImageUrl: null,
@@ -408,6 +420,22 @@ export default {
     };
   },
   methods: {
+    rgbToHex(rgb) {
+      // Regular expression to extract r, g, b values
+      const result = /^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/i.exec(rgb);
+      if (!result) {
+        return 'Invalid RGB color';
+      }
+      
+      const r = parseInt(result[1], 10);
+      const g = parseInt(result[2], 10);
+      const b = parseInt(result[3], 10);
+
+      // Convert each value to its hexadecimal representation and ensure it's two digits
+      const toHex = (value) => value.toString(16).padStart(2, '0');
+      
+      return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+    },
     triggerLogoFileInput() {
       this.$refs.logoInput.click();
     },
@@ -476,19 +504,19 @@ this.chosenCurrency = option
   },
   computed: {
     upperCaseTitleColor() {
-      return this.chosenTitleColor.toUpperCase();
+      return this.rgbToHex(this.chosenTitleColor).toUpperCase();
     },
     upperCaseBackgroundColor() {
-      return this.chosenBackgroundColor.toUpperCase();
+      return this.rgbToHex(this.chosenBackgroundColor).toUpperCase();
     },
     upperCaseItemBackgroundColor() {
-      return this.itemBackgroundColor.toUpperCase();
+      return this.rgbToHex(this.itemBackgroundColor).toUpperCase();
     },
     upperCaseItemTextColor() {
-      return this.itemTextColor.toUpperCase();
+      return this.rgbToHex(this.itemTextColor).toUpperCase();
     },
     upperCaseTanBarColor() {
-      return this.tanBarColor.toUpperCase();
+      return this.rgbToHex(this.tanBarColor).toUpperCase();
     },
     logoImagePickerUrl() {
       return "background-image: url('" + this.logoImageUrl + "')";
@@ -496,10 +524,12 @@ this.chosenCurrency = option
     coverImagePickerUrl() {
       return "background-image: url('" + this.coverImageUrl + "')";
     },
-  
+    hexColor() {
+      return this.rgbToHex();
+    }
   },
   components: {
-    SelectCurrencyExpansionTab,
+    SelectCurrencyExpansionTab,ColorInput,
   },
 };
 </script>
@@ -523,4 +553,5 @@ this.chosenCurrency = option
   border: none;
   border-radius: 0.7vw;
 }
+
 </style>

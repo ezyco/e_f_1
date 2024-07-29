@@ -39,4 +39,8 @@ export default{
 html{
   overflow-x: hidden;
 }
+.color-input.user .box {
+	width: 5.8vw !important;
+	height:5.8vw !important;
+}
 </style>
