@@ -1,5 +1,6 @@
 <template>
-   <div class="w-full h-full saira">
+  <div class="bg-white">
+    <div class="w-full h-full saira">
     <img class="w-full mt-[5vw] h-[100vw] object-contain" src="https://s3-alpha-sig.figma.com/img/119c/7f3e/f7389830fb645e38cadb02e96cd0387b?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mxUQYIy5afgrAQsm2ny6euoRHL~NKHZ-QSDLuNOSqHOBWA-izzPJ1WRi09BS2ZEsa0kBKOD7rheV7VJVUfTSY6mwWJVRiOGk2eXVaAkd69mFIifYGWii~FWKzfsV3NwLGMYszOoWBF7YMWvI1WusOp1-1~hi57W71fSNXLSXZgLF-5aKjBAMEG95mTbw-js~rnj1iDGhA59Ny~bSK1n~V94x5mu0qvAxECwKXMmXvKQoY5OtTePTPampHZVSaF8CRIAGRt-wDk5X9ZqGKCQjlOqbb4xi6xMvCGcC4R75pW57dFwcKWL1SjN3grj8qere4rTzACaT7o1IxtUN5X0Qkw__">
      <div class="mx-auto py-[5vw] px-[10vw] overflow-visible">
         <div class="w-full h-[11vw] bg-white rounded-[2.5vw] drop-shadow-md px-[3vw] flex justify-between items-center">
@@ -27,6 +28,7 @@
         </div>
    </div>
  
+  </div>
 </template>
 <script>
 import ServerExpansionTab from "@/components/ServerExpansionTab.vue";
