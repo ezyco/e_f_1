@@ -384,33 +384,51 @@
     </div>
     <div
       class="py-[3vw] my-[3vw] flex justify-between items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
-      @click="chooseItem()"
+      @click="chooseItem('currency')"
     >
       <div class="text-[#3A3A3A] saira">Currency</div>
       <div class="saira">
         {{ currencies[chosenCurrency] }}
       </div>
     </div>
+    <div
+      class="py-[3vw] my-[3vw] flex justify-between items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
+      @click="chooseItem('font')"
+    >
+      <div class="text-[#3A3A3A] saira">Font</div>
+      <div class="saira">
+        {{ fonts[chosenFont] }}
+
+      </div>
+    </div>
   </div>
   <SelectCurrencyExpansionTab
     @close-tab="closeItem"
     @change-currency="chooseCurrency"
-    :isOpen="isExpanded"
+    :isOpen="isCurrencyExpanded"
     v-if="showExpansionTab"
   />
-
+  <FontSelectionTab
+    @close-font-select-tab="closeFontTab"
+    :isOpen="isFontSelectionExpanded"
+    @change-font="chooseFont"
+    v-if="showFontExpansionTab" :fonts="fonts"
+  />
   <div class="w-full h-[30vw]"></div>
 </template>
 
 <script>
 import ColorInput from 'vue-color-input';
 import SelectCurrencyExpansionTab from "@/components/SelectCurrencyExpansionTab.vue";
+import FontSelectionTab from "@/components/FontSelectionTab.vue"
 export default {
   name: "SettingsPage",
   data() {
     return {
       showExpansionTab: false,
-      isExpanded: false,
+      showFontExpansionTab: false,
+      isCurrencyExpanded: false,
+      isFontSelectionExpanded: false,
       closeExpansionTabTime: 300,
       chosenTitleColor: "rgb(11,11,11)",
       chosenBackgroundColor: "rgb(255,255,255)",
@@ -424,9 +442,11 @@ export default {
       chosenCoverDesign: 0,
       chosenLogoDesign: 0,
       chosenCurrency: 0,
+      chosenFont:0,
       title:'',
       subHeading:'',
-      currencies:["$","T","£","€","no price","₿","AED"]
+      currencies:["$","T","£","€","no price","₿","AED"],
+      fonts:['Saira','Saira 2','Saira 3','Saira 4','Saira 5','Saira 6','Saira 7','Saira 8','Saira 9','Saira 10','Saira 11'],
     };
   },
   methods: {
@@ -451,6 +471,9 @@ export default {
     },
     chooseCurrency(option){
 this.chosenCurrency = option
+    },
+    chooseFont(option){
+this.chosenFont = option
     },
     handleLogoFileChange(event) {
       const file = event.target.files[0];
@@ -496,14 +519,29 @@ this.chosenCurrency = option
       this.chosenLogoDesign = index;
     },
     closeItem() {
-      this.isExpanded = false;
+      this.isCurrencyExpanded = false;
       setTimeout(() => {
         this.showExpansionTab = false;
       }, this.closeExpansionTabTime);
     },
-    chooseItem() {
-      this.isExpanded = true;
+    closeFontTab() {
+      this.isFontSelectionExpanded = false;
+      setTimeout(() => {
+        this.showFontExpansionTab = false;
+      }, this.closeExpansionTabTime);
+    },
+    chooseItem(tabName) {
+      switch(tabName){
+        case 'currency' : 
+        this.isCurrencyExpanded = true;
       this.showExpansionTab = true;
+        break;
+        case 'font' : 
+        this.isFontSelectionExpanded = true;
+      this.showFontExpansionTab = true;
+      break;
+      }
+    
     },
     clearSubHeading(){
       this.subHeading ='';
@@ -539,7 +577,7 @@ this.chosenCurrency = option
     }
   },
   components: {
-    SelectCurrencyExpansionTab,ColorInput,
+    SelectCurrencyExpansionTab,ColorInput,FontSelectionTab,
   },
 };
 </script>
