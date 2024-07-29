@@ -1,4 +1,5 @@
 <template>
+<div class="bg-white">
   <div class="pb-[3vw] pt-[3vw] saira text-[4vw] px-[6vw]">
     <div class="saira font-normal">Title*</div>
     <input
@@ -529,6 +530,7 @@
 
 </SocialsTab>
   <div class="w-full h-[30vw]"></div>
+</div>
 </template>
 
 <script>

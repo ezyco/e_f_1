@@ -69,7 +69,7 @@
 </svg>
 
         </div>
-        <div class="mx-auto h-[110vw] overflow-x-scroll w-[77vw]">
+        <div class="mx-auto h-[110vw] overflow-x-scroll scroll-container w-[77vw]">
          <div @click="changeChosenOption(index)" v-for="(font, index) in fonts" :key="index" :class="{'flex my-[3vw] w-full rounded-[2.3vw] bg-white drop-shadow-lg h-[11.2vw] space-x-4 justify-start items-center p-[4vw]':true,'border-2 border-[#1B7B4A]' : chosenOption===index}">
           <div :class="{'w-[6vw] flex justify-center items-center h-[6vw] rounded-full border-2 border-[#D8D8D8]':true, 'border-[#1B7B4A]' : chosenOption === index}">
             <div v-if="chosenOption === index" class="w-[3.5vw] h-[3.5vw] bg-[#24A5E7] rounded-full">
