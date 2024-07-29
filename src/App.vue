@@ -39,9 +39,19 @@ export default{
 html{
   overflow-x: hidden;
   color-scheme: only light;
+  background-color: white !important;
 }
 :root{
   color-scheme: only light;
+  background-color: white !important;
+}
+@media (prefers-color-scheme:dark) {
+  body{
+    background-color: white !important;
+  }
+  html{
+    background-color: white !important;
+  }
 }
 .color-input.user .box {
 	width: 5.8vw !important;
