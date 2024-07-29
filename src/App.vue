@@ -42,5 +42,10 @@ html{
 .color-input.user .box {
 	width: 5.8vw !important;
 	height:5.8vw !important;
+  border:1px;
+  border-color: #212121;
+}
+.color-input.user .box.active .inner {
+	transform: scale(1) !important
 }
 </style>

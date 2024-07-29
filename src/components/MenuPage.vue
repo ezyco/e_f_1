@@ -60,7 +60,7 @@ export default {
   name: 'MenuPage',
   data(){
 return {
-  imageUrl:'https://s3-alpha-sig.figma.com/img/49a5/8da9/6fecacf4c93a55192defce713f23a4d7?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dOpfTH9PkxLU8j4wbgx8vIQCkDUpn9oWxV1L8Pb7YZXNO7nbv-di7MdKZ4rB2Nr34tWd6ibM8WDFYOMtxay0s932bTXTfhB2Fu3QP1Jb5rfwpAeIFXaQ0Yc6kFxkG14lsAlxbLpmXBtWaqW3lzBjJYijbxW7lHej~tJFFY1qIW4TyN1XEjmc6YmHPdncCwdADiAzEfUgs0T9SXiDLll2uGloc8JvWHvtcC-k37wTOBTH9UHnJLl3zDl--qgdJGoF98bnj3pyb8htAW5hyIZB-OANZfqulDIkipOGwNRbSQTDnJ0MItTmjCkxxMG24NpdIYcw2hE13stVWmA0h09ahA__',
+  imageUrl:'https://s3-alpha-sig.figma.com/img/49a5/8da9/6fecacf4c93a55192defce713f23a4d7?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=HB0mmdPBts0xNljkkF2NHl8tg-vsN94N56WcR~a0pKYoi1YA8HkhnJlBoJS5P~~6bhKEBlPfsnjxRBJA33RDqtiongjZYZtlm-v-sw-Vs3f7M1xZoP~CI9U59HnMSzs19iXIEgU8KAF~XXfKdl5UyAKTGK36otT4fJhGBsTv0fO-HzLnubABo1d4sy1L69ffCz8IsZOg35mYS5azM8n2J6AfBpbU9oSH8gGE7MPngjwuOssKO1Ze4X89NFGtnZMnCkPM22K566QEe1-5G~gsjr7lTDh0dC2SalezD4yj9vK5XkAEoHV9qklLgg81UsqCJHR~9s2YJDdMn0SpTxkLtQ__',
   logoUrl:'https://s3-alpha-sig.figma.com/img/b090/4af3/2c97085e4e414fc8fc0cfb87d129ee7b?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=KNtpqtnk7r6qg~NIgm8vPK61aPdGnOhMJsPAT-OI67sfEWh1l0xVmpDF8wN8wVFVYuXhCkXZc6ZFXo-lyGhefCPx8fMKWadONkB7Q6yvPsZ6XAnSaNvNcm3to-4Cl80J9XtEF-iBNrosyTlEj8ISIWMQEenEmwVzuUvtfKHHrH7rTWWuwFe8r1JvSeVNDas5ZpGGoI5xFVwDluFbJ~OU7OGi4Q0wYKrR23NCE0rA1kTNxYuKlh1nfxcE22DLS8zFZRwVZGja5tyvNAr41JBJaboW~AR7l6GUyOSB1YcgwM2gDNX8wgVYbYVjATmqU00CQ5XTtcml-pqeMBsmengzLA__',
   cafeName:'Top time cafe',
   categories:['khalta special blue yogurt','snacks','ice cream and sweets','fruit and candy','drinks'],

@@ -93,7 +93,9 @@
           class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
           v-model="chosenTitleColor"
         /> -->
-        <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="chosenTitleColor" />
+        <div class="w-[6.3vw] flex justify-center items-center h-[6.3vw] border-[2px] rounded-[20%] border-[#212121]">
+          <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="chosenTitleColor" />
+        </div>
 
       </div>
     </div>
@@ -323,7 +325,9 @@
           class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
           v-model="chosenBackgroundColor"
         /> -->
-        <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="chosenBackgroundColor" />
+        <div class="w-[6.3vw] flex justify-center items-center h-[6.3vw] border-[2px] rounded-[20%] border-[#212121]">
+          <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="chosenBackgroundColor" />        
+        </div>
 
       </div>
     </div>
@@ -338,7 +342,9 @@
           class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
           v-model="tanBarColor"
         /> -->
-        <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="tanBarColor" />
+        <div class="w-[6.3vw] flex justify-center items-center h-[6.3vw] border-[2px] rounded-[20%] border-[#212121]">
+          <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="tanBarColor" />
+        </div>
 
       </div>
     </div>
@@ -353,8 +359,10 @@
           class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
           v-model="itemBackgroundColor"
         /> -->
-        <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="itemBackgroundColor" />
+        <div class="w-[6.3vw] flex justify-center items-center h-[6.3vw] border-[2px] rounded-[20%] border-[#212121]">
 
+        <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="itemBackgroundColor" />
+      </div>
       </div>
     </div>
     <div
@@ -368,7 +376,9 @@
           class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
           v-model="itemTextColor"
         /> -->
-        <ColorInput disable-text-inputs disable-alpha position="left top" v-model="itemTextColor" />
+        <div class="w-[6.3vw] flex justify-center items-center h-[6.3vw] border-[2px] rounded-[20%] border-[#212121]">
+          <ColorInput disable-text-inputs disable-alpha position="left top" v-model="itemTextColor" />
+      </div>
 
       </div>
     </div>
@@ -402,11 +412,11 @@ export default {
       showExpansionTab: false,
       isExpanded: false,
       closeExpansionTabTime: 300,
-      chosenTitleColor: "rgb(0,0,0)",
-      chosenBackgroundColor: "rgb(0,0,0)",
-      itemBackgroundColor: "rgb(0,0,0)",
-      itemTextColor: "rgb(0,0,0)",
-      tanBarColor: "rgb(0,0,0)",
+      chosenTitleColor: "rgb(11,11,11)",
+      chosenBackgroundColor: "rgb(255,255,255)",
+      itemBackgroundColor: "rgb(255,255,255)",
+      itemTextColor: "rgb(255,255,255)",
+      tanBarColor: "rgb(255,255,255)",
       logoImageUrl: null,
       logoError: null,
       coverImageUrl: null,
