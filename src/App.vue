@@ -1,18 +1,31 @@
 <template>
+    <TonConnectUIProvider :options="options">
+
       <div class="overflow-x-hidden">
         <router-view/>
         <FooterNav />
 </div>
+</TonConnectUIProvider>
+
 </template>
 
 
 <script>
 import FooterNav from "@/components/FooterNav.vue";
+import { TonConnectUIProvider } from '@townsquarelabs/ui-vue';
 
 export default{
     components:{
-        FooterNav
+        FooterNav,TonConnectUIProvider
+    },
+    setup(){
+    const options = {
+      manifestUrl:"https://ef1.liara.run/tonconnect-manifest.json",
+    };
+    return {
+      options
     }
+  }
 }
 </script>
 <style>
@@ -20,7 +33,10 @@ export default{
   background-image: url("@/assets/Vectors/Asset 1.svg");
 }
 @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+.inter {
+  font-family: "Inter", sans-serif;
+}
 .saira {
   font-family: "Saira", sans-serif;
 }

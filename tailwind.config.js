@@ -14,6 +14,7 @@ module.exports = {
     "./src/components/FontSelectionTab.vue",
     "./src/components/LanguageExpansionTab.vue",
     "./src/components/SocialsTab.vue",
+    "./src/components/LoginPage.vue",
   ],
   theme: {
     extend: {},

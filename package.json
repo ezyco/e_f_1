@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@townsquarelabs/ui-vue": "^1.0.2",
     "core-js": "^3.8.3",
     "vue": "^3.4.34",
     "vue-color-input": "^1.0.9",
