@@ -93,7 +93,7 @@
     },
     methods: {
       closeTab() {
-        this.$emit("close-language-select-tab");
+        this.$emit("close-socials-tab");
         // console.log(this.imageUrl[0]);
         setTimeout(() => {}, this.closeTime);
       },
