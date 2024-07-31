@@ -3,7 +3,7 @@
 
       <div class="overflow-x-hidden">
         <router-view/>
-        <FooterNav />
+        <FooterNav v-if="!isLoginRoute"/>
 </div>
 </TonConnectUIProvider>
 
@@ -23,9 +23,14 @@ export default{
       manifestUrl:"https://ef1.liara.run/tonconnect-manifest.json",
     };
     return {
-      options
+      options,
     }
-  }
+  },
+  computed: {
+    isLoginRoute() {
+      return this.$route.path === '/login';
+    },
+  },
 }
 </script>
 <style>

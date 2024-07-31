@@ -3,7 +3,7 @@
     <div
       class="w-full h-full bg-white rounded-[3vw] flex justify-between  items-center"
     >
-     <router-link to="/settings"  class="h-full bg-white w-[20%] flex justify-center items-center" @click="changeRoute(0)">
+     <router-link to="/settings"  class="h-full bg-white w-[20%] flex justify-center items-center">
         <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===0}" >
         <svg  :class="{'scale-[1] fill-[#CCCCCC]' : chosenRoute !==0 , 'scale-[1.2] fill-[#FFFFFF]': chosenRoute===0}"
           width="20"
@@ -19,7 +19,7 @@
         </svg>
       </div>
      </router-link>
-      <router-link to="/edit"  class="h-full w-[20%] flex justify-center items-center" @click="changeRoute(1)">
+      <router-link to="/edit"  class="h-full w-[20%] flex justify-center items-center">
         <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===1}" >
         <svg :class="{'scale-[1] fill-[#CCCCCC]' : chosenRoute !==1 , 'scale-[1.2] fill-[#FFFFFF]': chosenRoute===1}"
           width="22"
@@ -35,7 +35,7 @@
         </svg>
       </div>
       </router-link>
-     <router-link to="/"  class="h-full w-[20%] flex justify-center items-center" @click="changeRoute(2)">
+     <router-link to="/"  class="h-full w-[20%] flex justify-center items-center">
         <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===2}" >
         <svg :class="{'scale-[1] fill-[#CCCCCC]' : chosenRoute !==2 , 'scale-[1.5] fill-[#FFFFFF]': chosenRoute===2}"
           width="18"
@@ -52,7 +52,7 @@
         </svg>
       </div>
      </router-link>
-    <router-link to="/server" class="h-full w-[20%] flex justify-center items-center" @click="changeRoute(3)">
+    <router-link to="/server" class="h-full w-[20%] flex justify-center items-center">
         <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===3}" >
         <svg :class="{'scale-[1] fill-[#CCCCCC]' : chosenRoute !==3 , 'scale-[1.5] fill-[#FFFFFF]': chosenRoute===3}"
           width="22"
@@ -104,7 +104,7 @@
         </svg>
       </div>
     </router-link>
-   <div class="h-full w-[20%] flex justify-center items-center"  @click="changeRoute(4)">
+   <router-link to="/profile" class="h-full w-[20%] flex justify-center items-center" >
     <div :class="{'flex justify-center items-center transition-all duration-200':true,'w-[13vw] h-[13vw] bg-[#1B7B4A] rounded-full translate-y-[-6vw]' : chosenRoute===4}" >
         <svg :class="{'scale-[1] fill-[#CCCCCC]' : chosenRoute !==4 , 'scale-[1.5] fill-[#FFFFFF]': chosenRoute===4}"
           width="22"
@@ -128,7 +128,7 @@
           />
         </svg>
       </div>
-   </div>
+   </router-link>
     </div>
     <div class="flex -translate-y-[7vw] w-full h-12  justify-between items-start">
         <div :class="{'text-[#1B7B4A] basis-1/5 transition-all duration-200 text-center':true,'text-[0vw]': chosenRoute!==0,'text-[3vw]':chosenRoute===0}">Settings</div>
@@ -142,16 +142,25 @@
 
 <script>
 export default{
-    data(){
-        return{
-            chosenRoute:2,
-        }
+computed:{
+      chosenRoute(){
+        const currentRoute = this.$route.path;
+        let chosenRoute = 0;
+      switch(currentRoute){
+        case "/settings" : chosenRoute= 0;
+        break;
+        case "/edit" : chosenRoute= 1;
+        break;
+        case "/" : chosenRoute= 2;
+        break;
+        case "/server" : chosenRoute= 3;
+        break;
+        case "/profile" : chosenRoute= 4;
+        break;
+      }
+      return chosenRoute
+      }
     },
-    methods:{
-        changeRoute(index){
-                this.chosenRoute = index;
-        }
-    }
 }
 </script>
 
