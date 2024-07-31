@@ -69,7 +69,8 @@ export default{
     },
     login() {
       googleTokenLogin().then((response) => {
-        console.log("Handle the response", response);
+        this.$router.push('/server');
+        return response
       });
     },
   },

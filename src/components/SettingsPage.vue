@@ -226,28 +226,13 @@
       class="mt-[1vw] flex justify-between items-center p-[4vw] w-full rounded-[4.1vw] bg-white drop-shadow-lg"
     >
       <div
-        class="basis-1/3 flex flex-col items-center"
+        class="basis-1/4 flex flex-col items-center"
         @click="chooseLogoDesign(0)"
       >
-        <svg
-          width="24.6vw"
-          height="12.8vw"
-          viewBox="0 0 96 48"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <mask id="path-1-inside-1_536_865" fill="white">
-            <path
-              d="M96 0C96 12.7304 90.9429 24.9394 81.9411 33.9411C72.9394 42.9429 60.7304 48 48 48C35.2696 48 23.0606 42.9429 14.0589 33.9411C5.05713 24.9394 1.92224e-06 12.7304 0 7.62939e-06L48 0H96Z"
-            />
-          </mask>
-          <path
-            d="M96 0C96 12.7304 90.9429 24.9394 81.9411 33.9411C72.9394 42.9429 60.7304 48 48 48C35.2696 48 23.0606 42.9429 14.0589 33.9411C5.05713 24.9394 1.92224e-06 12.7304 0 7.62939e-06L48 0H96Z"
-            stroke="#747474"
-            stroke-width="1.86408"
-            mask="url(#path-1-inside-1_536_865)"
-          />
-        </svg>
+      <svg width="14.8vw" height="14.8vw" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="29" cy="29" r="28.5" stroke="#747474"/>
+</svg>
+
         <div
           class="w-[3.5vw] h-[3.5vw] border-[1px] border-[#747474] mt-[3vw] rounded-full bg-white flex justify-center items-center p-[0.4vw]"
         >
@@ -258,25 +243,13 @@
         </div>
       </div>
       <div
-        class="basis-1/3 flex flex-col items-center"
+        class="basis-1/4 flex flex-col items-center"
         @click="chooseLogoDesign(1)"
       >
-        <svg
-          width="24.6vw"
-          height="12.8vw"
-          viewBox="0 0 94 50"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            x="0.32"
-            y="1.03973"
-            width="92.8"
-            height="48.64"
-            stroke="#747474"
-            stroke-width="0.640001"
-          />
-        </svg>
+      <svg width="14.8vw" height="14.8vw" viewBox="0 0 59 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1" y="0.5" width="57" height="57" rx="13.5" stroke="#747474"/>
+</svg>
+
         <div
           class="w-[3.5vw] h-[3.5vw] border-[1px] border-[#747474] mt-[3vw] rounded-full bg-white flex justify-center items-center p-[0.4vw]"
         >
@@ -287,22 +260,30 @@
         </div>
       </div>
       <div
-        class="basis-1/3 flex flex-col items-center"
+        class="basis-1/4 flex flex-col items-center"
         @click="chooseLogoDesign(2)"
       >
-        <svg
-          width="24.6vw"
-          height="9.4vw"
-          viewBox="0 0 97 37"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+      <svg width="14.8vw" height="14.8vw" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="57" height="57" rx="6.5" stroke="#747474"/>
+</svg>
+
+        <div
+          class="w-[3.5vw] h-[3.5vw] border-[1px] border-[#747474] mt-[3vw] rounded-full bg-white flex justify-center items-center p-[0.4vw]"
         >
-          <path
-            d="M95.6801 0.46602C95.5583 12.9044 90.5645 24.8071 81.76 33.6116C80.6895 34.6822 79.592 35.2737 78.4712 35.5139C77.3468 35.7548 76.1639 35.6497 74.9141 35.2707C72.3946 34.5067 69.6878 32.6586 66.7982 30.4745C66.1116 29.9555 65.4153 29.4179 64.7106 28.874C62.4766 27.1496 60.159 25.3606 57.803 23.8924C54.7012 21.9595 51.461 20.534 48.1484 20.534C44.8359 20.534 41.5957 21.9595 38.4939 23.8924C36.1379 25.3606 33.8203 27.1496 31.5863 28.8739C30.8816 29.4179 30.1852 29.9555 29.4986 30.4745C26.6091 32.6586 23.9023 34.5067 21.3828 35.2707C20.133 35.6497 18.95 35.7548 17.8257 35.5139C16.7048 35.2737 15.6074 34.6822 14.5368 33.6116C5.73239 24.8072 0.738534 12.9044 0.616739 0.466028L48.1484 0.46602H95.6801Z"
-            stroke="#747474"
-            stroke-width="0.93204"
-          />
-        </svg>
+          <div
+            class="h-full w-full bg-[#47C183] rounded-full"
+            v-if="chosenLogoDesign === 2"
+          ></div>
+        </div>
+      </div>
+      <div
+        class="basis-1/4 flex flex-col items-center"
+        @click="chooseLogoDesign(3)"
+      >
+      <svg width="14.8vw" height="14.8vw" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="57" height="57" stroke="#747474"/>
+</svg>
+
         <div
           class="w-[3.5vw] h-[3.5vw] border-[1px] border-[#747474] mt-[3vw] rounded-full bg-white flex justify-center items-center p-[0.4vw]"
         >
