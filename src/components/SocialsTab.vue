@@ -85,21 +85,13 @@
         type:String,
         required:true,
       },
-      languages:{
-            type:Array[String],
-            default: () => [], 
-            required:true,
-        },
+
     },
     methods: {
       closeTab() {
         this.$emit("close-socials-tab");
         // console.log(this.imageUrl[0]);
         setTimeout(() => {}, this.closeTime);
-      },
-      changeChosenOption(index) {
-        this.chosenOption = index;
-        this.$emit("change-lang",index);
       },
     },
   };

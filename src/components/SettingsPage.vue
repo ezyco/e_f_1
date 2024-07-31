@@ -685,7 +685,7 @@ this.chosenLanguage = option
     closeSocialsTab(){
       this.isSocialsExpanded = false;
       setTimeout(() => {
-        this.showExpansionTab = false;
+        this.showSocialsTab = false;
       }, this.closeExpansionTabTime);
     },
     closeLanguageTab() {
