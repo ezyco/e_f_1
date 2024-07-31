@@ -2,10 +2,10 @@
     <div class="bg-white">
         <div :class="{'w-[200vw] flex justify-between items-center h-[85.7vw] duration-300 transition-transform':true,'translate-x-0' : signUpMode==='web2' , 'translate-x-[-100vw]':signUpMode==='web3' }">
          <div class="basis-1/2 flex justify-center items-center">
-            <img  class="w-full h-[85.7vw] object-cover" src="https://s3-alpha-sig.figma.com/img/f119/c4ba/080684b5abb42346eb0feb9658ad9de0?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Usd-qQ2PRU3-nXz1KkI3CrGvYHS9E4o82BX9wZImXpvSm-anbalPuCgzpoW1-beh3SQnL4JAH284JwVg5gVVbcsNMjJYJIr22ktJYWgYm8k3PhOoFEuYKmTPz3~D9n0TcdSvRCM8uLr1SvXtv-DChzBI5c6cpX7zCphUMqTj3GLF1qfT5evDDUR9UFisbqgfeBdW0h5HofUINJx~4X3-N4RDM6SU1CBdwA9duvliW2bLFkzifTko6309XslPLHaE6eZutj019yG-jx0xBrhqIcijBEXf2m1uLz0nUAfaR8b93ozXA3yLEwhh8WmVaA5n3LG-RuJsAPxwFimzC42aAA__">   
+            <img  :class="{'w-full h-[85.7vw] object-cover transition-all duration-300 ':true, 'scale-100': signUpMode==='web2','scale-0': signUpMode==='web3'}" src="https://s3-alpha-sig.figma.com/img/f119/c4ba/080684b5abb42346eb0feb9658ad9de0?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Usd-qQ2PRU3-nXz1KkI3CrGvYHS9E4o82BX9wZImXpvSm-anbalPuCgzpoW1-beh3SQnL4JAH284JwVg5gVVbcsNMjJYJIr22ktJYWgYm8k3PhOoFEuYKmTPz3~D9n0TcdSvRCM8uLr1SvXtv-DChzBI5c6cpX7zCphUMqTj3GLF1qfT5evDDUR9UFisbqgfeBdW0h5HofUINJx~4X3-N4RDM6SU1CBdwA9duvliW2bLFkzifTko6309XslPLHaE6eZutj019yG-jx0xBrhqIcijBEXf2m1uLz0nUAfaR8b93ozXA3yLEwhh8WmVaA5n3LG-RuJsAPxwFimzC42aAA__">   
          </div>
          <div class="basis-1/2 flex justify-center items-center">
-            <img  class="w-[81.5vw] h-[81.5vw] object-cover" src="https://s3-alpha-sig.figma.com/img/3dc0/b6b3/762091c17763a9be24d09ddd3eec4f23?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pQ3nTlJupjMWhoPijD9qjejWF2OqKX38pKj7NZjjf6xgXIhUSHYjmqw2Us4zr-JRu9UUlcz7xSwykeHtz1FuP5jdAqMnHG1CnNmfaU5c~kjbfAzyUs7rD8FSnYkD3w9XXNWJuj5xrjf7PXIo3cSUkXzZd4L8keI-BTAqiFDONJntTkpd9j5s86X695XPTlFFS5XMqdBq7YbNc~pAdCI-LlMdEOeqIEfh9AB-iWpM7kMr1Bhk3Zke8sDPFnKj7EcHNU0Ek-COVBkpJxDL5o-04g3TiejIQ1TQbzUwiXHZkWAFS51nrnqIyZ8AcZVD2MgQUwt8ekX7E2V28z~yjluLIg__">
+            <img  :class="{'w-[81.5vw] h-[81.5vw] object-cover transition-all duration-300 ':true, 'scale-0': signUpMode==='web2','scale-100': signUpMode==='web3'}" src="https://s3-alpha-sig.figma.com/img/3dc0/b6b3/762091c17763a9be24d09ddd3eec4f23?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pQ3nTlJupjMWhoPijD9qjejWF2OqKX38pKj7NZjjf6xgXIhUSHYjmqw2Us4zr-JRu9UUlcz7xSwykeHtz1FuP5jdAqMnHG1CnNmfaU5c~kjbfAzyUs7rD8FSnYkD3w9XXNWJuj5xrjf7PXIo3cSUkXzZd4L8keI-BTAqiFDONJntTkpd9j5s86X695XPTlFFS5XMqdBq7YbNc~pAdCI-LlMdEOeqIEfh9AB-iWpM7kMr1Bhk3Zke8sDPFnKj7EcHNU0Ek-COVBkpJxDL5o-04g3TiejIQ1TQbzUwiXHZkWAFS51nrnqIyZ8AcZVD2MgQUwt8ekX7E2V28z~yjluLIg__">
          </div>
         </div>
     <div class="w-full px-[12.8vw]">
@@ -23,8 +23,8 @@
     </div>
     <div class="w-[200vw] flex transition-all duration-300" :style="loginItemPosition">
         <div class="basis-1/2 flex flex-col px-[12.8vw] pt-[3vw]">
-          <input type="text" placeholder="Email" class="outline-none rounded-[1vw] p-[2vw] my-[1vw] border-2 focus:border-2 border-[#CFCFCF] w-full h-[11.5vw] focus:border-[#1B7B4A]">
-          <input type="text" placeholder="Password" class="outline-none rounded-[1vw] p-[2vw] my-[1vw] border-2 focus:border-2 border-[#CFCFCF] w-full h-[11.5vw] focus:border-[#1B7B4A]">
+          <input v-model="email" type="text" placeholder="Email" class="outline-none rounded-[1vw] p-[2vw] my-[1vw] border-2 focus:border-2 border-[#CFCFCF] w-full h-[11.5vw] focus:border-[#1B7B4A]">
+          <input v-model="password" type="text" placeholder="Password" class="outline-none rounded-[1vw] p-[2vw] my-[1vw] border-2 focus:border-2 border-[#CFCFCF] w-full h-[11.5vw] focus:border-[#1B7B4A]">
           <div class="w-full h-[14.3vw] bg-[#1B7B4A] rounded-[6.15vw] mt-[30vw] mb-[2vw] text-white flex justify-center items-center roboto font-medium">
             <div>Login</div>
           </div>
@@ -60,7 +60,7 @@ export default{
     return{
         signUpMode:'web2',
         email:'',
-        password:''
+        password:'',
     }
   },
   methods:{
