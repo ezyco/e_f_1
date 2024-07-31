@@ -13,7 +13,8 @@
     "vue": "^3.4.34",
     "vue-color-input": "^1.0.9",
     "vue-dragscroll": "^4.0.5",
-    "vue-router": "^4.4.0"
+    "vue-router": "^4.4.0",
+    "vue3-google-login": "^2.0.29"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

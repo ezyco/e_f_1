@@ -24,7 +24,7 @@
           <div class="w-full h-[14.3vw] bg-[#1B7B4A] rounded-[6.15vw] mt-[30vw] mb-[2vw] text-white flex justify-center items-center roboto font-medium">
             <div>Login</div>
           </div>
-          <div class="w-full h-[14.3vw] bg-[#1B7B4A] rounded-[6.15vw] my-[2vw] text-white flex justify-center items-center space-x-[3vw] roboto font-medium">
+          <div  @click="login" class="w-full h-[14.3vw] bg-[#1B7B4A] rounded-[6.15vw] my-[2vw] text-white flex justify-center items-center space-x-[3vw] roboto font-medium">
             <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M30.38 15.8526C30.38 14.7535 30.2814 13.6967 30.0982 12.6821H15.5V18.6778H23.8418C23.4825 20.6153 22.3905 22.2569 20.7489 23.356V27.2451H25.7582C28.6891 24.5467 30.38 20.573 30.38 15.8526Z" fill="white"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M15.4998 30.9998C19.6848 30.9998 23.1934 29.6119 25.758 27.2446L20.7487 23.3555C19.3607 24.2855 17.5853 24.8351 15.4998 24.8351C11.4628 24.8351 8.04571 22.1085 6.82685 18.4448H1.64844V22.4607C4.19889 27.5264 9.44071 30.9998 15.4998 30.9998Z" fill="white"/>
@@ -45,6 +45,7 @@
 
 
 <script>
+import { googleTokenLogin } from "vue3-google-login"
  import { TonConnectButton } from '@townsquarelabs/ui-vue';
 export default{
     name:'LoginPage',
@@ -61,7 +62,12 @@ export default{
   methods:{
     setLoginMethod(method){
         this.signUpMode = method;
-    }
+    },
+    login() {
+      googleTokenLogin().then((response) => {
+        console.log("Handle the response", response);
+      });
+    },
   },
   computed:{
     lineBarStyle(){
@@ -74,7 +80,8 @@ return "bg-[#188CE0] w-[35vw] h-1 rounded-full relative translate-x-[38vw] trans
     loginItemPosition(){
         return this.signUpMode==='web2' ? 'transform:translateX(0vw)': 'transform:translateX(-100vw)'
     }
-  }
+  },
+ 
 }
 </script>
 <style>

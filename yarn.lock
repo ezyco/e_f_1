@@ -6913,7 +6913,7 @@ vue-tsc@^1.8.27:
     "@vue/language-core" "1.8.27"
     semver "^7.5.4"
 
-vue@*, "vue@^2 || ^3.2.13", vue@^3.0.5, vue@^3.2.0, vue@^3.2.25, vue@^3.2.37, vue@^3.4.34, vue@3.4.34:
+vue@*, "vue@^2 || ^3.2.13", vue@^3.0.3, vue@^3.0.5, vue@^3.2.0, vue@^3.2.25, vue@^3.2.37, vue@^3.4.34, vue@3.4.34:
   version "3.4.34"
   resolved "https://registry.npmjs.org/vue/-/vue-3.4.34.tgz"
   integrity sha512-VZze05HWlA3ItreQ/ka7Sx7PoD0/3St8FEiSlSTVgb6l4hL+RjtP2/8g5WQBzZgyf8WG2f+g1bXzC7zggLhAJA==
@@ -6931,6 +6931,11 @@ vue@^2.7.16, "vue@^3.0.0-0 || ^2.6.0", "vue@>= 2.5 < 2.7":
   dependencies:
     "@vue/compiler-sfc" "2.7.16"
     csstype "^3.1.0"
+
+vue3-google-login@^2.0.29:
+  version "2.0.29"
+  resolved "https://registry.npmjs.org/vue3-google-login/-/vue3-google-login-2.0.29.tgz"
+  integrity sha512-e2QHk6brRDj6knKus6eG60AhHGrVhJALmYPwElZoQXYsL6IoFdfnVlflH+d6TnyQJwTlesCR3D/6zzdPSnAsSg==
 
 watchpack@^2.4.0, watchpack@^2.4.1:
   version "2.4.1"
