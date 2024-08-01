@@ -87,7 +87,12 @@
                 </a>
             </div>
             <div class="w-full text-right px-[10vw] mt-[1vw] text-[3vw] text-[#1B7B4A]  font-bold">Support</div>
-           
+            <div class="px-[10vw] mt-[3vw]">
+              <div class=" bg-[#1B7B4A] rounded-[6.15vw] h-[14.1vw] flex justify-center items-center inter text-white">
+            <div>Continuation</div>
+           </div>
+            </div>
+         
         </div>
       </div>
     </div>
