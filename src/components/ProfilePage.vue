@@ -5,15 +5,19 @@
       <div class="mt-[6vw]">
         <div class="roboto font-extrabold text-[4.8vw]">Phone number</div>
         <div class="w-full h-[14.3vw] border-[1px] mt-[2vw] space-x-[3vw] border-[#E9EAEB] rounded-[2vw] flex items-center p-[4vw] bg-[#e4e4e4]">
-             <div @click="toggleCountriesDrawer" class="w-[15.6vw] h-[6.15] flex space-x-[3vw]">
+            <div class="basis-1/2 flex items-center justify-start">
+              <div @click="toggleCountriesDrawer" class="w-[19.6vw] h-[6.15] flex items-center justify-start space-x-3">
                  <img class="h-[6.15vw] w-[8.46vw] object-cover" :src="flagUrl">
                  <svg width="6.15vw" height="6.15vw" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M6 9L12 15L18 9" stroke="#0D1217" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
              </div>
              <div class="roboto font-normal text-[4.1vw] text-[#697079]">({{ dialNum }})</div>
-             <input   v-model="enteredPhoneNumber" 
-             @input="filterInput"  type="tel"  class="bg-[#e4e4e4] roboto text-[4.1vw] outline-none h-full" >
+            </div>
+             <div class="basis-1/2 h-full">
+              <input   v-model="enteredPhoneNumber" 
+             @input="filterInput"  type="tel"  class="bg-[#e4e4e4] roboto basis-1/2 text-[4.1vw] w-full outline-none h-full" >
+             </div>
              
         </div>
         <div :class="{'w-[87.2vw]  drop-shadow-lg rounded-b-lg z-50 overflow-hidden transition-all duration-200 bg-white absolute':true,'opacity-0' : !drawerOpen,'opacity-100':drawerOpen}" v-if="countriesDrawer">
