@@ -71,11 +71,15 @@
                 <input placeholder="search country" v-model="searchTerm" type="text" class="w-full rounded-lg outline-none h-[10vw] bg-[#e4e4e4] p-[4vw] text-[4.1vw] roboto" name="" id="">
                 <svg class="absolute right-[7vw] -translate-y-[8vw] opacity-30" xmlns="http://www.w3.org/2000/svg" width="6vw" height="6vw" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
             </div>
+            <div class="w-full h-[1px] bg-black mt-[2vw] opacity-15"></div>
             <div class="overflow-scroll h-[70vw] w-full">
-                <div @click="selectCountry(country.flag,country.dialCode)" v-for="(country,index) in filteredCountries" :key="index" class="w-full p-[4vw] bg-white hover:bg-[#e4e4e4] flex items-center space-x-[3vw]">
-                <img class="w-7 h-5" :src="country.flag"/>
+                <div @click="selectCountry(country.flag,country.dialCode)" v-for="(country,index) in filteredCountries" :key="index" class="w-full pt-[4vw] px-[4vw] bg-white hover:bg-[#e4e4e4] ">
+                <div class="flex items-center space-x-[3vw]">
+                  <img class="w-7 h-5" :src="country.flag"/>
                 <div class="roboto text-[4.1vw] font-semibold">{{ country.dialCode }} </div>
                 <div class="roboto text-[4.1vw] font-semibold">{{ country.name }} </div>
+                </div>
+              <div class="w-full h-[1px] bg-black mt-[2vw] opacity-15"></div>
             </div>
             </div>
         </div>
