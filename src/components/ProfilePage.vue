@@ -2,7 +2,53 @@
     <div class="w-[100vw] h-[100vh] absolute z-40" @click="toggleCountriesDrawer" v-if="countriesDrawer"></div>
     <div class="px-[6.4vw]">
       <div class="m-auto p-[4vw] text-center text-[#1B7B4A] font-semibold roboto text-[6.15vw]">Profile</div>
-      <div class="mt-[0vw]">
+      <div>
+        <div class="w-full inter text-white p-[4vw] h-[51vw] bg-gradient-to-r from-[#2B83EC] to-[#1AC9FF] rounded-[4.6vw] mb-[4vw]  drop-shadow-md">
+          <div class="font-semibold text-[4.6vw]">EZY TON WALLET</div>
+          <div class="flex mt-[2vw] space-x-1 items-center">
+            <div  class="font-normal text-[3.3vw]">{{ displayedAddress }}</div>
+            <svg @click="copyAddress" width="3.3vw" height="3.3vw" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_779_554)">
+<path d="M11.1638 5.76318H6.16385C5.5502 5.76318 5.05273 6.26064 5.05273 6.87429V11.8743C5.05273 12.4879 5.5502 12.9854 6.16385 12.9854H11.1638C11.7775 12.9854 12.275 12.4879 12.275 11.8743V6.87429C12.275 6.26064 11.7775 5.76318 11.1638 5.76318Z" stroke="#E8EFFB" stroke-width="1.55556" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2.83073 9.09673H2.27517C1.98049 9.09673 1.69787 8.97967 1.4895 8.7713C1.28113 8.56292 1.16406 8.28031 1.16406 7.98562V2.98562C1.16406 2.69094 1.28113 2.40832 1.4895 2.19995C1.69787 1.99157 1.98049 1.87451 2.27517 1.87451H7.27517C7.56986 1.87451 7.85247 1.99157 8.06085 2.19995C8.26922 2.40832 8.38628 2.69094 8.38628 2.98562V3.54118" stroke="#E8EFFB" stroke-width="1.55556" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_779_554">
+<rect width="13.3333" height="13.3333" fill="white" transform="translate(0.0527344 0.763184)"/>
+</clipPath>
+</defs>
+</svg>
+          </div>
+          <div class="flex mt-[2vw] text-[7vw] justify-start font-extrabold items-center">
+            <div>EZY</div>
+            <div>{{ tokenAmount }}</div>
+          </div>
+          <div class="text-[6vw] font-bold">${{tokensValue}}</div>
+          <div class="w-full mt-[2vw] flex justify-between items-center">
+            <div class="p-[1vw] flex rounded-[1.8vw] w-[27vw] h-[6.6vw] bg-[rgba(255,255,255,0.25)] justify-around items-center">
+              <svg width="3.3vw" height="4.3vw" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.153 4.95801L4.73633 12.0413" stroke="white" stroke-width="2.22222" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.153 12.0413H4.73633V4.95801" stroke="white" stroke-width="2.22222" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<div class="text-[4.1vw] font-medium">Recieve</div>
+            </div>
+
+            <div class="p-[1vw] flex rounded-[1.8vw] w-[6.6vwvw] h-[6.6vw] bg-[rgba(255,255,255,0.25)] justify-around items-center">
+              <svg width="3.8vw" height="2.8vw" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.210938 3.86149C0.210937 3.69874 0.282108 3.54265 0.408791 3.42757C0.535475 3.31249 0.707295 3.24783 0.886452 3.24783H6.01091L4.46195 1.84071C4.39743 1.7841 4.34597 1.71638 4.31057 1.64151C4.27517 1.56664 4.25653 1.48612 4.25575 1.40464C4.25497 1.32316 4.27206 1.24235 4.30603 1.16693C4.34 1.09152 4.39015 1.023 4.45358 0.965382C4.51701 0.907764 4.59243 0.862197 4.67545 0.831342C4.75847 0.800486 4.84742 0.78496 4.93711 0.785668C5.02681 0.786376 5.11545 0.803304 5.19786 0.835466C5.28028 0.867627 5.35482 0.914377 5.41713 0.972988L8.11919 3.42763C8.24583 3.54271 8.31697 3.69877 8.31697 3.86149C8.31697 4.02421 8.24583 4.18027 8.11919 4.29535L5.41713 6.75C5.35482 6.80861 5.28028 6.85536 5.19786 6.88752C5.11545 6.91968 5.02681 6.93661 4.93711 6.93732C4.84742 6.93803 4.75847 6.9225 4.67545 6.89164C4.59243 6.86079 4.51701 6.81522 4.45358 6.7576C4.39015 6.69999 4.34 6.63147 4.30603 6.55605C4.27206 6.48064 4.25497 6.39983 4.25575 6.31835C4.25653 6.23687 4.27517 6.15634 4.31057 6.08147C4.34597 6.0066 4.39743 5.93889 4.46195 5.88228L6.01091 4.47515H0.886452C0.707295 4.47515 0.535475 4.4105 0.408791 4.29542C0.282108 4.18033 0.210938 4.02425 0.210938 3.86149ZM14.3968 8.15712H9.27229L10.8213 6.75C10.9443 6.63426 11.0124 6.47925 11.0109 6.31835C11.0093 6.15745 10.9383 6.00353 10.813 5.88976C10.6878 5.77598 10.5183 5.71144 10.3412 5.71004C10.1641 5.70864 9.99348 5.7705 9.86607 5.88228L7.16401 8.33693C7.03737 8.45201 6.96623 8.60806 6.96623 8.77079C6.96623 8.93351 7.03737 9.08957 7.16401 9.20465L9.86607 11.6593C9.99348 11.7711 10.1641 11.8329 10.3412 11.8315C10.5183 11.8301 10.6878 11.7656 10.813 11.6518C10.9383 11.538 11.0093 11.3841 11.0109 11.2232C11.0124 11.0623 10.9443 10.9073 10.8213 10.7916L9.27229 9.38445H14.3968C14.5759 9.38445 14.7477 9.31979 14.8744 9.20471C15.0011 9.08963 15.0723 8.93354 15.0723 8.77079C15.0723 8.60803 15.0011 8.45195 14.8744 8.33686C14.7477 8.22178 14.5759 8.15712 14.3968 8.15712Z" fill="white"/>
+</svg>
+
+            </div>
+
+            <div class="p-[1vw] flex rounded-[1.8vw] w-[27vw] h-[6.6vw] bg-[rgba(255,255,255,0.25)] justify-around items-center">
+              <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.73779 11.3337L10.9878 4.66699" stroke="white" stroke-width="2.14516" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4.73779 4.66699H10.9878V11.3337" stroke="white" stroke-width="2.14516" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<div class="text-[4.1vw] font-medium">Send</div>
+            </div>
+          </div>
+        </div>
         <div class="roboto font-extrabold text-[4.8vw]">Phone number</div>
         <div class="w-full h-[14.3vw] border-[1px] mt-[2vw] space-x-[3vw] border-[#E9EAEB] rounded-[2vw] flex items-center p-[4vw] bg-[#e4e4e4]">
             <div class="basis-1/2 flex items-center justify-start">
@@ -104,6 +150,9 @@
         flagUrl:'https://flagcdn.com/gb.svg',
         dialNum:'+44',
         qrCode:'https://s3-alpha-sig.figma.com/img/6e65/211a/e54138479a8f944a0be24ac78965fdf9?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cANkbP9TPLPLjpX7dF3CssxChDw3Dv1L9TK87ON8Smj13zC0r9KTu39MujNPq59xh7z8LmJKVxSUMudvoRdJqcRu9PorcWGY0IgVeo8tsbRz3rz8bEjthA7EuilYLl3H1t0q-B2b4KZxuVWfUg1HcAWpZHFHEN~gG2~~gwozrTckEm28RioGkyG2r35Dst-zI-Lgl2XUlNnFWJ75knNPAB7GS~a8KeFS~OWHjIyq8cix5v8yU6B0sbyJONvaD99DkbRfqhTs0sq4LHT7HShs5Z83uMxDC6UerSsG6pw85QAlA65O84dva1AKtJ8vOejR2mKm-GqGPctpav8zvw8NSQ__',
+        tonWalletAddress:'EQCWB1WLs7rDJfYaeVxTZWnwQmrIFzbUcr-us-9aIn1ZNFpq',
+        tokenAmount:15.056,
+        tokenUSDprice:2,
       };
     },
     created() {
@@ -174,6 +223,24 @@
         console.error('Failed to copy text: ', error);
       }
     },
+    async copyAddress() {
+      try {
+        if (navigator.clipboard) {
+          await navigator.clipboard.writeText(this.tonWalletAddress);
+       
+        } else {
+          // Fallback for browsers that do not support Clipboard API
+          const textArea = document.createElement('textarea');
+          textArea.value = this.tonWalletAddress;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+        }
+      } catch (error) {
+        console.error('Failed to copy text: ', error);
+      }
+    },
       filterInput(event) {
       // Remove any non-numeric characters and enforce max length
       this.enteredPhoneNumber = event.target.value.replace(/\D/g, '').slice(0, 11);
@@ -190,6 +257,12 @@
       return this.countries.filter(country => 
         country.name.toLowerCase().startsWith(searchLower)
       );
+    },
+    tokensValue(){
+      return this.tokenAmount * this.tokenUSDprice
+    },
+    displayedAddress(){
+           return this.tonWalletAddress.slice(0,15) + "..."
     },
     cafeUsername(){
       let cafeName = this.cafeID.toLocaleLowerCase();
