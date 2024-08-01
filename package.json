@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@townsquarelabs/ui-vue": "^1.0.2",
+    "axios": "^1.7.2",
     "core-js": "^3.8.3",
+    "intl-tel-input": "^23.8.0",
     "vue": "^3.4.34",
     "vue-color-input": "^1.0.9",
     "vue-dragscroll": "^4.0.5",

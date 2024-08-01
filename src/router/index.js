@@ -4,6 +4,7 @@ import ServerPage from '@/components/ServerPage.vue';
 import EditMenuPage from '@/components/EditMenuPage.vue';
 import SettingsPage from '@/components/SettingsPage.vue';
 import LoginPage from '@/components/LoginPage.vue';
+import ProfilePage from '@/components/ProfilePage.vue';
 const routes = [
   {
     path: '/',
@@ -29,6 +30,11 @@ const routes = [
     path: '/login',
     name: 'LoginPage',
     component: LoginPage,
+  },
+  {
+    path: '/profile',
+    name: 'ProfilePage',
+    component: ProfilePage,
   },
 ];
 
