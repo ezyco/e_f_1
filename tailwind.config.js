@@ -16,6 +16,8 @@ module.exports = {
     "./src/components/SocialsTab.vue",
     "./src/components/LoginPage.vue",
     "./src/components/ProfilePage.vue",
+    "./src/components/ExpansionTab.vue",
+    "./src/components/EditMenuPage.vue",
   ],
   theme: {
     extend: {},
