@@ -7,7 +7,7 @@
       placeholder="Enter the desired menu title"
       class="w-full text-[4vw] p-[4vw] drop-shadow-md focus:outline-none focus:border-2 border-0 rounded-[1.5vw] border-[#12D18E]"
     />
-    <div @click="clearTitle" class="translate-y-[-9vw]  translate-x-[80vw]">
+    <div v-if="title.length>0" @click="clearTitle" class="translate-y-[-10vw]  translate-x-[80vw]">
       <svg 
         width="4.7vw"
         height="4.7vw"
@@ -48,8 +48,8 @@
       placeholder="Enter the desired sub-heading"
       class="w-full text-[4vw] p-[4vw] drop-shadow-md focus:outline-none focus:border-2 border-0 rounded-[1.5vw] border-[#12D18E]"
     />
-    <div class="translate-y-[-9vw] translate-x-[80vw]">
-      <svg @click="clearSubHeading" 
+    <div class="translate-y-[-10vw] translate-x-[80vw]">
+      <svg v-if="subHeading.length>0" @click="clearSubHeading" 
         width="4.7vw"
         height="4.7vw"
         viewBox="0 0 20 20"
