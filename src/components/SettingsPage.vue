@@ -221,7 +221,7 @@
     </div>
   </div>
   <div class="py-[3vw] saira text-[4vw] px-[6vw]">
-    <div class="saira font-normal">Choosing a logo design</div>
+    <div class="saira font-normal">Choose a logo design</div>
     <div
       class="mt-[1vw] flex justify-between items-center p-[4vw] w-full rounded-[4.1vw] bg-white drop-shadow-lg"
     >
@@ -289,7 +289,7 @@
         >
           <div
             class="h-full w-full bg-[#47C183] rounded-full"
-            v-if="chosenLogoDesign === 2"
+            v-if="chosenLogoDesign === 3"
           ></div>
         </div>
       </div>
