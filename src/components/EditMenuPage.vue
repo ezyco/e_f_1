@@ -32,7 +32,7 @@
         </div>
         <div class="mt[4vw] w-full">
           <div v-for="(item, index) in filteredItem" :key="index"
-            :class="{ 'w-full px-[2vw] bg-white rounded-[2vw] drop-shadow-lg transition-all duration-300 overflow-y-hidden my-[2vw] ': true, ' max-h-[11.5vw]': focusedItem !== index, 'max-h-[87vw]': focusedItem === index }">
+            :class="{ 'w-full px-[2vw] bg-white rounded-[2vw] drop-shadow-lg transition-all duration-300 overflow-y-hidden my-[2vw] ': true, ' max-h-[11.5vw]': focusedItem !== index, 'max-h-[100vw]': focusedItem === index }">
             <div class="flex justify-between items-center h-[11.5vw]">
               <div @click="focusItem(index)" class="flex items-center justify-start space-x-[2vw]">
                 <div>
@@ -42,12 +42,11 @@
                       stroke="#555555" stroke-width="2.41667" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </div>
-                <div v-if="item.title.length>0"
+                <div v-if="item.title.length > 0"
                   :class="{ 'text-[3.8vw] transition-all duration-200': true, 'text-black': item.isVisible, 'text-[#A6A6A6]': !item.isVisible }">
                   {{ item.title.length > 27 ? item.title.substring(0, 27) + '...' : item.title }}
                 </div>
-                <div v-else
-                  class=" text-[3.8vw] transition-all duration-200 text-[#A6A6A6]">
+                <div v-else class=" text-[3.8vw] transition-all duration-200 text-[#A6A6A6]">
                   empty...
                 </div>
               </div>
@@ -98,7 +97,7 @@
               </div>
 
             </div>
-            <div class="h-[75.5vw] pt-[1vw] saira">
+            <div class="h-[83vw] pt-[1vw] saira">
               <div class="w-full h-[1px] bg-[#9f9f9f81]"></div>
               <div class="mt-[2vw] px-[2vw] flex justify-between items-center">
                 <input type="text" v-model="items[indexOfFocusedItem(item.id)].title" placeholder="title"
@@ -106,8 +105,72 @@
                 <input type="text" v-model="items[indexOfFocusedItem(item.id)].price" placeholder="price"
                   class="outline-none rounded-[2vw] w-[24.3vw] px-[2vw] py-[1vw] border-[1px] text-[3.8vw] border-[#E9EAEB] bg-[rgba(31,42,55,0.05)]">
               </div>
+              <div class="flex justify-between px-[2vw] mt-[2vw] w-full">
+               <div class="w-[46vw] p-[2vw]">
+                <textarea placeholder="description"
+                class=" outline-none p-[2vw] w-full rounded-[2vw] text-[4.1vw] font-light h-[52vw] bg-[rgba(31,42,55,0.05)]"></textarea>
+                <div class="mt-[2vw] w-full bg-[rgba(31,42,55,0.05)] rounded-[2vw] p-[1vw] flex justify-between items-center">
+                  <div class="text-[#969696] text-[2.8vw]">susggested color</div>
+                  <ColorInput disable-text-inputs disable-alpha position="left top" v-model="itemTextColor" />
+                </div>
+               </div>
+                <div class="w-[36.9vw] pt-[2vw]">
+                  <div
+                    class="w-[36.9vw] h-[36.9vw] rounded-[2vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex justify-center items-center">
+                    <div class="w-[23.8vw] h-[23.8vw] rounded-[2vw] bg-[#FFFFFF] flex justify-center items-center">
+                      <svg width="5.6vw" height="5.6vw" viewBox="0 0 23 23" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M11.6455 0.00292969C12.1597 0.00292969 12.5765 0.419722 12.5765 0.933861V10.2432H21.8858C22.3999 10.2432 22.8167 10.66 22.8167 11.1741C22.8167 11.6882 22.3999 12.105 21.8858 12.105H12.5765V21.4143C12.5765 21.9285 12.1597 22.3453 11.6455 22.3453C11.1314 22.3453 10.7146 21.9285 10.7146 21.4143V12.105H1.4053C0.891157 12.105 0.474365 11.6882 0.474365 11.1741C0.474365 10.66 0.891157 10.2432 1.4053 10.2432H10.7146V0.933861C10.7146 0.419722 11.1314 0.00292969 11.6455 0.00292969Z"
+                          fill="#9C9898" />
+                      </svg>
+
+                    </div>
+                  </div>
+                  <div class="flex mt-[2vw] justify-start space-x-[1vw]">
+                    <div
+                      class="w-[11.5vw] h-[11.5vw] rounded-[0.6vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex justify-center items-center">
+                      <div class="w-[7.7vw] h-[7.7vw] rounded-[0.6vw] bg-[#FFFFFF] flex justify-center items-center">
+                        <svg width="2.7vw" height="2.7vw" viewBox="0 0 23 23" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M11.6455 0.00292969C12.1597 0.00292969 12.5765 0.419722 12.5765 0.933861V10.2432H21.8858C22.3999 10.2432 22.8167 10.66 22.8167 11.1741C22.8167 11.6882 22.3999 12.105 21.8858 12.105H12.5765V21.4143C12.5765 21.9285 12.1597 22.3453 11.6455 22.3453C11.1314 22.3453 10.7146 21.9285 10.7146 21.4143V12.105H1.4053C0.891157 12.105 0.474365 11.6882 0.474365 11.1741C0.474365 10.66 0.891157 10.2432 1.4053 10.2432H10.7146V0.933861C10.7146 0.419722 11.1314 0.00292969 11.6455 0.00292969Z"
+                            fill="#9C9898" />
+                        </svg>
+
+                      </div>
+                    </div>
+                    <div
+                      class="w-[11.5vw] h-[11.5vw] rounded-[0.6vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex justify-center items-center">
+                      <div class="w-[7.7vw] h-[7.7vw] rounded-[0.6vw] bg-[#FFFFFF] flex justify-center items-center">
+                        <svg width="2.7vw" height="2.7vw" viewBox="0 0 23 23" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M11.6455 0.00292969C12.1597 0.00292969 12.5765 0.419722 12.5765 0.933861V10.2432H21.8858C22.3999 10.2432 22.8167 10.66 22.8167 11.1741C22.8167 11.6882 22.3999 12.105 21.8858 12.105H12.5765V21.4143C12.5765 21.9285 12.1597 22.3453 11.6455 22.3453C11.1314 22.3453 10.7146 21.9285 10.7146 21.4143V12.105H1.4053C0.891157 12.105 0.474365 11.6882 0.474365 11.1741C0.474365 10.66 0.891157 10.2432 1.4053 10.2432H10.7146V0.933861C10.7146 0.419722 11.1314 0.00292969 11.6455 0.00292969Z"
+                            fill="#9C9898" />
+                        </svg>
+
+                      </div>
+                    </div>
+                    <div
+                      class="w-[11.5vw] h-[11.5vw] rounded-[0.6vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex justify-center items-center">
+                      <div class="w-[7.7vw] h-[7.7vw] rounded-[0.6vw] bg-[#FFFFFF] flex justify-center items-center">
+                        <svg width="2.7vw" height="2.7vw" viewBox="0 0 23 23" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M11.6455 0.00292969C12.1597 0.00292969 12.5765 0.419722 12.5765 0.933861V10.2432H21.8858C22.3999 10.2432 22.8167 10.66 22.8167 11.1741C22.8167 11.6882 22.3999 12.105 21.8858 12.105H12.5765V21.4143C12.5765 21.9285 12.1597 22.3453 11.6455 22.3453C11.1314 22.3453 10.7146 21.9285 10.7146 21.4143V12.105H1.4053C0.891157 12.105 0.474365 11.6882 0.474365 11.1741C0.474365 10.66 0.891157 10.2432 1.4053 10.2432H10.7146V0.933861C10.7146 0.419722 11.1314 0.00292969 11.6455 0.00292969Z"
+                            fill="#9C9898" />
+                        </svg>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div @click="toggleItemSuggestion(item.id)" :class="{'mt-[6vw] w-[10vw] h-[6vw] rounded-full flex px-[0.5vw] items-center transition-all duration-200':true,'bg-[#34C759]':item.isSuggested,'bg-[#9c9c9c]':!item.isSuggested}">
+                    <div :class="{'w-[5.1vw] h-[5.1vw] bg-white rounded-full relative transition-all duration-200':true, 'left-[0%]' : !item.isSuggested ,'left-[42.9%]':item.isSuggested}"></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div></div>
             <div>
 
             </div>
@@ -168,6 +231,7 @@
 </template>
 
 <script>
+import ColorInput from 'vue-color-input';
 import Draggable from 'vuedraggable';
 import ExpansionTab from './ExpansionTab.vue';
 export default {
@@ -657,20 +721,20 @@ export default {
       }
       return index;
     },
-    addNewItem(){
-        let blankItem = {
-          
-          id: this.items[this.items.length-1].id + 1,
-          title: '',
-          isVisible: true,
-          price: '',
-          isSuggested: true,
-          imagesUrl: [
-          ],
-          category: this.categories[this.focusedCategory],
-          description: '',
-        }
-        this.items.push(blankItem);
+    addNewItem() {
+      let blankItem = {
+
+        id: this.items[this.items.length - 1].id + 1,
+        title: '',
+        isVisible: true,
+        price: '',
+        isSuggested: true,
+        imagesUrl: [
+        ],
+        category: this.categories[this.focusedCategory],
+        description: '',
+      }
+      this.items.push(blankItem);
     },
     addNewCategory() {
       if (this.newEnteredCategory.length > 0) {
@@ -705,6 +769,13 @@ export default {
         }
       }
     },
+    toggleItemSuggestion(index){
+      for (let a = 0; a < this.items.length; a++) {
+        if (a == index) {
+          this.items[a].isSuggested = !this.items[a].isSuggested;
+        }
+      }
+    }
   },
   computed: {
     filteredItem() {
@@ -716,7 +787,7 @@ export default {
 
   },
   components: {
-    Draggable, ExpansionTab
+    Draggable, ExpansionTab, ColorInput
   },
 }
 </script>
