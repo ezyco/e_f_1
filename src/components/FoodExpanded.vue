@@ -97,7 +97,14 @@
         <div
           class="w-full m-auto flex justify-between items-center text-[4.5vw] saira font-light px-[2vw] mt-[2vw]"
         >
-        <div v-if="isSuggested" class="text-[#FF0000] font-medium">Suggested</div> 
+        <div v-if="isSuggested" class="text-[#FF0000] flex justify-end items-center space-x-[2vw] font-medium">
+          <div>
+            <img class="bg-cover w-[9vw] h-[9vw]" src="https://s3-alpha-sig.figma.com/img/d29e/1fa0/d96692890ed498accf4018ee8e2d863e?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=a0fZQUmeI82xaevy6tT5N13gRum540QzNn0vyqpzyQzqH63pzgiUF4y871UVjCiWxq9Cj~HhIrqhL6rNb3fkdCchSP0UACnuaZsz616JU5llLF2v0GGFDJPrDCMsviJWYQNUeBRQgrt4q4O-UtUnh0ujm4vFaKX4Zkjc-APH-KfKHTOXE1S3-LI9jXYyEjsXSzSyv-g8WualwRBFzm-6EP8N3tQ7-yN65wz-bW5HankqH-CjAmIdLwblu93N8k1rcV7EgQjXGobjr0iBL6YOob5iZayAp0qusdPAPnqB6nDTjS71dXX0NBud~HkybeGsqEYT-JH~~TM9Zjwek4HbPA__" alt="">
+          </div>
+          <div>
+            Suggested
+          </div>
+        </div> 
         <div>{{ foodPrice }}</div>
         
         </div>

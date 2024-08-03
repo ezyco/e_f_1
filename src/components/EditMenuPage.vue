@@ -110,13 +110,10 @@
                   class="outline-none rounded-[2vw] w-[24.3vw] px-[2vw] py-[1vw] border-[1px] text-[3.8vw] border-[#E9EAEB] bg-[rgba(31,42,55,0.05)]">
               </div>
               <div class="flex justify-between px-[2vw] mt-[2vw] w-full">
-               <div class="w-[46vw] p-[2vw]">
+               <div class="w-[46vw] ">
                 <textarea placeholder="description" v-model="item.description"
                 class=" outline-none p-[2vw] w-full rounded-[2vw] text-[4.1vw] font-light h-[52vw] bg-[rgba(31,42,55,0.05)]"></textarea>
-                <div class="mt-[2vw] w-full bg-[rgba(31,42,55,0.05)] rounded-[2vw] p-[1vw] flex justify-between items-center">
-                  <div class="text-[#969696] text-[2.8vw]">susggested color</div>
-                  <ColorInput disable-text-inputs disable-alpha position="left top" v-model="itemTextColor" />
-                </div>
+                
                </div>
              
                 <div class="w-[36.9vw] pt-[2vw]">
@@ -241,10 +238,19 @@
                     </div>
                     </div>
                   </div>
-                  <div @click="toggleItemSuggestion(item.id)" :class="{'mt-[6vw] w-[10vw] h-[6vw] rounded-full flex px-[0.5vw] items-center transition-all duration-200':true,'bg-[#34C759]':item.isSuggested,'bg-[#9c9c9c]':!item.isSuggested}">
+                
+                </div>
+              </div>
+              <div class="flex px-[2vw] mt-[2vw] w-full space-x-[2vw] items-center justify-between">
+                <div class="w-[46vw]  bg-[rgba(31,42,55,0.05)] rounded-[2vw] p-[1vw] flex justify-between items-center">
+                  <div class="text-[#969696] text-[2.8vw]">susggested color</div>
+                  <ColorInput disable-text-inputs disable-alpha position="left top" v-model="itemTextColor" />
+                </div>
+               <div class=" w-[36.9vw] flex justify-start">
+                <div @click="toggleItemSuggestion(item.id)" :class="{' w-[10vw]  h-[6vw] rounded-full flex px-[0.5vw] items-center transition-all duration-200':true,'bg-[#34C759]':item.isSuggested,'bg-[#9c9c9c]':!item.isSuggested}">
                     <div :class="{'w-[5.1vw] h-[5.1vw] bg-white rounded-full relative transition-all duration-200':true, 'left-[0%]' : !item.isSuggested ,'left-[42.9%]':item.isSuggested}"></div>
                   </div>
-                </div>
+               </div>
               </div>
             </div>
             <div>
@@ -322,7 +328,7 @@ export default {
       isSocialsExpanded: false,
       closeExpansionTabTime: 300,
       focusedCategory: 0,
-      focusedItem: 0,
+      focusedItem: -1,
       isSwitchingCategory:false,
       categorySwitchTime:300,
       items: [
