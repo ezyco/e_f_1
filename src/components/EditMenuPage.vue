@@ -1,4 +1,5 @@
 <template>
+   <div class="saira">
     <div>
       <div class="pl-[3vw] saira mt-[3vw] w-full flex items-center justify-between space-x-[2vw]">
         <div @click="openCategoriesTab" class="w-[9.5vw] active:border-[#1B7B4A] h-[9.5vw] t-[2vw] rounded-[1vw] border-1 bg-white drop-shadow-lg border-white focus:border-[#1B7B4A] flex justify-center items-center">
@@ -23,16 +24,19 @@
 </svg>
         </div>
         <div class="mt[4vw] w-full">
-          <div v-for="(item,index) in filteredItem" :key="index" class="w-full px-[2vw] bg-white rounded-[2vw] drop-shadow-lg flex h-[11.5vw] my-[2vw] justify-between items-center">
-<div class="flex items-center justify-start space-x-[2vw]">
+          <div  v-for="(item,index) in filteredItem" :key="index" :class="{'w-full px-[2vw] bg-white rounded-[2vw] drop-shadow-lg transition-all duration-300 overflow-y-hidden my-[2vw] ':true,' max-h-[11.5vw]':focusedItem!==index,'max-h-[87vw]':focusedItem===index}">
+<div class="flex justify-between items-center h-[11.5vw]">
+  <div @click="focusItem(index)" class="flex items-center justify-start space-x-[2vw]">
   <div>
             <svg width="4.3vw" height="4.3vw" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M14.4998 25.375V3.625M14.4998 25.375L18.1248 21.75M14.4998 25.375L10.8748 21.75M14.4998 3.625L10.8748 7.25M14.4998 3.625L18.1248 7.25" stroke="#555555" stroke-width="2.41667" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
           </div>
-       <div :class="{'text-[3.8vw]':true,'text-black':item.isVisible,'text-[#A6A6A6]':!item.isVisible}"> {{item.title.length > 27 ? item.title.substring(0, 27) + '...' : item.title}}   
+       <div :class="{'text-[3.8vw] transition-all duration-200':true,'text-black':item.isVisible,'text-[#A6A6A6]':!item.isVisible}"> {{item.title.length > 27 ? item.title.substring(0, 27) + '...' : item.title}}   
       </div>
 </div>
+
+
 <div  class="flex-1 flex justify-end">
   <svg @click="toggleItemVisibility(item.id)" v-if="item.isVisible" width="4.6vw" height="4.6vw" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path opacity="0.1" d="M5.0188 7.02832L4.01395 8.03317C2.97959 9.06757 2.4624 9.5847 2.4624 10.2274C2.4624 10.8701 2.97959 11.3872 4.01395 12.4216L5.65962 14.0673C7.78034 16.188 11.2187 16.188 13.3394 14.0673L13.6586 13.7481L11.3879 11.9821C10.9297 12.4548 10.2879 12.7487 9.57751 12.7487C8.18499 12.7487 7.05621 11.6199 7.05621 10.2274C7.05621 9.74219 7.19329 9.28898 7.43084 8.90435L5.0188 7.02832Z" fill="#555555"/>
@@ -51,8 +55,17 @@
 <path d="M7.11719 4.73713C9.11892 3.8268 11.5599 4.19493 13.2065 5.84151L15.5352 8.1702C15.9205 8.55545 16.113 8.74807 16.2218 8.95257C16.4643 9.40826 16.4643 9.95456 16.2218 10.4102C16.113 10.6147 15.9205 10.8074 15.5352 11.1926L15.4948 11.233" stroke="#8F8F8F" stroke-width="1.55155" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.57783 6.88781C5.88079 6.58485 5.88079 6.09366 5.57783 5.7907C5.27487 5.48774 4.78368 5.48774 4.48072 5.7907L5.57783 6.88781ZM6.07501 12.9733L4.42935 11.3276L3.33223 12.4248L4.9779 14.0704L6.07501 12.9733ZM12.6577 12.9733C10.8399 14.791 7.89277 14.791 6.07501 12.9733L4.9779 14.0704C7.40158 16.4941 11.3312 16.4941 13.7548 14.0704L12.6577 12.9733ZM4.42935 8.03629L5.57783 6.88781L4.48072 5.7907L3.33223 6.93918L4.42935 8.03629ZM13.1265 12.5044L12.6577 12.9733L13.7548 14.0704L14.2236 13.6016L13.1265 12.5044ZM4.42935 11.3276C3.89666 10.7949 3.55349 10.4494 3.33389 10.1616C3.12794 9.89171 3.10502 9.7655 3.10502 9.68194H1.55347C1.55347 10.2411 1.78912 10.6948 2.10037 11.1028C2.39795 11.4928 2.83056 11.9231 3.33223 12.4248L4.42935 11.3276ZM3.33223 6.93918C2.83056 7.44085 2.39795 7.87113 2.10037 8.26119C1.78912 8.66909 1.55347 9.12277 1.55347 9.68194H3.10502C3.10502 9.59847 3.12794 9.47225 3.33389 9.20228C3.55349 8.91447 3.89666 8.56902 4.42935 8.03629L3.33223 6.93918Z" fill="#8F8F8F"/>
 </svg>
+</div>
 
 </div>
+<div class="h-[75.5vw] pt-[1vw] saira">
+  <div class="w-full h-[1px] bg-[#9f9f9f81]"></div>
+  <div class="mt-[2vw] px-[2vw] flex justify-between items-center">
+    <input type="text" v-model="items[indexOfFocusedItem(item.id)].title" placeholder="title" class="outline-none rounded-[2vw] w-[60vw] px-[2vw] py-[1vw] border-[1px] text-[3.8vw] border-[#E9EAEB] bg-[rgba(31,42,55,0.05)]">
+    <input type="text" v-model="items[indexOfFocusedItem(item.id)].price" placeholder="price" class="outline-none rounded-[2vw] w-[24.3vw] px-[2vw] py-[1vw] border-[1px] text-[3.8vw] border-[#E9EAEB] bg-[rgba(31,42,55,0.05)]">
+  </div>
+</div>
+<div></div>
           <div>
 
           </div>
@@ -96,6 +109,8 @@
     </div>
     <div class="w-full h-[10vw] bg-white"></div>
     </ExpansionTab>
+    <div class="w-full h-[30vw]"></div>
+   </div>
 </template>
 
 <script>
@@ -106,7 +121,7 @@
     data(){
          return{
             isOpen: true,
-            categories:['khalta special blue yogurt','snacks','ice cream and sweet','fruit and candy','drinks'],
+            categories:['khalta special blue yogurt','snacks','ice cream and sweets','fruit and candy','drinks'],
             closeEvent:'close-categories',
             newEnteredCategory:'',
             showSocialsTab:false,
@@ -579,6 +594,15 @@
          }
     },
     methods:{
+      indexOfFocusedItem(id){
+          let index=0;   
+          for(let a =0; a<this.items.length;a++){
+              if(id === this.items[a].id){
+index = a;
+              }
+             }
+             return index;
+         },
         addNewCategory(){
            if(this.newEnteredCategory.length>0){
             this.categories.push(this.newEnteredCategory);
@@ -600,6 +624,10 @@
     },
     focusCategory(index){
 this.focusedCategory = index;
+this.focusedItem =-1;
+    },
+    focusItem(index){
+this.focusedItem = index;
     },
     toggleItemVisibility(index){
         for(let a =0;a<this.items.length;a++){
@@ -615,7 +643,8 @@ this.focusedCategory = index;
         return this.items.filter(item => item.category === this.categories[this.focusedCategory]);
       }
       return this.items;
-         }
+         },
+
     },
     components: {
         Draggable,ExpansionTab
