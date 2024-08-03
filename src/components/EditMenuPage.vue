@@ -131,7 +131,16 @@
                       </svg>
 
                     </div>
-                    <img  :src="item.imagesUrl[0]" v-else class="w-full h-full object-cover" />
+                    <div :style="`background-image: url(${item.imagesUrl[0]})`" v-else class="w-full rounded-[2vw] h-full flex justify-end p-[2vw] bg-center bg-cover bg-no-repeat" >
+                             <div @click="removeImage(item.id,0)" class="w-[4.1vw] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
+                              <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.00198 16C5.86284 16 3.85046 15.1604 2.34513 13.6554C0.839812 12.1505 0 10.1386 0 8C0 5.86139 0.839812 3.8495 2.34513 2.34455C3.85046 0.839604 5.86284 0 8.00198 0C10.1411 0 12.1535 0.839604 13.6588 2.34455C16.7804 5.46535 16.7804 10.5347 13.6588 13.6554C12.1535 15.1604 10.1411 16 8.00198 16ZM8.00198 0.950495C6.11636 0.950495 4.34167 1.67921 3.01065 3.0099C1.67962 4.34059 0.95073 6.11485 0.95073 8C0.95073 9.88515 1.67962 11.6594 3.01065 12.9901C4.34167 14.3208 6.11636 15.0495 8.00198 15.0495C9.8876 15.0495 11.6623 14.3208 12.9933 12.9901C15.7504 10.2337 15.7504 5.76634 12.9933 3.0099C11.6623 1.67921 9.8876 0.950495 8.00198 0.950495Z" fill="#D10000"/>
+<path d="M11.8256 5.12568L4.79868 11.5158L4.17993 10.9531L11.2068 4.56299L11.8256 5.12568Z" fill="#FFFFFF"/>
+<path d="M4.40601 5.32858L5.03101 4.77441L11.8279 10.9555L11.2029 11.5239L4.40601 5.32858Z" fill="#FFFFFF"/>
+</svg>
+
+                             </div>
+                    </div>
 
                   </div>
                   <div class="flex whitespace-nowrap mt-[2vw] justify-start space-x-[1vw] w-[36.9vw] overflow-x-auto">
@@ -148,7 +157,16 @@
 
                       </div>
                     </div>
-                    <img v-else :src="item.imagesUrl[1]" alt="" class="ovj rounded-[0.6vw] object-cover w-full h-full">
+                    <div :style="`background-image: url(${item.imagesUrl[1]})`" v-else class="w-full rounded-[2vw] h-full flex justify-end p-[1vw] bg-center bg-cover bg-no-repeat" >
+                             <div @click="removeImage(item.id,1)" class="w-[4.1vw] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
+                              <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.00198 16C5.86284 16 3.85046 15.1604 2.34513 13.6554C0.839812 12.1505 0 10.1386 0 8C0 5.86139 0.839812 3.8495 2.34513 2.34455C3.85046 0.839604 5.86284 0 8.00198 0C10.1411 0 12.1535 0.839604 13.6588 2.34455C16.7804 5.46535 16.7804 10.5347 13.6588 13.6554C12.1535 15.1604 10.1411 16 8.00198 16ZM8.00198 0.950495C6.11636 0.950495 4.34167 1.67921 3.01065 3.0099C1.67962 4.34059 0.95073 6.11485 0.95073 8C0.95073 9.88515 1.67962 11.6594 3.01065 12.9901C4.34167 14.3208 6.11636 15.0495 8.00198 15.0495C9.8876 15.0495 11.6623 14.3208 12.9933 12.9901C15.7504 10.2337 15.7504 5.76634 12.9933 3.0099C11.6623 1.67921 9.8876 0.950495 8.00198 0.950495Z" fill="#D10000"/>
+<path d="M11.8256 5.12568L4.79868 11.5158L4.17993 10.9531L11.2068 4.56299L11.8256 5.12568Z" fill="#FFFFFF"/>
+<path d="M4.40601 5.32858L5.03101 4.77441L11.8279 10.9555L11.2029 11.5239L4.40601 5.32858Z" fill="#FFFFFF"/>
+</svg>
+
+                             </div>
+                    </div>
                     </div>
                     <div v-if="item.imagesUrl.length>=2"
                       class="w-[11.5vw] h-[11.5vw] rounded-[0.6vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex-[0_0_auto] justify-center items-center">
@@ -163,7 +181,16 @@
 
                       </div>
                     </div>
-                    <img v-else :src="item.imagesUrl[2]" alt="" class="ovj rounded-[0.6vw] object-cover w-full h-full">
+                    <div :style="`background-image: url(${item.imagesUrl[2]})`" v-else class="w-full rounded-[2vw] h-full flex justify-end p-[1vw] bg-center bg-cover bg-no-repeat" >
+                             <div @click="removeImage(item.id,2)" class="w-[4.1vw] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
+                              <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.00198 16C5.86284 16 3.85046 15.1604 2.34513 13.6554C0.839812 12.1505 0 10.1386 0 8C0 5.86139 0.839812 3.8495 2.34513 2.34455C3.85046 0.839604 5.86284 0 8.00198 0C10.1411 0 12.1535 0.839604 13.6588 2.34455C16.7804 5.46535 16.7804 10.5347 13.6588 13.6554C12.1535 15.1604 10.1411 16 8.00198 16ZM8.00198 0.950495C6.11636 0.950495 4.34167 1.67921 3.01065 3.0099C1.67962 4.34059 0.95073 6.11485 0.95073 8C0.95073 9.88515 1.67962 11.6594 3.01065 12.9901C4.34167 14.3208 6.11636 15.0495 8.00198 15.0495C9.8876 15.0495 11.6623 14.3208 12.9933 12.9901C15.7504 10.2337 15.7504 5.76634 12.9933 3.0099C11.6623 1.67921 9.8876 0.950495 8.00198 0.950495Z" fill="#D10000"/>
+<path d="M11.8256 5.12568L4.79868 11.5158L4.17993 10.9531L11.2068 4.56299L11.8256 5.12568Z" fill="#FFFFFF"/>
+<path d="M4.40601 5.32858L5.03101 4.77441L11.8279 10.9555L11.2029 11.5239L4.40601 5.32858Z" fill="#FFFFFF"/>
+</svg>
+
+                             </div>
+                    </div>
                     </div>
                     <div v-if="item.imagesUrl.length>=3"
                       class="w-[11.5vw] h-[11.5vw] rounded-[0.6vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex-[0_0_auto] justify-center items-center">
@@ -178,7 +205,16 @@
 
                       </div>
                     </div>
-                    <img v-else :src="item.imagesUrl[3]" alt="" class="ovj rounded-[0.6vw] object-cover w-full h-full">
+                    <div :style="`background-image: url(${item.imagesUrl[3]})`" v-else class="w-full rounded-[2vw] h-full flex justify-end p-[1vw] bg-center bg-cover bg-no-repeat" >
+                             <div @click="removeImage(item.id,3)" class="w-[4.1vw] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
+                              <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.00198 16C5.86284 16 3.85046 15.1604 2.34513 13.6554C0.839812 12.1505 0 10.1386 0 8C0 5.86139 0.839812 3.8495 2.34513 2.34455C3.85046 0.839604 5.86284 0 8.00198 0C10.1411 0 12.1535 0.839604 13.6588 2.34455C16.7804 5.46535 16.7804 10.5347 13.6588 13.6554C12.1535 15.1604 10.1411 16 8.00198 16ZM8.00198 0.950495C6.11636 0.950495 4.34167 1.67921 3.01065 3.0099C1.67962 4.34059 0.95073 6.11485 0.95073 8C0.95073 9.88515 1.67962 11.6594 3.01065 12.9901C4.34167 14.3208 6.11636 15.0495 8.00198 15.0495C9.8876 15.0495 11.6623 14.3208 12.9933 12.9901C15.7504 10.2337 15.7504 5.76634 12.9933 3.0099C11.6623 1.67921 9.8876 0.950495 8.00198 0.950495Z" fill="#D10000"/>
+<path d="M11.8256 5.12568L4.79868 11.5158L4.17993 10.9531L11.2068 4.56299L11.8256 5.12568Z" fill="#FFFFFF"/>
+<path d="M4.40601 5.32858L5.03101 4.77441L11.8279 10.9555L11.2029 11.5239L4.40601 5.32858Z" fill="#FFFFFF"/>
+</svg>
+
+                             </div>
+                    </div>
                     </div>
                     <div v-if="item.imagesUrl.length>=4"
                       class="w-[11.5vw] h-[11.5vw] rounded-[0.6vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex-[0_0_auto] justify-center items-center">
@@ -193,7 +229,16 @@
 
                       </div>
                     </div>
-                    <img v-else :src="item.imagesUrl[4]" alt="" class="ovj rounded-[0.6vw] object-cover w-full h-full">
+                    <div :style="`background-image: url(${item.imagesUrl[4]})`" v-else class="w-full rounded-[2vw] h-full flex justify-end p-[1vw] bg-center bg-cover bg-no-repeat" >
+                             <div @click="removeImage(item.id,4)" class="w-[4.1vw] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
+                              <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.00198 16C5.86284 16 3.85046 15.1604 2.34513 13.6554C0.839812 12.1505 0 10.1386 0 8C0 5.86139 0.839812 3.8495 2.34513 2.34455C3.85046 0.839604 5.86284 0 8.00198 0C10.1411 0 12.1535 0.839604 13.6588 2.34455C16.7804 5.46535 16.7804 10.5347 13.6588 13.6554C12.1535 15.1604 10.1411 16 8.00198 16ZM8.00198 0.950495C6.11636 0.950495 4.34167 1.67921 3.01065 3.0099C1.67962 4.34059 0.95073 6.11485 0.95073 8C0.95073 9.88515 1.67962 11.6594 3.01065 12.9901C4.34167 14.3208 6.11636 15.0495 8.00198 15.0495C9.8876 15.0495 11.6623 14.3208 12.9933 12.9901C15.7504 10.2337 15.7504 5.76634 12.9933 3.0099C11.6623 1.67921 9.8876 0.950495 8.00198 0.950495Z" fill="#D10000"/>
+<path d="M11.8256 5.12568L4.79868 11.5158L4.17993 10.9531L11.2068 4.56299L11.8256 5.12568Z" fill="#FFFFFF"/>
+<path d="M4.40601 5.32858L5.03101 4.77441L11.8279 10.9555L11.2029 11.5239L4.40601 5.32858Z" fill="#FFFFFF"/>
+</svg>
+
+                             </div>
+                    </div>
                     </div>
                   </div>
                   <div @click="toggleItemSuggestion(item.id)" :class="{'mt-[6vw] w-[10vw] h-[6vw] rounded-full flex px-[0.5vw] items-center transition-all duration-200':true,'bg-[#34C759]':item.isSuggested,'bg-[#9c9c9c]':!item.isSuggested}">
@@ -786,6 +831,13 @@ export default {
         description: '',
       }
       this.items.push(blankItem);
+    },
+    removeImage(id,index){
+      for (let a = 0; a < this.items.length; a++) {
+        if (id == this.items[a].id) {
+          this.items[a].imagesUrl.splice(index,1);
+        }
+      }
     },
     addNewCategory() {
       if (this.newEnteredCategory.length > 0) {
