@@ -32,7 +32,7 @@
         </div>
         <div class="mt[4vw] w-full">
           <div v-for="(item, index) in filteredItem" :key="index"
-            :class="{ 'w-full px-[2vw] bg-white rounded-[2vw] drop-shadow-lg transition-all duration-300 overflow-y-hidden my-[2vw] ': true, ' max-h-[11.5vw]': focusedItem !== index, 'max-h-[100vw]': focusedItem === index }">
+            :class="{ 'w-full px-[2vw] bg-white rounded-[2vw] drop-shadow-lg transition-all duration-300 overflow-y-hidden my-[2vw] ': true, ' max-h-[11.5vw]': focusedItem !== index, 'max-h-[100vw]': focusedItem === index, 'opacity-0': isSwitchingCategory, 'opacity-100':!isSwitchingCategory }">
             <div class="flex justify-between items-center h-[11.5vw]">
               <div @click="focusItem(index)" class="flex items-center justify-start space-x-[2vw]">
                 <div>
@@ -247,6 +247,8 @@ export default {
       closeExpansionTabTime: 300,
       focusedCategory: 0,
       focusedItem: 0,
+      isSwitchingCategory:false,
+      categorySwitchTime:300,
       items: [
         {
           id: 0,
@@ -756,8 +758,13 @@ export default {
       this.showSocialsTab = true;
     },
     focusCategory(index) {
-      this.focusedCategory = index;
+      this.isSwitchingCategory = true;
       this.focusedItem = -1;
+      setTimeout(() => {
+        this.isSwitchingCategory = false;
+        this.focusedCategory = index;
+      }, this.categorySwitchTime);
+     
     },
     focusItem(index) {
       this.focusedItem = index;
