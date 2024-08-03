@@ -1,4 +1,8 @@
 <template>
+    <input   type="file" 
+      accept="image/*" 
+      ref="imagePicker" 
+      @change="onFileChange" class="hidden" >
   <div class="saira">
     <div>
       <div class="pl-[3vw] saira mt-[3vw] w-full flex items-center justify-between space-x-[2vw]">
@@ -107,17 +111,18 @@
               </div>
               <div class="flex justify-between px-[2vw] mt-[2vw] w-full">
                <div class="w-[46vw] p-[2vw]">
-                <textarea placeholder="description"
+                <textarea placeholder="description" v-model="item.description"
                 class=" outline-none p-[2vw] w-full rounded-[2vw] text-[4.1vw] font-light h-[52vw] bg-[rgba(31,42,55,0.05)]"></textarea>
                 <div class="mt-[2vw] w-full bg-[rgba(31,42,55,0.05)] rounded-[2vw] p-[1vw] flex justify-between items-center">
                   <div class="text-[#969696] text-[2.8vw]">susggested color</div>
                   <ColorInput disable-text-inputs disable-alpha position="left top" v-model="itemTextColor" />
                 </div>
                </div>
+             
                 <div class="w-[36.9vw] pt-[2vw]">
                   <div
                     class="w-[36.9vw] h-[36.9vw] rounded-[2vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex justify-center items-center">
-                    <div class="w-[23.8vw] h-[23.8vw] rounded-[2vw] bg-[#FFFFFF] flex justify-center items-center">
+                    <div @click="selectImage(item.id)" v-if="item.imagesUrl.length===0" class="w-[23.8vw] h-[23.8vw] rounded-[2vw] bg-[#FFFFFF] flex justify-center items-center">
                       <svg width="5.6vw" height="5.6vw" viewBox="0 0 23 23" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -126,10 +131,13 @@
                       </svg>
 
                     </div>
+                    <img  :src="item.imagesUrl[0]" v-else class="w-full h-full object-cover" />
+
                   </div>
-                  <div class="flex mt-[2vw] justify-start space-x-[1vw]">
-                    <div
-                      class="w-[11.5vw] h-[11.5vw] rounded-[0.6vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex justify-center items-center">
+                  <div class="flex whitespace-nowrap mt-[2vw] justify-start space-x-[1vw] w-[36.9vw] overflow-x-auto">
+                    <div v-if="item.imagesUrl.length>=1"
+                      class="w-[11.5vw] h-[11.5vw] rounded-[0.6vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex-[0_0_auto] justify-center items-center">
+                    <div @click="selectImage(item.id)" v-if="item.imagesUrl.length<2" class="w-full h-full flex justify-center items-center">
                       <div class="w-[7.7vw] h-[7.7vw] rounded-[0.6vw] bg-[#FFFFFF] flex justify-center items-center">
                         <svg width="2.7vw" height="2.7vw" viewBox="0 0 23 23" fill="none"
                           xmlns="http://www.w3.org/2000/svg">
@@ -140,8 +148,11 @@
 
                       </div>
                     </div>
-                    <div
-                      class="w-[11.5vw] h-[11.5vw] rounded-[0.6vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex justify-center items-center">
+                    <img v-else :src="item.imagesUrl[1]" alt="" class="ovj rounded-[0.6vw] object-cover w-full h-full">
+                    </div>
+                    <div v-if="item.imagesUrl.length>=2"
+                      class="w-[11.5vw] h-[11.5vw] rounded-[0.6vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex-[0_0_auto] justify-center items-center">
+                    <div @click="selectImage(item.id)" v-if="item.imagesUrl.length<3" class="w-full h-full flex justify-center items-center">
                       <div class="w-[7.7vw] h-[7.7vw] rounded-[0.6vw] bg-[#FFFFFF] flex justify-center items-center">
                         <svg width="2.7vw" height="2.7vw" viewBox="0 0 23 23" fill="none"
                           xmlns="http://www.w3.org/2000/svg">
@@ -152,8 +163,11 @@
 
                       </div>
                     </div>
-                    <div
-                      class="w-[11.5vw] h-[11.5vw] rounded-[0.6vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex justify-center items-center">
+                    <img v-else :src="item.imagesUrl[2]" alt="" class="ovj rounded-[0.6vw] object-cover w-full h-full">
+                    </div>
+                    <div v-if="item.imagesUrl.length>=3"
+                      class="w-[11.5vw] h-[11.5vw] rounded-[0.6vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex-[0_0_auto] justify-center items-center">
+                    <div @click="selectImage(item.id)" v-if="item.imagesUrl.length<4" class="w-full h-full flex justify-center items-center">
                       <div class="w-[7.7vw] h-[7.7vw] rounded-[0.6vw] bg-[#FFFFFF] flex justify-center items-center">
                         <svg width="2.7vw" height="2.7vw" viewBox="0 0 23 23" fill="none"
                           xmlns="http://www.w3.org/2000/svg">
@@ -163,6 +177,23 @@
                         </svg>
 
                       </div>
+                    </div>
+                    <img v-else :src="item.imagesUrl[3]" alt="" class="ovj rounded-[0.6vw] object-cover w-full h-full">
+                    </div>
+                    <div v-if="item.imagesUrl.length>=4"
+                      class="w-[11.5vw] h-[11.5vw] rounded-[0.6vw] border-[1px] border-[#e9eaeb] bg-[rgba(31,42,55,0.05)] flex-[0_0_auto] justify-center items-center">
+                    <div @click="selectImage(item.id)" v-if="item.imagesUrl.length<5" class="w-full h-full flex justify-center items-center">
+                      <div class="w-[7.7vw] h-[7.7vw] rounded-[0.6vw] bg-[#FFFFFF] flex justify-center items-center">
+                        <svg width="2.7vw" height="2.7vw" viewBox="0 0 23 23" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M11.6455 0.00292969C12.1597 0.00292969 12.5765 0.419722 12.5765 0.933861V10.2432H21.8858C22.3999 10.2432 22.8167 10.66 22.8167 11.1741C22.8167 11.6882 22.3999 12.105 21.8858 12.105H12.5765V21.4143C12.5765 21.9285 12.1597 22.3453 11.6455 22.3453C11.1314 22.3453 10.7146 21.9285 10.7146 21.4143V12.105H1.4053C0.891157 12.105 0.474365 11.6882 0.474365 11.1741C0.474365 10.66 0.891157 10.2432 1.4053 10.2432H10.7146V0.933861C10.7146 0.419722 11.1314 0.00292969 11.6455 0.00292969Z"
+                            fill="#9C9898" />
+                        </svg>
+
+                      </div>
+                    </div>
+                    <img v-else :src="item.imagesUrl[4]" alt="" class="ovj rounded-[0.6vw] object-cover w-full h-full">
                     </div>
                   </div>
                   <div @click="toggleItemSuggestion(item.id)" :class="{'mt-[6vw] w-[10vw] h-[6vw] rounded-full flex px-[0.5vw] items-center transition-all duration-200':true,'bg-[#34C759]':item.isSuggested,'bg-[#9c9c9c]':!item.isSuggested}">
@@ -711,6 +742,7 @@ export default {
           description: 'Khalta cheetos  with special blue yogurt with special blue yogurt  with special blue yogurt  with special blue yogurt  with special blue yogurt  with special blue yogurt',
         },
       ],
+      chosenIdForImage:-1,
     }
   },
   methods: {
@@ -723,6 +755,23 @@ export default {
       }
       return index;
     },
+    selectImage(id) {
+      this.$refs.imagePicker.click();
+
+      for (let a = 0; a < this.items.length; a++) {
+        if (id == this.items[a].id) {
+          this.chosenIdForImage = id;
+        }
+      }
+    },
+    onFileChange(event) {
+      const file = event.target.files[0];
+      if (file) {
+        // Create a URL for the selected image
+        this.items[this.chosenIdForImage].imagesUrl.push(URL.createObjectURL(file))
+        event.target.value = null;
+      }
+    },
     addNewItem() {
       let blankItem = {
 
@@ -730,7 +779,7 @@ export default {
         title: '',
         isVisible: true,
         price: '',
-        isSuggested: true,
+        isSuggested: false,
         imagesUrl: [
         ],
         category: this.categories[this.focusedCategory],
@@ -745,6 +794,11 @@ export default {
       }
     },
     deleteCategory(index) {
+      for(let a =0; a<this.items.length;a++){
+        if(this.items[a].category === this.categories[index]){
+               this.categories.splice(a,1);
+        }
+      }
       this.categories.splice(index, 1);
     },
     closeSocialsTab() {
