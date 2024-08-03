@@ -18,7 +18,7 @@
         <div class="flex-1 p-[1vw] h-[9.5vw] space-x-[1vw] saira whitespace-nowrap overflow-x-auto drop-shadow-lg ">
 
           <div @click="focusCategory(index)" v-for="(category, index) in categories" :key="index"
-            :class="{ 'h-[7vw] inline-block shrink-0 bg-white text-center p-[1vw] drop-shadow-sm text-[3.8vw]': true, 'drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow-[0_0px_8px_rgba(0,150,6,1)]': focusedCategory === index, 'drop-shadow-lg': focusedCategory !== index }">
+            :class="{ 'h-[7vw] inline-block shrink-0 bg-white text-center p-[1vw]  text-[3.8vw]': true, 'drop-shadow-[0_0px_8px_rgba(0,150,6,1)]': focusedCategory === index, 'drop-shadow-lg': focusedCategory !== index }">
             <div class="w-full h-full flex justify-center items-center">
               {{ category }}
             </div>
