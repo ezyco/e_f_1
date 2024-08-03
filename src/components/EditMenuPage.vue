@@ -246,10 +246,11 @@
                   <div class="text-[#969696] text-[2.8vw]">susggested color</div>
                   <ColorInput disable-text-inputs disable-alpha position="left top" v-model="itemTextColor" />
                 </div>
-               <div class=" w-[36.9vw] flex justify-start">
+               <div class=" w-[36.9vw] space-x-[2vw] flex justify-start">
                 <div @click="toggleItemSuggestion(item.id)" :class="{' w-[10vw]  h-[6vw] rounded-full flex px-[0.5vw] items-center transition-all duration-200':true,'bg-[#34C759]':item.isSuggested,'bg-[#9c9c9c]':!item.isSuggested}">
                     <div :class="{'w-[5.1vw] h-[5.1vw] bg-white rounded-full relative transition-all duration-200':true, 'left-[0%]' : !item.isSuggested ,'left-[42.9%]':item.isSuggested}"></div>
                   </div>
+                  <div>Suggested</div>
                </div>
               </div>
             </div>
