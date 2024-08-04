@@ -268,7 +268,7 @@
       </div>
     </div>
     <ExpansionTab :close-event-name="'close-socials-tab'" @close-socials-tab="closeSocialsTab"
-      :isOpen="isSocialsExpanded" v-if="showSocialsTab">
+      :isOpen="isSocialsExpanded" :title="'Tan bar'" v-if="showSocialsTab">
       <draggable @end="reOrganizeArrays"  group="category"  v-model="categories" item-key="id">
         <template #item="{ element, index }">
           <div class="w-full text-[3.8vw] my-[1vw]  flex space-x-[2vw] items-center">

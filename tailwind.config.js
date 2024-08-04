@@ -18,6 +18,7 @@ module.exports = {
     "./src/components/ProfilePage.vue",
     "./src/components/ExpansionTab.vue",
     "./src/components/EditMenuPage.vue",
+    "./src/components/NotFoundPage.vue",
   ],
   theme: {
     extend: {},

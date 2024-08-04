@@ -5,6 +5,7 @@ import EditMenuPage from '@/components/EditMenuPage.vue';
 import SettingsPage from '@/components/SettingsPage.vue';
 import LoginPage from '@/components/LoginPage.vue';
 import ProfilePage from '@/components/ProfilePage.vue';
+import NotFoundPage from '@/components/NotFoundPage.vue'
 const routes = [
   {
     path: '/',
@@ -36,6 +37,12 @@ const routes = [
     name: 'ProfilePage',
     component: ProfilePage,
   },
+  {
+    path: '/:pathMatch(.*)*',
+    name:'Not Found',
+    component: NotFoundPage,
+  },
+  
 ];
 
 const router = createRouter({
