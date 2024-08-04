@@ -23,7 +23,7 @@
         </div>
       </div>
   <div class="overflow-x-hidden bg-[#0D2B33]">
-    <img :src="imageUrl" class="object-fit w-full h-full" />
+    <img :src="imageUrl" class="object-fit w-full h-[57.75vw]" />
     <div id="curve" class="w-full h-[33vw] bg-no-repeat translate-y-[-20vw]">
       <img
         :src="logoUrl"

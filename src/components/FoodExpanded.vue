@@ -68,11 +68,12 @@
             class="w-full rounded-lg overflow-hidden"
           >
             <div class="overflow-hidden absolute rounded-xl w-full h-[63vw]">
-              <img
- 
-
+              <img v-show="mainImg[index]" @load="onMainImageLoad(index)"
               :src="image" :class="{'h-[63vw] pr-[6vw] w-[100vw] rounded-xl':true,'image-hide':focusedImage !== index,
   'image-show' :focusedImage === index}" />
+     <div class="w-full h-full rounded-[1vw]  bg-[#c1ebff79] flex justify-center items-center" v-show="!loaded[index]">
+            <LoadingSpinner/>
+          </div>
             </div>
           </div>
         </div>
@@ -80,15 +81,22 @@
         <!-- put the images slider here : -->
         <div
           v-if="imageUrl.length > 1"
-          class="flex space-x-[2vw] h-[16vw] pr-[3vw] mt-[2vw] overflow-x-scroll w-[97vw]"
+          class=" space-x-[2vw] h-[16vw] pr-[3vw] mt-[2vw] overflow-x-auto whitespace-nowrap w-[97vw]  scroll-container"
         >
-          <img
-            v-for="(image, index) in imageUrl"
-            :key="index"
+        <div v-for="(image, index) in imageUrl"  :key="index" class="h-full inline-block w-[24.6vw] rounded-[1vw]">
+          <img 
+            v-show="loaded[index]"
             :src="image"
+            @load="onImageLoad(index)"
             @click="changeFocusedImage(index)"
-            class="h-full rounded-[1vw] object-cover scroll-container"
+            class="h-full rounded-[1vw] object-cover"
           />
+          <div v-show="!loaded[index]" class="w-full h-full  bg-[#c1ebff79] flex justify-center items-center ">
+            <LoadingSpinner/>
+          </div>
+        </div>
+         
+       
         </div>
         <div class="text-[5vw] font-medium mt-[4vw] saira">{{ foodTitle }}</div>
         <div class="mt-[4vw] font-light saira text-justify">
@@ -114,11 +122,14 @@
 </template>
 
 <script>
+import LoadingSpinner from './LoadingSpinner.vue';
 export default {
   data() {
     return {
       closeTime: 300,
       focusedImage: 0,
+      loaded:[],
+      mainImg:[],
     };
   },
   props: {
@@ -157,6 +168,24 @@ export default {
     changeFocusedImage(index) {
       this.focusedImage = index;
     },
+    onImageLoad(index){
+      this.loaded[index] = true;
+    },
+    onMainImageLoad(index){
+      this.mainImg[index] = true;
+    }
+  },
+  components:{
+    LoadingSpinner,
+  },
+  watch: {
+    imageUrl(newValue) {
+      this.loaded = [];
+      for(let a=0;a < newValue.length;a++){
+        this.loaded.push(false)
+        this.mainImg.push(false)
+      }
+    }
   },
 };
 </script>

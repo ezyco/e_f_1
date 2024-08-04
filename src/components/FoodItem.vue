@@ -15,7 +15,12 @@
             </div>
             </div>
             </div>
-     <img :src="imageUrl" class="h-full w-[41vw] bg-cover rounded-xl object-cover">
+     <img @load="onImageLoad" v-show="isLoaded" :src="imageUrl" :class="{'h-full w-[41vw] bg-cover rounded-xl object-cover transition-all duration-300':true,'hide-img':!isLoaded,'show-img':isLoaded}">
+     <div v-show="!isLoaded" :src="imageUrl" class="h-full flex justify-center items-center w-[41vw] bg-[#c1ebff79] rounded-xl ">
+        <div>
+            <LoadingSpinner/>
+        </div>
+     </div>
     </div>
     </div>
     <div class="px-[4vw] w-full"  v-else>
@@ -28,7 +33,7 @@
 </template>
 
 <script>
-
+import LoadingSpinner from './LoadingSpinner.vue';
 export default{
     props:{
         foodTitle:{
@@ -49,10 +54,45 @@ export default{
             required:true,
         }
     },
+    data(){
+        return{
+            isLoaded:false,
+        }
+    },
+    methods:{
+        onImageLoad(){
+            this.isLoaded = true;
+        }
+    },
     computed:{
         hasImage(){
              return this.imageUrl.length > 0;
         }
+    },
+    components:{
+        LoadingSpinner,
     }
 }
 </script>
+
+<style scoped>
+.hide-img{
+    opacity: 0;
+}
+
+.show-img{
+    animation-name: show-image;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+    animation-direction: forwards;
+    animation-timing-function: ease-in-out;
+}
+@keyframes show-image {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+</style>
