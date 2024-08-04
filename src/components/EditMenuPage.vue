@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="px-[3vw] w-full bg-white">
-        <div @click="addNewItem"
+        <div v-if="categories.length>0" @click="addNewItem"
           class="w-full border-2 bg-white drop-shadow-lg mt-[3vw] border-white rounded-[1vw] active:border-[#1B7B4A] focus:border-[#1B7B4A] h-[10vw] flex justify-center items-center">
           <svg width="3vw" height="3vw" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -70,7 +70,7 @@
 
 
               <div class="flex-1 flex justify-end items-center space-x-[2vw]">
-                <svg @click="deleteItem(index)" :class="{'transition-all duration-300':true,'scale-0':focusedItem!==index,'scale-100':focusedItem===index}"  width="3.8vw" height="3.8vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg @click="openPopup('deleteItem',index)" :class="{'transition-all duration-300':true,'scale-0':focusedItem!==index,'scale-100':focusedItem===index}"  width="3.8vw" height="3.8vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M7.96589 15.4291C5.9745 15.4291 4.10111 14.6475 2.69976 13.2465C1.29841 11.8455 0.516602 9.97253 0.516602 7.98163C0.516602 5.99073 1.29841 4.1178 2.69976 2.7168C4.10111 1.31579 5.9745 0.53418 7.96589 0.53418C9.95729 0.53418 11.8307 1.31579 13.232 2.7168C16.138 5.62204 16.138 10.3412 13.232 13.2465C11.8307 14.6475 9.95729 15.4291 7.96589 15.4291ZM7.96589 1.41903C6.21052 1.41903 4.5584 2.09741 3.31931 3.33619C2.08022 4.57497 1.40167 6.22668 1.40167 7.98163C1.40167 9.73657 2.08022 11.3883 3.31931 12.6271C4.5584 13.8658 6.21052 14.5442 7.96589 14.5442C9.72127 14.5442 11.3734 13.8658 12.6125 12.6271C15.1792 10.061 15.1792 5.90224 12.6125 3.33619C11.3734 2.09741 9.72127 1.41903 7.96589 1.41903Z" fill="#D10000"/>
 <path d="M11.5253 5.30606L4.98373 11.2548L4.40771 10.731L10.9493 4.78223L11.5253 5.30606Z" fill="#D10000"/>
 <path d="M4.61841 5.4949L5.20024 4.979L11.5277 10.7332L10.9458 11.2623L4.61841 5.4949Z" fill="#D10000"/>
@@ -313,7 +313,7 @@
                 {{ element }}
               </div>
               <div>
-                <svg @click="deleteCategory(index)" width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none"
+                <svg @click="openPopup('deleteCategory',index)" width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M8.00198 16C5.86284 16 3.85046 15.1604 2.34513 13.6554C0.839812 12.1505 0 10.1386 0 8C0 5.86139 0.839812 3.8495 2.34513 2.34455C3.85046 0.839604 5.86284 0 8.00198 0C10.1411 0 12.1535 0.839604 13.6588 2.34455C16.7804 5.46535 16.7804 10.5347 13.6588 13.6554C12.1535 15.1604 10.1411 16 8.00198 16ZM8.00198 0.950495C6.11636 0.950495 4.34167 1.67921 3.01065 3.0099C1.67962 4.34059 0.95073 6.11485 0.95073 8C0.95073 9.88515 1.67962 11.6594 3.01065 12.9901C4.34167 14.3208 6.11636 15.0495 8.00198 15.0495C9.8876 15.0495 11.6623 14.3208 12.9933 12.9901C15.7504 10.2337 15.7504 5.76634 12.9933 3.0099C11.6623 1.67921 9.8876 0.950495 8.00198 0.950495Z"
@@ -343,8 +343,8 @@
       </div>
       <div class="w-full h-[50vw] bg-white"></div>
     </ExpansionTab>
-  <PopupComponent :text="popupText" :popupType="'warning'" v-if="showPopup" :index="indexForDeletion" @delete-category="deleteCategory" @delete-item="deleteItem" :isOpen="isPopupOpen" :close-event-name="'close-popup'" @close-socials-tab="closePopup"/>
   </div>
+  <PopupComponent class="relative " :text="popupText" :itemToDeleteType="itemToDeleteType" :popupType="'warning'" v-if="showPopup" :index="indexForDeletion" @delete-category="deleteCategory" @delete-item="deleteItem" :isOpen="isPopupOpen" :close-event-name="'close-popup'" @close-popup="closePopup"/>
 
 </template>
 
@@ -838,6 +838,7 @@ export default {
       showPopup:false,
       popupText:'',
       indexForDeletion:0,
+      itemToDeleteType:'',
     }
   },
   mounted(){
@@ -890,10 +891,9 @@ export default {
     },
     selectImage(id) {
       this.$refs.imagePicker.click();
-
-      for (let a = 0; a < this.items.length; a++) {
-        if (id == this.items[a].id) {
-          this.chosenIdForImage = id;
+      for (let a = 0; a < this.itemSeperated[this.focusedCategory].length; a++) {
+        if (id == this.itemSeperated[this.focusedCategory][a].id) {
+          this.chosenIdForImage = a;
         }
       }
     },
@@ -901,29 +901,31 @@ export default {
       const file = event.target.files[0];
       if (file) {
         // Create a URL for the selected image
-        this.items[this.chosenIdForImage].imagesUrl.push(URL.createObjectURL(file))
+        this.itemSeperated[this.focusedCategory][this.chosenIdForImage].imagesUrl.push(URL.createObjectURL(file))
         event.target.value = null;
       }
     },
     addNewItem() {
-      let blankItem = {
+        if(this.categories.length>0){
+          let blankItem = {
 
-        id: this.items[this.items.length - 1].id + 1,
-        title: '',
-        isVisible: true,
-        price: '',
-        isSuggested: false,
-        imagesUrl: [
-        ],
-        category: this.categories[this.focusedCategory],
-        description: '',
-      }
-      this.itemSeperated[this.focusedCategory].push(blankItem);
+id: this.itemSeperated[this.focusedCategory][this.itemSeperated[this.focusedCategory].length - 1].id + 1,
+title: '',
+isVisible: true,
+price: '',
+isSuggested: false,
+imagesUrl: [
+],
+category: this.categories[this.focusedCategory],
+description: '',
+}
+this.itemSeperated[this.focusedCategory].push(blankItem);
+        }
     },
     removeImage(id,index){
-      for (let a = 0; a < this.items.length; a++) {
-        if (id == this.items[a].id) {
-          this.items[a].imagesUrl.splice(index,1);
+      for (let a = 0; a < this.itemSeperated[this.focusedCategory].length; a++) {
+        if (id == this.itemSeperated[this.focusedCategory][a].id) {
+          this.itemSeperated[this.focusedCategory][a].imagesUrl.splice(index,1);
         }
       }
     },
@@ -938,7 +940,17 @@ export default {
       for(let a =0; a<this.items.length;a++){
         if(this.items[a].category === this.categories[index]){
                this.categories.splice(a,1);
+              this.itemSeperated.splice(a,1);
         }
+      }
+      this.closePopup();
+      if(index ===0 && this.categories.length===1){
+    this.itemSeperated = [];  
+    }else 
+      if(index===0 && this.categories.length>0){
+        this.focusCategory(index)
+      }else{
+        this.focusCategory(index-1)
       }
       this.categories.splice(index, 1);
     },
@@ -961,7 +973,9 @@ export default {
     openPopup(itemToDelete,index) {
       if(itemToDelete === 'deleteItem'){
         this.popupText = 'Are you sure you want to delete this item?'
+        this.itemToDeleteType= 'item'
       }else{
+        this.itemToDeleteType = 'category'
         this.popupText = 'Are you sure you want to delete this category and its items?'
       }
       this.indexForDeletion = index;

@@ -2,14 +2,14 @@
     <div
       @click="closeTab"
       :class="{
-        'w-full h-full  flex flex-col justify-end fixed top-0 z-40 bg-[rgba(23,23,23,0.5)]  backdrop-blur-sm': true,
+        'w-full h-full  flex flex-col justify-end fixed top-0 z-10 bg-[rgba(23,23,23,0.5)]  backdrop-blur-sm': true,
         'bg-show': isOpen,
         'bg-hide': !isOpen,
       }"
     ></div>
     <div
       :class="{
-        'w-full z-50  fixed rounded-t-[4vw] pt-1 bg-[#1B7B4A]': true,
+        'w-full z-20  fixed rounded-t-[4vw] pt-1 bg-[#1B7B4A]': true,
         'drawer-open': isOpen,
         'drawer-close': !isOpen,
       }"
