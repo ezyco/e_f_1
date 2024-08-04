@@ -343,7 +343,7 @@
       </div>
       <div class="w-full h-[50vw] bg-white"></div>
     </ExpansionTab>
-  <PopupComponent :text="'Are you sure you want to delete this item?'" :popupType="'warning'" v-if="false" :isOpen="false"/>
+  <PopupComponent :text="popupText" :popupType="'warning'" v-if="showPopup" :index="indexForDeletion" @delete-category="deleteCategory" @delete-item="deleteItem" :isOpen="isPopupOpen" :close-event-name="'close-popup'" @close-socials-tab="closePopup"/>
   </div>
 
 </template>
@@ -365,6 +365,7 @@ export default {
       showSocialsTab: false,
       isSocialsExpanded: false,
       closeExpansionTabTime: 300,
+      closePopupTime:300,
       focusedCategory: 0,
       focusedItem: -1,
       isSwitchingCategory:false,
@@ -833,6 +834,10 @@ export default {
       ],
       chosenIdForImage:-1,
       itemSeperated:[],
+      isPopupOpen:false,
+      showPopup:false,
+      popupText:'',
+      indexForDeletion:0,
     }
   },
   mounted(){
@@ -844,6 +849,7 @@ export default {
       if(index === this.focusedItem){
         this.focusedItem =-1;
           this.itemSeperated[this.focusedCategory].splice(index,1);
+          this.closePopup();
     }
   },
     seperateArrays(){
@@ -942,9 +948,26 @@ export default {
         this.showSocialsTab = false;
       }, this.closeExpansionTabTime);
     },
+    closePopup() {
+      this.isPopupOpen = false;
+      setTimeout(() => {
+        this.showPopup = false;
+      }, this.closePopupTime);
+    },
     openCategoriesTab() {
       this.isSocialsExpanded = true;
       this.showSocialsTab = true;
+    },
+    openPopup(itemToDelete,index) {
+      if(itemToDelete === 'deleteItem'){
+        this.popupText = 'Are you sure you want to delete this item?'
+      }else{
+        this.popupText = 'Are you sure you want to delete this category and its items?'
+      }
+      this.indexForDeletion = index;
+      this.isPopupOpen = true;
+      this.showPopup = true;
+      
     },
     focusCategory(index) {
       this.isSwitchingCategory = true;

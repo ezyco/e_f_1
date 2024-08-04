@@ -20,7 +20,7 @@
 <script>
 
 export default{
-    name:'popup',
+    name:'popupComponent',
     props:{
       
             text:{
@@ -42,13 +42,17 @@ export default{
             closeEventName:{
         type:String,
         required:true,
-      }
-        
+      },
     },
     methods:{
-        openPopup(){
-            
-        }
+        closeTab() {
+        this.$emit(this.closeEventName);
+        // console.log(this.imageUrl[0]);
+        setTimeout(() => {}, this.closeTime);
+      },
+      deleteItem(){
+        this.$emit("delete-item",this.index);
+      }
     }
 }
 </script>
@@ -116,5 +120,5 @@ export default{
     }
   }
 
-  
+
 </style>
