@@ -842,6 +842,7 @@ export default {
   methods: {
     deleteItem(index){
       if(index === this.focusedItem){
+        this.focusedItem =-1;
           this.itemSeperated[this.focusedCategory].splice(index,1);
     }
   },
