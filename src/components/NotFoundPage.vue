@@ -1,7 +1,8 @@
 <template>
     <!-- about -->
+    <div class="fixed h-[100vh] w-[100vw] bg-[#0098EA] z-40"></div>
+
 <div class="bg-[#0098EA] h-[100vh] w-[100vw] relative z-50 overflow-y-hidden">
-  
 <!-- end about -->
 
   

@@ -39,7 +39,7 @@
           v-model="itemSeperated[focusedCategory]" item-key="id">
   <template #item="{element,index}">
     <div 
-            :class="{ 'w-full px-[2vw] bg-white rounded-[2vw] drop-shadow-lg transition-all duration-300 overflow-y-hidden my-[2vw] ': true, ' max-h-[11.5vw]': focusedItem !== index, 'max-h-[100vw]': focusedItem === index, 'opacity-0': isSwitchingCategory, 'opacity-100':!isSwitchingCategory }">
+            :class="{ 'w-full item px-[2vw] bg-white rounded-[2vw] drop-shadow-lg transition-all duration-300 overflow-y-hidden my-[2vw] ': true, ' max-h-[11.5vw]': focusedItem !== index, 'max-h-[100vw]': focusedItem === index, 'opacity-0': isSwitchingCategory, 'opacity-100':!isSwitchingCategory }">
             <div class="flex justify-between items-center h-[11.5vw]">
               <div @click="focusItem(index)" class="flex items-center justify-start space-x-[2vw]">
                 <div>
@@ -271,7 +271,7 @@
       :isOpen="isSocialsExpanded" :title="'Tan bar'" v-if="showSocialsTab">
       <draggable @end="reOrganizeArrays"  group="category"  v-model="categories" item-key="id">
         <template #item="{ element, index }">
-          <div class="w-full text-[3.8vw] my-[1vw]  flex space-x-[2vw] items-center">
+          <div class="w-ful  text-[3.8vw] my-[1vw]  flex space-x-[2vw] items-center">
             <div>
               <svg width="7.43vw" height="7.43vw" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -952,3 +952,18 @@ export default {
   },
 }
 </script>
+<style scoped>
+.item {
+  padding: 1px;
+  border: 1px solid #dddddd00;
+  margin-bottom: 4px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+}
+.item-enter-active, .item-leave-active {
+  transition: opacity 0.5s;
+}
+.item-enter, .item-leave-to {
+  opacity: 0;
+}
+</style>
