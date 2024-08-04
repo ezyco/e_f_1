@@ -964,7 +964,7 @@ export default {
       return {
         animation: 200,
         group: "description",
-        disabled: false,
+        disabled: this.focusedItem!=-1,
         ghostClass: "ghost"
       };
     },
@@ -984,21 +984,21 @@ export default {
 <style scoped>
 .item {
   background-color: #f9f9f9;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease,max-height 0.3s ease;
 }
 .item-enter-active, .item-leave-active {
-  transition: opacity 2s;
+  transition: opacity 2s,max-height 0.3s;
 }
 .item-enter, .item-leave-to {
   opacity: 1;
 }
 
 .flip-list-move {
-  transition: transform 0.5s;
+  transition: transform 0.5s,max-height 0.3s;
 }
 
 .no-move {
-  transition: transform 0s;
+  transition: transform 0.5s,max-height 0.3s;
 }
 .ghost {
   opacity: 0.5;
