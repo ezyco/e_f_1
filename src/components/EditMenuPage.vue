@@ -35,8 +35,16 @@
           </svg>
         </div>
         <div class="mt[4vw] w-full">
-          <draggable   group="foodItem" 
-          v-model="itemSeperated[focusedCategory]" item-key="id">
+          <draggable   group="foodItem"  tag="transition-group"
+        :component-data="{
+          tag: 'ul',
+          type: 'transition-group',
+          name: !drag ? 'flip-list' : null
+        }"
+          v-model="itemSeperated[focusedCategory]" v-bind="dragOptions"
+        @start="drag = true"
+        @end="drag = false"
+          item-key="order">
   <template #item="{element,index}">
     <div 
             :class="{ 'w-full item px-[2vw] bg-white rounded-[2vw] drop-shadow-lg transition-all duration-300 overflow-y-hidden my-[2vw] ': true, ' max-h-[11.5vw]': focusedItem !== index, 'max-h-[100vw]': focusedItem === index, 'opacity-0': isSwitchingCategory, 'opacity-100':!isSwitchingCategory }">
@@ -269,7 +277,18 @@
     </div>
     <ExpansionTab :close-event-name="'close-socials-tab'" @close-socials-tab="closeSocialsTab"
       :isOpen="isSocialsExpanded" :title="'Tan bar'" v-if="showSocialsTab">
-      <draggable @end="reOrganizeArrays"  group="category"  v-model="categories" item-key="id">
+      <draggable
+      tag="transition-group"
+        :component-data="{
+          tag: 'ul',
+          type: 'transition-group',
+          name: !drag ? 'flip-list' : null
+        }"
+       v-bind="dragOptions"
+        @start="drag = true"
+       
+        item-key="order"
+      @end="reOrganizeArrays"  group="category"  v-model="categories" >
         <template #item="{ element, index }">
           <div class="w-ful  text-[3.8vw] my-[1vw]  flex space-x-[2vw] items-center">
             <div>
@@ -325,6 +344,7 @@ import Draggable from 'vuedraggable';
 import ExpansionTab from './ExpansionTab.vue';
 export default {
   name: "EditMenuPage",
+  display: "Transitions",
   data() {
     return {
       isOpen: true,
@@ -824,6 +844,7 @@ export default {
       }
     },
     reOrganizeArrays(){
+      this.drag = false;
       let oldArray = this.itemSeperated;
       let newArray = [];
        for(let a=0;a<this.categories.length;a++){
@@ -939,6 +960,14 @@ export default {
     }
   },
   computed: {
+    dragOptions() {
+      return {
+        animation: 200,
+        group: "description",
+        disabled: false,
+        ghostClass: "ghost"
+      };
+    },
     filteredItem() {
       if (this.categories[this.focusedCategory]) {
         return this.items.filter(item => item.category === this.categories[this.focusedCategory]);
@@ -954,16 +983,25 @@ export default {
 </script>
 <style scoped>
 .item {
-  padding: 1px;
-  border: 1px solid #dddddd00;
-  margin-bottom: 4px;
   background-color: #f9f9f9;
   transition: background-color 0.3s ease;
 }
 .item-enter-active, .item-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 2s;
 }
 .item-enter, .item-leave-to {
-  opacity: 0;
+  opacity: 1;
+}
+
+.flip-list-move {
+  transition: transform 0.5s;
+}
+
+.no-move {
+  transition: transform 0s;
+}
+.ghost {
+  opacity: 0.5;
+  background: #c8ebfb;
 }
 </style>
