@@ -18,7 +18,7 @@
         <div class="flex-1 p-[1vw] h-[9.5vw] space-x-[1vw] saira whitespace-nowrap overflow-x-auto drop-shadow-lg ">
 
           <div @click="focusCategory(index)" v-for="(category, index) in categories" :key="index"
-            :class="{ 'h-[7vw] inline-block shrink-0 bg-white text-center p-[1vw]  text-[3.8vw]': true, 'drop-shadow-[0_0px_8px_rgba(0,150,6,1)]': focusedCategory === index, 'drop-shadow-lg': focusedCategory !== index }">
+            :class="{ 'h-[7vw] inline-block transition-all duration-200 shrink-0 bg-white text-center p-[1vw]  text-[3.8vw]': true, 'drop-shadow-[0_0px_8px_rgba(0,150,6,1)]': focusedCategory === index, 'drop-shadow-lg': focusedCategory !== index }">
             <div class="w-full h-full flex justify-center items-center">
               {{ category }}
             </div>
@@ -35,7 +35,9 @@
           </svg>
         </div>
         <div class="mt[4vw] w-full">
-          <draggable   group="foodItem"  tag="transition-group"
+          <draggable   group="foodItem" 
+          :class="{'tr transition-all duration-150 pb-[25vw]':true,'opacity-0': isSwitchingCategory, 'opacity-100':!isSwitchingCategory}"
+          tag="transition-group"
         :component-data="{
           tag: 'ul',
           type: 'transition-group',
@@ -47,7 +49,7 @@
           item-key="order">
   <template #item="{element,index}">
     <div 
-            :class="{ 'w-full item px-[2vw] bg-white rounded-[2vw] drop-shadow-lg transition-all duration-300 overflow-y-hidden my-[2vw] ': true, ' max-h-[11.5vw]': focusedItem !== index, 'max-h-[100vw]': focusedItem === index, 'opacity-0': isSwitchingCategory, 'opacity-100':!isSwitchingCategory }">
+            :class="{ 'w-full item px-[2vw] bg-white rounded-[2vw] drop-shadow-lg transition-all duration-300 overflow-y-hidden my-[2vw] ': true, ' max-h-[11.5vw]': focusedItem !== index, 'max-h-[100vw]': focusedItem === index }">
             <div class="flex justify-between items-center h-[11.5vw]">
               <div @click="focusItem(index)" class="flex items-center justify-start space-x-[2vw]">
                 <div>
@@ -67,7 +69,12 @@
               </div>
 
 
-              <div class="flex-1 flex justify-end">
+              <div class="flex-1 flex justify-end items-center space-x-[2vw]">
+                <svg @click="deleteItem(index)" :class="{'transition-all duration-300':true,'scale-0':focusedItem!==index,'scale-100':focusedItem===index}"  width="3.8vw" height="3.8vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.96589 15.4291C5.9745 15.4291 4.10111 14.6475 2.69976 13.2465C1.29841 11.8455 0.516602 9.97253 0.516602 7.98163C0.516602 5.99073 1.29841 4.1178 2.69976 2.7168C4.10111 1.31579 5.9745 0.53418 7.96589 0.53418C9.95729 0.53418 11.8307 1.31579 13.232 2.7168C16.138 5.62204 16.138 10.3412 13.232 13.2465C11.8307 14.6475 9.95729 15.4291 7.96589 15.4291ZM7.96589 1.41903C6.21052 1.41903 4.5584 2.09741 3.31931 3.33619C2.08022 4.57497 1.40167 6.22668 1.40167 7.98163C1.40167 9.73657 2.08022 11.3883 3.31931 12.6271C4.5584 13.8658 6.21052 14.5442 7.96589 14.5442C9.72127 14.5442 11.3734 13.8658 12.6125 12.6271C15.1792 10.061 15.1792 5.90224 12.6125 3.33619C11.3734 2.09741 9.72127 1.41903 7.96589 1.41903Z" fill="#D10000"/>
+<path d="M11.5253 5.30606L4.98373 11.2548L4.40771 10.731L10.9493 4.78223L11.5253 5.30606Z" fill="#D10000"/>
+<path d="M4.61841 5.4949L5.20024 4.979L11.5277 10.7332L10.9458 11.2623L4.61841 5.4949Z" fill="#D10000"/>
+</svg>
                 <svg @click="toggleItemVisibility(element.id)" v-if="element.isVisible" width="4.6vw" height="4.6vw"
                   viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path opacity="0.1"
@@ -109,15 +116,17 @@
                     d="M5.57783 6.88781C5.88079 6.58485 5.88079 6.09366 5.57783 5.7907C5.27487 5.48774 4.78368 5.48774 4.48072 5.7907L5.57783 6.88781ZM6.07501 12.9733L4.42935 11.3276L3.33223 12.4248L4.9779 14.0704L6.07501 12.9733ZM12.6577 12.9733C10.8399 14.791 7.89277 14.791 6.07501 12.9733L4.9779 14.0704C7.40158 16.4941 11.3312 16.4941 13.7548 14.0704L12.6577 12.9733ZM4.42935 8.03629L5.57783 6.88781L4.48072 5.7907L3.33223 6.93918L4.42935 8.03629ZM13.1265 12.5044L12.6577 12.9733L13.7548 14.0704L14.2236 13.6016L13.1265 12.5044ZM4.42935 11.3276C3.89666 10.7949 3.55349 10.4494 3.33389 10.1616C3.12794 9.89171 3.10502 9.7655 3.10502 9.68194H1.55347C1.55347 10.2411 1.78912 10.6948 2.10037 11.1028C2.39795 11.4928 2.83056 11.9231 3.33223 12.4248L4.42935 11.3276ZM3.33223 6.93918C2.83056 7.44085 2.39795 7.87113 2.10037 8.26119C1.78912 8.66909 1.55347 9.12277 1.55347 9.68194H3.10502C3.10502 9.59847 3.12794 9.47225 3.33389 9.20228C3.55349 8.91447 3.89666 8.56902 4.42935 8.03629L3.33223 6.93918Z"
                     fill="#8F8F8F" />
                 </svg>
+              
+
               </div>
 
             </div>
             <div class="h-[83vw] pt-[1vw] saira">
               <div class="w-full h-[1px] bg-[#9f9f9f81]"></div>
               <div class="mt-[2vw] px-[2vw] flex justify-between items-center">
-                <input type="text" v-model="items[indexOfFocusedItem(element.id)].title" placeholder="title"
+                <input type="text" v-model="element.title" placeholder="title"
                   class="outline-none rounded-[2vw] w-[60vw] px-[2vw] py-[1vw] border-[1px] text-[3.8vw] border-[#E9EAEB] bg-[rgba(31,42,55,0.05)]">
-                <input type="text" v-model="items[indexOfFocusedItem(element.id)].price" placeholder="price"
+                <input type="text" v-model="element.price" placeholder="price"
                   class="outline-none rounded-[2vw] w-[24.3vw] px-[2vw] py-[1vw] border-[1px] text-[3.8vw] border-[#E9EAEB] bg-[rgba(31,42,55,0.05)]">
               </div>
               <div class="flex justify-between px-[2vw] mt-[2vw] w-full">
@@ -284,7 +293,7 @@
           type: 'transition-group',
           name: !drag ? 'flip-list' : null
         }"
-       v-bind="dragOptions"
+       v-bind="dragOptionsCategories"
         @start="drag = true"
        
         item-key="order"
@@ -332,16 +341,18 @@
           placeholder="empty"
           class="flex-1 text-[3.8vw] justify-between flex items-center px-[2vw] bg-[#e0e0e0] border-[1px] border-[#E9EAEB] rounded-[2vw] outline-none">
       </div>
-      <div class="w-full h-[10vw] bg-white"></div>
+      <div class="w-full h-[50vw] bg-white"></div>
     </ExpansionTab>
-    <div class="w-full h-[30vw]"></div>
+  <PopupComponent :text="'Are you sure you want to delete this item?'" :popupType="'warning'" v-if="false" :isOpen="false"/>
   </div>
+
 </template>
 
 <script>
 import ColorInput from 'vue-color-input';
 import Draggable from 'vuedraggable';
 import ExpansionTab from './ExpansionTab.vue';
+import PopupComponent from './PopupComponent.vue';
 export default {
   name: "EditMenuPage",
   display: "Transitions",
@@ -829,6 +840,11 @@ export default {
   },
 
   methods: {
+    deleteItem(index){
+      if(index === this.focusedItem){
+          this.itemSeperated[this.focusedCategory].splice(index,1);
+    }
+  },
     seperateArrays(){
       let newArray = [];
       for(let a =0; a<this.categories.length;a++){
@@ -895,7 +911,7 @@ export default {
         category: this.categories[this.focusedCategory],
         description: '',
       }
-      this.items.push(blankItem);
+      this.itemSeperated[this.focusedCategory].push(blankItem);
     },
     removeImage(id,index){
       for (let a = 0; a < this.items.length; a++) {
@@ -909,6 +925,7 @@ export default {
         this.categories.push(this.newEnteredCategory);
         this.newEnteredCategory = '';
       }
+      this.itemSeperated.push([]);
     },
     deleteCategory(index) {
       for(let a =0; a<this.items.length;a++){
@@ -932,9 +949,11 @@ export default {
       this.isSwitchingCategory = true;
       this.focusedItem = -1;
       setTimeout(() => {
-        this.isSwitchingCategory = false;
         this.focusedCategory = index;
-      }, this.categorySwitchTime);
+      }, this.categorySwitchTime/2);  
+      setTimeout(() => {
+        this.isSwitchingCategory = false;
+      },this.categorySwitchTime*1.5);
      
     },
     focusItem(index) {
@@ -968,6 +987,14 @@ export default {
         ghostClass: "ghost"
       };
     },
+    dragOptionsCategories() {
+      return {
+        animation: 200,
+        group: "description",
+        disabled: false,
+        ghostClass: "ghost"
+      };
+    },
     filteredItem() {
       if (this.categories[this.focusedCategory]) {
         return this.items.filter(item => item.category === this.categories[this.focusedCategory]);
@@ -977,7 +1004,7 @@ export default {
 
   },
   components: {
-    Draggable, ExpansionTab, ColorInput
+    Draggable, ExpansionTab, ColorInput ,PopupComponent
   },
 }
 </script>

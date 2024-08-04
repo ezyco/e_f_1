@@ -19,6 +19,7 @@ module.exports = {
     "./src/components/ExpansionTab.vue",
     "./src/components/EditMenuPage.vue",
     "./src/components/NotFoundPage.vue",
+    "./src/components/PopupComponent.vue",
   ],
   theme: {
     extend: {},
