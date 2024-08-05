@@ -1,6 +1,7 @@
 <template>
+   <div class="">
     <div v-if="hasImage" class="px-[4vw]  w-full" >
-        <div class="pl-[3vw] bg-white saira rounded-xl flex justify-between text-[4vw] h-[27.4vw] w-full cursor-pointer">
+        <div class="pl-[3vw] bg-white rounded-xl flex justify-between text-[4vw] h-[27.4vw] w-full cursor-pointer">
             <div class="flex flex-col">
                 <div class="py-[3vw] w-[45.2vw] flex flex-col justify-between" >
                <div> {{ foodTitle }}</div>
@@ -24,11 +25,12 @@
     </div>
     </div>
     <div class="px-[4vw] w-full"  v-else>
-        <div class="p-[2vw] bg-white saira rounded-[2vw] flex justify-between text-[4vw] w-full cursor-pointer">
+        <div class="p-[2vw] bg-white  rounded-[2vw] flex justify-between text-[4vw] w-full cursor-pointer">
             <div> {{ foodTitle }}</div>
             <div>{{ foodPrice }}</div>
                 </div>
     </div>
+   </div>
     
 </template>
 

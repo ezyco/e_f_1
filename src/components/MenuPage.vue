@@ -1,12 +1,13 @@
 <template>
     <!-- <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+<div class="">
   <div :class=" {'h-0 pl-[5vw] w-full overflow-hidden':true,
   'mt-0' :!isSticky,}
 " >
         <div :class="
         {
-          'bg-white w-[95%] h-[10vw] p-[1vw] saira cursor-pointer rounded-l-md select-none whitespace-nowrap scroll-container space-x-[1vw] overflow-x-scroll flex' :true,
+          'bg-white w-[95%] h-[10vw] p-[1vw]  cursor-pointer rounded-l-md select-none whitespace-nowrap scroll-container space-x-[1vw] overflow-x-scroll flex' :true,
           'fixed top-0  z-20' : isSticky,
           'absolute top-[80vw] z-20' : !isSticky,
         }
@@ -31,7 +32,7 @@
       />
     </div>
     <div class=" w-full translate-y-[-21vw] py-[2vw]">
-      <div class="text-center mx-auto text-white saira text-[4vw]">{{ cafeName }}</div>
+      <div class="text-center mx-auto text-white  text-[4vw]">{{ cafeName }}</div>
       <div class="m-[5vw] w-full overflow-hidden " >
      
       </div>
@@ -45,11 +46,9 @@
        </div>
     </div>
   </div>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <FoodExpanded @close-tab="closeItem" :isOpen="isExpanded"  :foodTitle="chosenItem.title" :isSuggested="chosenItem.isSuggested"  :imageUrl="chosenItem.imagesUrl" :foodPrice="chosenItem.price" :description="chosenItem.description"  v-if="showExpansionTab"/>
 <FooterComponent  class="pb-[4vw]"/>
+</div>
 </template>
 
 <script>
@@ -557,9 +556,7 @@ return {
 #curve {
   background-image: url("@/assets/Vectors/Asset 1.svg");
 }
-.saira {
-  font-family: "Saira", sans-serif;
-}
+
  /* Optional: Style for a more consistent scroll experience */
  .scroll-container::-webkit-scrollbar {
       height: 0px;

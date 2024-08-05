@@ -10,6 +10,7 @@
   <div
     :class="{
       'w-full z-50  fixed rounded-t-[4vw] pt-1 bg-[#1B7B4A]': true,
+      
       'drawer-open': isOpen,
       'drawer-close': !isOpen,
     }"
@@ -20,7 +21,7 @@
       >
         <div class="m-auto basis-1/3 text-center text-black"></div>
         <div
-          class="m-auto basis-1/3 text-center text-black saira font-bold text-[4vw]"
+          class="m-auto basis-1/3 text-center text-black font-bold text-[4vw]"
         >
           Deatils
         </div>
@@ -98,12 +99,12 @@
          
        
         </div>
-        <div class="text-[5vw] font-medium mt-[4vw] saira">{{ foodTitle }}</div>
-        <div class="mt-[4vw] font-light saira text-justify">
+        <div class="text-[5vw] font-medium mt-[4vw]">{{ foodTitle }}</div>
+        <div class="mt-[4vw] font-light  text-justify">
           {{ description }}
         </div>
         <div
-          class="w-full m-auto flex justify-between items-center text-[4.5vw] saira font-light px-[2vw] mt-[2vw]"
+          class="w-full m-auto flex justify-between items-center text-[4.5vw]  font-light px-[2vw] mt-[2vw]"
         >
         <div v-if="isSuggested" class="text-[#FF0000] flex justify-end items-center space-x-[2vw] font-medium">
           <div>

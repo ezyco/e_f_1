@@ -93,6 +93,7 @@
     },
     methods: {
       closeTab() {
+        console.log(this.closeEventName)
         this.$emit(this.closeEventName);
         // console.log(this.imageUrl[0]);
         setTimeout(() => {}, this.closeTime);
