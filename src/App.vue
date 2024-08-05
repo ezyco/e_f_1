@@ -3,7 +3,6 @@
 
       <div class="overflow-x-hidden">
         <router-view/>
-        <FooterNav v-if="!isLoginRoute"/>
 </div>
 </TonConnectUIProvider>
 
@@ -11,12 +10,11 @@
 
 
 <script>
-import FooterNav from "@/components/FooterNav.vue";
 import { TonConnectUIProvider } from '@townsquarelabs/ui-vue';
 
 export default{
     components:{
-        FooterNav,TonConnectUIProvider
+        TonConnectUIProvider
     },
     setup(){
     const options = {
