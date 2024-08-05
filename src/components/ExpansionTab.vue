@@ -14,13 +14,13 @@
         'drawer-close': !isOpen,
       }"
     >
-      <div class="bg-white saira w-full h-full rounded-t-[4vw]">
+      <div class="bg-white inter w-full h-full rounded-t-[4vw]">
         <div
           class="w-full px-[3vw] flex justify-around items-center rounded-t-[4vw] py-[2vw] drop-shadow-md bg-white"
         >
           <div class="m-auto basis-1/4 text-center text-black"></div>
           <div
-            class="m-auto basis-2/4 text-center text-black saira font-bold text-[4vw]"
+            class="m-auto basis-2/4 text-center text-black inter font-bold text-[4vw]"
           >
             {{ title }}
           </div>

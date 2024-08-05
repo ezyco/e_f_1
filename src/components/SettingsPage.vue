@@ -1,7 +1,7 @@
 <template>
-<div class="bg-white">
-  <div class="pb-[3vw] pt-[3vw] saira text-[4vw] px-[6vw]">
-    <div class="saira font-normal">Title*</div>
+<div class="bg-white inter">
+  <div class="pb-[3vw] pt-[3vw]  text-[4vw] px-[6vw]">
+    <div class=" font-normal">Title*</div>
     <input
       type="text" v-model="title"
       placeholder="Enter the desired menu title"
@@ -41,8 +41,8 @@
       </svg>
     </div>
   </div>
-  <div class="py-[3vw] saira text-[4vw] px-[6vw]">
-    <div class="saira font-normal">Sub-headings*</div>
+  <div class="py-[3vw]  text-[4vw] px-[6vw]">
+    <div class=" font-normal">Sub-headings*</div>
     <input
       type="text" v-model="subHeading"
       placeholder="Enter the desired sub-heading"
@@ -86,14 +86,10 @@
     <div
       class="py-[3vw] flex justify-between items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
     >
-      <div class="text-[#3A3A3A] saira">Title Color</div>
+      <div class="text-[#3A3A3A] ">Title Color</div>
       <div class="flex items-center space-x-2">
-        <div class="saira">{{ upperCaseTitleColor }}</div>
-        <!-- <input
-          type="color"
-          class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
-          v-model="chosenTitleColor"
-        /> -->
+        <div class="">{{ upperCaseTitleColor }}</div>
+
         <div class="w-[6.3vw] flex justify-center items-center h-[6.3vw] border-[2px] rounded-[20%] border-[#212121]">
           <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="chosenTitleColor" />
         </div>
@@ -101,8 +97,8 @@
       </div>
     </div>
   </div>
-  <div class="py-[3vw] saira text-[4vw] px-[6vw]">
-    <div class="saira font-normal">Upload image</div>
+  <div class="py-[3vw]  text-[4vw] px-[6vw]">
+    <div class=" font-normal">Upload image</div>
     <div
       class="border-[0.7vw] flex justify-center items-center border-[#12D18E] border-dotted w-full min-h-[23vw] rounded-[4.1vw] mt-1"
       @click="triggerLogoFileInput"
@@ -118,8 +114,8 @@
     </div>
     <div>{{ logoError }}</div>
   </div>
-  <div class="py-[3vw] saira text-[4vw] px-[6vw]">
-    <div class="saira font-normal">Upload cover image</div>
+  <div class="py-[3vw]  text-[4vw] px-[6vw]">
+    <div class=" font-normal">Upload cover image</div>
     <div
       class="border-[0.7vw] border-[#12D18E] border-dotted w-full flex justify-center items-center min-h-[23vw] rounded-[4.1vw] mt-1"
       @click="triggerCoverFileInput"
@@ -135,8 +131,8 @@
     </div>
     <div>{{ coverError }}</div>
   </div>
-  <div class="py-[3vw] saira text-[4vw] px-[6vw]">
-    <div class="saira font-normal">Choose a cover design</div>
+  <div class="py-[3vw]  text-[4vw] px-[6vw]">
+    <div class=" font-normal">Choose a cover design</div>
     <div
       class="mt-[1vw] flex justify-between items-center p-[4vw] w-full rounded-[4.1vw] bg-white drop-shadow-lg"
     >
@@ -220,8 +216,8 @@
       </div>
     </div>
   </div>
-  <div class="py-[3vw] saira text-[4vw] px-[6vw]">
-    <div class="saira font-normal">Choose a logo design</div>
+  <div class="py-[3vw]  text-[4vw] px-[6vw]">
+    <div class=" font-normal">Choose a logo design</div>
     <div
       class="mt-[1vw] flex justify-between items-center p-[4vw] w-full rounded-[4.1vw] bg-white drop-shadow-lg"
     >
@@ -299,14 +295,10 @@
     <div
       class="py-[3vw] my-[3vw] flex justify-between items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
     >
-      <div class="text-[#3A3A3A] saira">Background Color</div>
+      <div class="text-[#3A3A3A] ">Background Color</div>
       <div class="flex items-center space-x-2">
-        <div class="saira">{{ upperCaseBackgroundColor }}</div>
-        <!-- <input
-          type="color"
-          class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
-          v-model="chosenBackgroundColor"
-        /> -->
+        <div class="">{{ upperCaseBackgroundColor }}</div>
+
         <div class="w-[6.3vw] flex justify-center items-center h-[6.3vw] border-[2px] rounded-[20%] border-[#212121]">
           <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="chosenBackgroundColor" />        
         </div>
@@ -316,14 +308,10 @@
     <div
       class="py-[3vw] my-[3vw] flex justify-between items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
     >
-      <div class="text-[#3A3A3A] saira">Tan Bar</div>
+      <div class="text-[#3A3A3A] ">Tan Bar</div>
       <div class="flex items-center space-x-2">
-        <div class="saira">{{ upperCaseTanBarColor }}</div>
-        <!-- <input
-          type="color"
-          class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
-          v-model="tanBarColor"
-        /> -->
+        <div class="">{{ upperCaseTanBarColor }}</div>
+
         <div class="w-[6.3vw] flex justify-center items-center h-[6.3vw] border-[2px] rounded-[20%] border-[#212121]">
           <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="tanBarColor" />
         </div>
@@ -333,14 +321,10 @@
     <div
       class="py-[3vw] my-[3vw] flex justify-between items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
     >
-      <div class="text-[#3A3A3A] saira">Item Background</div>
+      <div class="text-[#3A3A3A] ">Item Background</div>
       <div class="flex items-center space-x-2">
-        <div class="saira">{{ upperCaseItemBackgroundColor }}</div>
-        <!-- <input
-          type="color"
-          class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
-          v-model="itemBackgroundColor"
-        /> -->
+        <div class="">{{ upperCaseItemBackgroundColor }}</div>
+
         <div class="w-[6.3vw] flex justify-center items-center h-[6.3vw] border-[2px] rounded-[20%] border-[#212121]">
 
         <ColorInput  disable-text-inputs disable-alpha  position="left top" v-model="itemBackgroundColor" />
@@ -350,14 +334,10 @@
     <div
       class="py-[3vw] my-[3vw] flex justify-between items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
     >
-      <div class="text-[#3A3A3A] saira">Item Text</div>
+      <div class="text-[#3A3A3A] ">Item Text</div>
       <div class="flex items-center space-x-2">
-        <div class="saira">{{ upperCaseItemTextColor }}</div>
-        <!-- <input
-          type="color"
-          class="outline-none color-input saira rounded-[1vw] border-[1px] w-[5.8vw] h-[5.8vw] border-[#212121]"
-          v-model="itemTextColor"
-        /> -->
+        <div class="">{{ upperCaseItemTextColor }}</div>
+
         <div class="w-[6.3vw] flex justify-center items-center h-[6.3vw] border-[2px] rounded-[20%] border-[#212121]">
           <ColorInput disable-text-inputs disable-alpha position="left top" v-model="itemTextColor" />
       </div>
@@ -368,8 +348,8 @@
       class="py-[3vw] my-[3vw] flex justify-between items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
       @click="chooseItem('currency')"
     >
-      <div class="text-[#3A3A3A] saira">Currency</div>
-      <div class="saira">
+      <div class="text-[#3A3A3A] ">Currency</div>
+      <div class="">
         {{ currencies[chosenCurrency] }}
       </div>
     </div>
@@ -377,7 +357,7 @@
       class="py-[3vw] my-[3vw] flex justify-between items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
       @click="chooseItem('font')"
     >
-      <div class="text-[#3A3A3A] saira">Font</div>
+      <div class="text-[#3A3A3A] ">Font</div>
       <div :class="fonts[chosenFont].fontClass">
         {{ fonts[chosenFont].title }}
 
@@ -387,14 +367,14 @@
       class="py-[3vw] my-[3vw] flex justify-start items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
       @click="chooseItem('lang')"
     >
-      <div class="text-[#3A3A3A] saira">{{ languages[chosenLanguage] }}</div>
+      <div class="text-[#3A3A3A] ">{{ languages[chosenLanguage] }}</div>
    
     </div>
     <div
       class="py-[3vw] my-[3vw] flex justify-start items-center px-[6vw] w-full rounded-[1.5vw] bg-white drop-shadow-md h-[14vw]"
       @click="chooseItem('socials')"
     >
-      <div class="text-[#3A3A3A] saira">Socials</div>
+      <div class="text-[#3A3A3A] ">Socials</div>
    
     </div>
   </div>
@@ -1059,7 +1039,7 @@ this.chosenLanguage = option
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-  font-family: "Saira", sans-serif !important; /* Change font family */
+  font-family: "Roboto", sans-serif !important; /* Change font family */
   font-size: 14px; /* Change font size */
   color: transparent; /* Hide default text inside input */
   text-shadow: none;
