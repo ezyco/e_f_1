@@ -9,7 +9,6 @@ module.exports = {
     "./src/components/MenuPage.vue",
     "./src/components/ServerPage.vue",
     "./src/components/SettingsPage.vue",
-    "./src/components/ServerExpansionTab.vue",
     "./src/components/LoginPage.vue",
     "./src/components/ProfilePage.vue",
     "./src/components/ExpansionTab.vue",
