@@ -12,18 +12,19 @@
           'absolute top-[80vw] z-20' : !isSticky,
         }
         " ref="stickyDiv">
-          <div v-for="(item,index) in categories" :key="index"
+          <div v-for="(item,index) in categories" :key="index" :style="chosenCategory === index? tanBarColor: 'background-color:#FDFFFE'"
           :class="{
       'text-[4vw] p-[1vw] rounded-sm drop-shadow-md transition-colors duration-200': true,
-      'bg-[#FDFFFE] text-black': chosenCategory !== index,
-      'bg-[#409D7E] text-white': chosenCategory === index
+      ' text-black': chosenCategory !== index,
+      
+      'text-white':chosenCategory===index,
     }"
     @click="changeCategory(index)"
     >{{ item }} </div>
 
         </div>
       </div>
-  <div class="overflow-x-hidden bg-[#0D2B33]">
+  <div :style="backgroundColor" class="overflow-x-hidden">
     <img :src="imageUrl" class="object-fit w-full h-[57.75vw]" />
     <div id="curve" class="w-full h-[33vw] bg-no-repeat translate-y-[-20vw]">
       <img
@@ -32,7 +33,7 @@
       />
     </div>
     <div class=" w-full translate-y-[-21vw] py-[2vw]">
-      <div class="text-center mx-auto text-white  text-[4vw]">{{ cafeName }}</div>
+      <div class="text-center mx-auto text-[4vw]" :style="titleColor">{{ cafeName }}</div>
       <div class="m-[5vw] w-full overflow-hidden " >
      
       </div>
@@ -505,7 +506,17 @@ return {
     },
     listPosition(){
       return 'transform:TranslateX(' +this.listXPosition * -this.chosenCategory + 'vw);'
-    }
+    },
+    backgroundColor(){
+      return 'background-color:' + this.$store.getters.backgroundColor ;
+    },
+    titleColor(){
+      return 'color:' + this.$store.getters.titleColor;
+    },
+        tanBarColor(){
+          return 'background-color:'+ this.$store.getters.tanBarColor ;
+        },
+       
   },
   
   methods:{

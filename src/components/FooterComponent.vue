@@ -1,5 +1,5 @@
 <template>
-   <div class="w-full bg-[#0D2B33]">
+   <div :style="backgroundColor" class="w-full ">
     <div class="m-auto mb-[3vw] justify-center  flex space-x-[2vw]">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_502_2842)">
@@ -42,5 +42,16 @@
     </div>   
     </div>
    </div>
-   <div class="w-full h-[30vw] bg-[#0D2B33]"></div>
+   <div class="w-full h-[30vw] " :style="backgroundColor"></div>
 </template>
+
+
+<script>
+export default{
+    computed:{
+        backgroundColor(){
+      return 'background-color:' + this.$store.getters.backgroundColor ;
+    },
+    }
+}
+</script>

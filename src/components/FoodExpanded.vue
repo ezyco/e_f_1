@@ -8,20 +8,20 @@
     }"
   ></div>
   <div
+  :style="tanBarColor"
     :class="{
-      'w-full z-50  fixed rounded-t-[4vw] pt-1 bg-[#1B7B4A]': true,
-      
+      'w-full z-50  fixed rounded-t-[4vw] pt-1': true,
       'drawer-open': isOpen,
       'drawer-close': !isOpen,
     }"
   >
-    <div class="bg-white w-full h-full rounded-t-[4vw]">
+    <div :style="itemBackgroundColor" class=" w-full h-full rounded-t-[4vw]">
       <div
-        class="w-full px-[3vw] flex justify-around items-center rounded-t-[4vw] py-[2vw] drop-shadow-md bg-white"
+        :class="{'w-full px-[3vw] flex justify-around items-center rounded-t-[4vw] py-[2vw] drop-shadow-md':true,[itemBackgroundColor]:true}"
       >
-        <div class="m-auto basis-1/3 text-center text-black"></div>
+        <div class="m-auto basis-1/3 text-center "></div>
         <div
-          class="m-auto basis-1/3 text-center text-black font-bold text-[4vw]"
+          class="m-auto basis-1/3 text-center  font-bold text-[4vw]" :style="itemTextColor"
         >
           Deatils
         </div>
@@ -37,14 +37,14 @@
           >
             <path
               d="M16.3635 10.52L11.2405 15.643"
-              stroke="#1B7B4A"
+              :stroke="closeFill"
               stroke-width="1.41358"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
             <path
               d="M16.3651 15.6459L11.2378 10.5176"
-              stroke="#1B7B4A"
+              :stroke="closeFill"
               stroke-width="1.41358"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -53,7 +53,7 @@
               fill-rule="evenodd"
               clip-rule="evenodd"
               d="M18.4367 3.20215H9.16883C5.93914 3.20215 3.91431 5.48891 3.91431 8.72501V17.4572C3.91431 20.6933 5.92952 22.9801 9.16883 22.9801H18.4356C21.676 22.9801 23.6923 20.6933 23.6923 17.4572V8.72501C23.6923 5.48891 21.676 3.20215 18.4367 3.20215Z"
-              stroke="#1B7B4A"
+              :stroke="closeFill"
               stroke-width="1.41358"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -99,8 +99,8 @@
          
        
         </div>
-        <div class="text-[5vw] font-medium mt-[4vw]">{{ foodTitle }}</div>
-        <div class="mt-[4vw] font-light  text-justify">
+        <div class="text-[5vw] font-medium mt-[4vw]" :style="itemTextColor">{{ foodTitle }}</div>
+        <div class="mt-[4vw] font-light text-[4.1vw] text-justify" :style="itemTextColor">
           {{ description }}
         </div>
         <div
@@ -114,7 +114,7 @@
             Suggested
           </div>
         </div> 
-        <div>{{ foodPrice }}</div>
+        <div :style="itemTextColor">{{ foodPrice }}</div>
         
         </div>
       </div>
@@ -188,6 +188,20 @@ export default {
       }
     }
   },
+  computed:{
+    itemBackgroundColor(){
+          return 'background-color:' +  this.$store.getters.itemBackgroundColor;
+        },
+        itemTextColor(){
+          return 'color:' + this.$store.getters.itemTextColor;
+        },
+        tanBarColor(){
+          return 'background-color:'+ this.$store.getters.tanBarColor;
+        },
+        closeFill(){
+          return this.$store.getters.tanBarColor;
+        }
+  }
 };
 </script>
 

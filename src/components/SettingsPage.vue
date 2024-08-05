@@ -868,6 +868,13 @@ fontClass:'dm-sans',
     };
   },
   methods: {
+    loadValue(){
+      this.chosenBackgroundColor = this.hexToRgb(this.$store.getters.backgroundColor);
+      this.chosenTitleColor = this.hexToRgb(this.$store.getters.titleColor);
+      this.itemTextColor = this.hexToRgb(this.$store.getters.itemTextColor);
+      this.tanBarColor = this.hexToRgb(this.$store.getters.tanBarColor);
+      this.itemBackgroundColor = this.hexToRgb(this.$store.getters.itemBackgroundColor);
+    },
     rgbToHex(rgb) {
       // Regular expression to extract r, g, b values
       const result = /^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/i.exec(rgb);
@@ -884,6 +891,23 @@ fontClass:'dm-sans',
       
       return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
     },
+    hexToRgb(hex) {
+    // Remove the hash at the start if it's there
+    hex = hex.replace(/^#/, '');
+
+    // Parse 3-digit hex color (e.g., #fff) and convert to 6-digit hex color
+    if (hex.length === 4) {
+      hex = hex.split('').map(char => char + char).join('');
+    }
+
+    // Extract red, green, and blue values
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+
+    // Return the RGB color in the format 'rgb(r, g, b)'
+    return `rgb(${r}, ${g}, ${b})`;
+  },
     openSocialsImageSelector(){
       this.$refs.socialsImageInput.click();
     },
@@ -1007,6 +1031,9 @@ this.chosenLanguage = option
       this.title = ''
     }
   },
+  mounted(){
+      this.loadValue()
+  },
   computed: {
     upperCaseTitleColor() {
       return this.rgbToHex(this.chosenTitleColor).toUpperCase();
@@ -1026,6 +1053,26 @@ this.chosenLanguage = option
     hexColor() {
       return this.rgbToHex();
     }
+  },
+  watch:{
+    chosenTitleColor(newValue){
+      this.$store.commit('setTitleColor', this.rgbToHex(newValue));
+    },
+    chosenBackgroundColor(newValue){
+      this.$store.commit('setBackgroundColor', this.rgbToHex(newValue));
+      console.log(newValue)
+      console.log(this.$store.getters.backgroundColor)
+
+    },
+itemBackgroundColor(newValue){
+  this.$store.commit('setItemBackgroundColor', this.rgbToHex(newValue));
+},
+itemTextColor(newValue){
+  this.$store.commit('setItemTextColor', this.rgbToHex(newValue));
+},
+tanBarColor(newValue){
+  this.$store.commit('setTanBarColor', this.rgbToHex(newValue));
+},
   },
   components: {
     ColorInput,ExpansionTab
