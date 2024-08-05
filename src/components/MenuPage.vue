@@ -1,7 +1,7 @@
 <template>
     <!-- <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-<div class="">
+<div :class="font">
   <div :class=" {'h-0 pl-[5vw] w-full overflow-hidden':true,
   'mt-0' :!isSticky,}
 " >
@@ -516,7 +516,9 @@ return {
         tanBarColor(){
           return 'background-color:'+ this.$store.getters.tanBarColor ;
         },
-       
+        font(){
+      return this.$store.getters.font;
+    },
   },
   
   methods:{

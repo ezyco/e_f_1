@@ -8,6 +8,7 @@ const store = createStore({
         tanBarColor:'#409D7E',
         itemBackgroundColor:'#FFFFFF',
         itemTextColor:'#181818',
+        font:'saira'
       };
     },
     mutations: {
@@ -26,6 +27,9 @@ const store = createStore({
       setItemTextColor(state, payload) {
         state.itemTextColor = payload;
       },
+      setFont(state,payload){
+        state.font = payload;
+      }
     },
     actions: {
       updateTitleColor({ commit }, newTitleColor) {
@@ -50,6 +54,7 @@ const store = createStore({
         tanBarColor: (state) => state.tanBarColor,
         itemBackgroundColor: (state) => state.itemBackgroundColor,
         itemTextColor: (state) => state.itemTextColor,
+        font:(state)=> state.font,
     }
   });
   

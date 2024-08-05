@@ -782,6 +782,10 @@ export default {
       subHeading:'',
       currencies:["$","T","£","€","no price","₿","AED"],
       fonts:[
+      {
+          fontClass:'saira',
+          title: 'Saira'
+        },
         {
           fontClass:'open-sans',
           title: 'Open Sans'
@@ -874,6 +878,11 @@ fontClass:'dm-sans',
       this.itemTextColor = this.hexToRgb(this.$store.getters.itemTextColor);
       this.tanBarColor = this.hexToRgb(this.$store.getters.tanBarColor);
       this.itemBackgroundColor = this.hexToRgb(this.$store.getters.itemBackgroundColor);
+      for(let a=0;a<this.fonts.length;a++){
+        if(this.fonts[a].fontClass === this.$store.getters.font){
+          this.chosenFont = a;
+        }
+      }
     },
     rgbToHex(rgb) {
       // Regular expression to extract r, g, b values
@@ -931,6 +940,7 @@ this.closeCurrency();
     chooseFont(option){
       this.closeFontTab();
 this.chosenFont = option
+this.$store.commit('setFont',this.fonts[this.chosenFont].fontClass);
     },
     chooseLanguage(option){
       this.closeLanguageTab();
