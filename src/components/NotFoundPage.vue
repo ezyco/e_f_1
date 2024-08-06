@@ -49,7 +49,7 @@
                 <article>
                     <p class="w-[80vw] drop-shadow-lg roboto font-bold">Oops! The page your looking for doesnt exist!</p>
                     <button class="flex justify-center items-center">
-                        <div @click="goToLogin" class="roboto font-black text-[6vw]">Login</div>
+                        <div @click="goToLogin" class="roboto font-black text-[6vw]">Support</div>
                     </button>
                 </article>
             </div>
@@ -64,7 +64,7 @@ export default{
     name :'NotFound',
     methods:{
         goToLogin(){
-            this.$router.push('/login')
+                      window.location.href = "https://t.me/Ezymnu"
         }
     }
 }
