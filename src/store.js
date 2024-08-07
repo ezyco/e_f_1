@@ -8,7 +8,12 @@ const store = createStore({
         tanBarColor:'#409D7E',
         itemBackgroundColor:'#FFFFFF',
         itemTextColor:'#181818',
-        font:'saira'
+        font:'saira',
+        instagram:'https://www.instagram.com/ezy.connect?igsh=NTl3cG9oZzVwbjVz',
+        website:'https://ezy.company/cv.menu',
+        location:'https://www.google.com/maps',
+        phoneNumber:'+989354886180',
+        chosenCurrency:0,
       };
     },
     mutations: {
@@ -29,6 +34,21 @@ const store = createStore({
       },
       setFont(state,payload){
         state.font = payload;
+      },
+      setInstagram(state,payload){
+        state.instagram = payload;
+      },
+      setWebsite(state,payload){
+        state.website = payload;
+      },
+      setLocation(state,payload){
+state.location = payload;
+      },
+      setPhoneNumber(state,payload){
+        state.phoneNumber = payload;
+      },
+      setCurrency(state,payload){
+        state.chosenCurrency = payload;
       }
     },
     actions: {
@@ -55,6 +75,11 @@ const store = createStore({
         itemBackgroundColor: (state) => state.itemBackgroundColor,
         itemTextColor: (state) => state.itemTextColor,
         font:(state)=> state.font,
+        instagram:(state)=>state.instagram,
+        website:(state)=> state.website,
+        location:(state)=> state.location,
+        phoneNumber:(state)=> state.phoneNumber,
+        chosenCurrency:(state)=> state.chosenCurrency,
     }
   });
   

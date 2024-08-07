@@ -635,7 +635,7 @@
 </svg>
 
     </div>
-    <input type="text" class="w-[65vw] p-[4vw] h-[13vw] drop-shadow-lg focus:border-2 border-0 border-[#1B7B4A] bg-white rounded-[2vw] outline-none">
+    <input v-model="website" type="text" class="w-[65vw] p-[4vw] h-[13vw] drop-shadow-lg focus:border-2 border-0 border-[#1B7B4A] bg-white rounded-[2vw] outline-none">
     <div class="w-[13vw] h-[13vw] flex justify-center items-center">
       <svg class="hidden" width="5.8vw" height="5.8vw" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M11.5028 23C8.42783 23 5.53503 21.7931 3.37113 19.6297C1.20723 17.4663 0 14.5743 0 11.5C0 8.42574 1.20723 5.53366 3.37113 3.3703C5.53503 1.20693 8.42783 0 11.5028 0C14.5779 0 17.4707 1.20693 19.6346 3.3703C24.1218 7.85644 24.1218 15.1436 19.6346 19.6297C17.4707 21.7931 14.5779 23 11.5028 23ZM11.5028 1.36634C8.79228 1.36634 6.24115 2.41386 4.3278 4.32673C2.41446 6.2396 1.36667 8.7901 1.36667 11.5C1.36667 14.2099 2.41446 16.7604 4.3278 18.6733C6.24115 20.5861 8.79228 21.6337 11.5028 21.6337C14.2134 21.6337 16.7645 20.5861 18.6779 18.6733C22.6412 14.7109 22.6412 8.28911 18.6779 4.32673C16.7645 2.41386 14.2134 1.36634 11.5028 1.36634Z" fill="#D10000"/>
@@ -655,7 +655,7 @@
 
 
     </div>
-    <input type="text" class="w-[65vw] p-[4vw]  h-[13vw] drop-shadow-lg focus:border-2 border-0 border-[#1B7B4A] bg-white rounded-[2vw] outline-none">
+    <input v-model="instagram" type="text" class="w-[65vw] p-[4vw]  h-[13vw] drop-shadow-lg focus:border-2 border-0 border-[#1B7B4A] bg-white rounded-[2vw] outline-none">
     <div class="w-[13vw] h-[13vw] flex justify-center items-center">
       <svg class="hidden" width="5.8vw" height="5.8vw" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M11.5028 23C8.42783 23 5.53503 21.7931 3.37113 19.6297C1.20723 17.4663 0 14.5743 0 11.5C0 8.42574 1.20723 5.53366 3.37113 3.3703C5.53503 1.20693 8.42783 0 11.5028 0C14.5779 0 17.4707 1.20693 19.6346 3.3703C24.1218 7.85644 24.1218 15.1436 19.6346 19.6297C17.4707 21.7931 14.5779 23 11.5028 23ZM11.5028 1.36634C8.79228 1.36634 6.24115 2.41386 4.3278 4.32673C2.41446 6.2396 1.36667 8.7901 1.36667 11.5C1.36667 14.2099 2.41446 16.7604 4.3278 18.6733C6.24115 20.5861 8.79228 21.6337 11.5028 21.6337C14.2134 21.6337 16.7645 20.5861 18.6779 18.6733C22.6412 14.7109 22.6412 8.28911 18.6779 4.32673C16.7645 2.41386 14.2134 1.36634 11.5028 1.36634Z" fill="#D10000"/>
@@ -680,7 +680,7 @@
 
 
     </div>
-    <input type="text" class="w-[65vw] p-[4vw]  h-[13vw] drop-shadow-lg focus:border-2 border-0 border-[#1B7B4A] bg-white rounded-[2vw] outline-none">
+    <input v-model="location" type="text" class="w-[65vw] p-[4vw]  h-[13vw] drop-shadow-lg focus:border-2 border-0 border-[#1B7B4A] bg-white rounded-[2vw] outline-none">
     <div class="w-[13vw] h-[13vw] flex justify-center items-center">
       <svg class="hidden"  width="5.8vw" height="5.8vw" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M11.5028 23C8.42783 23 5.53503 21.7931 3.37113 19.6297C1.20723 17.4663 0 14.5743 0 11.5C0 8.42574 1.20723 5.53366 3.37113 3.3703C5.53503 1.20693 8.42783 0 11.5028 0C14.5779 0 17.4707 1.20693 19.6346 3.3703C24.1218 7.85644 24.1218 15.1436 19.6346 19.6297C17.4707 21.7931 14.5779 23 11.5028 23ZM11.5028 1.36634C8.79228 1.36634 6.24115 2.41386 4.3278 4.32673C2.41446 6.2396 1.36667 8.7901 1.36667 11.5C1.36667 14.2099 2.41446 16.7604 4.3278 18.6733C6.24115 20.5861 8.79228 21.6337 11.5028 21.6337C14.2134 21.6337 16.7645 20.5861 18.6779 18.6733C22.6412 14.7109 22.6412 8.28911 18.6779 4.32673C16.7645 2.41386 14.2134 1.36634 11.5028 1.36634Z" fill="#D10000"/>
@@ -699,7 +699,7 @@
 
 
     </div>
-    <input type="text" class="w-[65vw] p-[4vw]  h-[13vw] drop-shadow-lg focus:border-2 border-0 border-[#1B7B4A] bg-white rounded-[2vw] outline-none">
+    <input v-model="phoneNumber" type="text" class="w-[65vw] p-[4vw]  h-[13vw] drop-shadow-lg focus:border-2 border-0 border-[#1B7B4A] bg-white rounded-[2vw] outline-none">
     <div class="w-[13vw] h-[13vw] flex justify-center items-center">
       <svg class="hidden" width="5.8vw" height="5.8vw" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M11.5028 23C8.42783 23 5.53503 21.7931 3.37113 19.6297C1.20723 17.4663 0 14.5743 0 11.5C0 8.42574 1.20723 5.53366 3.37113 3.3703C5.53503 1.20693 8.42783 0 11.5028 0C14.5779 0 17.4707 1.20693 19.6346 3.3703C24.1218 7.85644 24.1218 15.1436 19.6346 19.6297C17.4707 21.7931 14.5779 23 11.5028 23ZM11.5028 1.36634C8.79228 1.36634 6.24115 2.41386 4.3278 4.32673C2.41446 6.2396 1.36667 8.7901 1.36667 11.5C1.36667 14.2099 2.41446 16.7604 4.3278 18.6733C6.24115 20.5861 8.79228 21.6337 11.5028 21.6337C14.2134 21.6337 16.7645 20.5861 18.6779 18.6733C22.6412 14.7109 22.6412 8.28911 18.6779 4.32673C16.7645 2.41386 14.2134 1.36634 11.5028 1.36634Z" fill="#D10000"/>
@@ -780,6 +780,10 @@ export default {
       chosenLanguage:0,
       title:'',
       subHeading:'',
+      instagram:'',
+      website:'',
+      phoneNumber:'',
+      location:'',
       currencies:["$","T","£","€","no price","₿","AED"],
       fonts:[
       {
@@ -878,6 +882,11 @@ fontClass:'dm-sans',
       this.itemTextColor = this.hexToRgb(this.$store.getters.itemTextColor);
       this.tanBarColor = this.hexToRgb(this.$store.getters.tanBarColor);
       this.itemBackgroundColor = this.hexToRgb(this.$store.getters.itemBackgroundColor);
+      this.chosenCurrency = this.$store.getters.chosenCurrency;
+      this.instagram = this.$store.getters.instagram;
+      this.website = this.$store.getters.website;
+      this.location = this.$store.getters.location;
+      this.phoneNumber = this.$store.getters.phoneNumber;
       for(let a=0;a<this.fonts.length;a++){
         if(this.fonts[a].fontClass === this.$store.getters.font){
           this.chosenFont = a;
@@ -1065,6 +1074,18 @@ this.chosenLanguage = option
     }
   },
   watch:{
+    phoneNumber(newValue){
+      this.$store.commit('setPhoneNumber', newValue);
+    },
+    instagram(newValue){
+      this.$store.commit('setInstagram', newValue);
+    },
+    website(newValue){
+      this.$store.commit('setWebsite', newValue);
+    },
+    location(newValue){
+      this.$store.commit('setLocation', newValue);
+    },
     chosenTitleColor(newValue){
       this.$store.commit('setTitleColor', this.rgbToHex(newValue));
     },
@@ -1072,7 +1093,6 @@ this.chosenLanguage = option
       this.$store.commit('setBackgroundColor', this.rgbToHex(newValue));
       console.log(newValue)
       console.log(this.$store.getters.backgroundColor)
-
     },
 itemBackgroundColor(newValue){
   this.$store.commit('setItemBackgroundColor', this.rgbToHex(newValue));
