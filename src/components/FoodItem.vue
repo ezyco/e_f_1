@@ -4,7 +4,7 @@
         <div class="pl-[3vw] rounded-xl flex justify-between text-[4vw] h-[27.4vw] w-full cursor-pointer" :style="itemBackgroundColor">
             <div class="flex flex-col">
                 <div class="py-[3vw] w-[45.2vw] flex flex-col justify-between" >
-               <div :style="itemTextColor"> {{ foodTitle }}</div>
+               <div :style="itemTextColor" class="h-[12vw]"> {{ foodTitle }}</div>
            <div class="w-full h-[5vw]"></div>
            <div class="flex justify-between items-center">
            <div class="flex items-center space-x-[2vw]">
