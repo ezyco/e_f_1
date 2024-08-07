@@ -67,7 +67,7 @@ export default{
         return this.$store.getters.location;
     },
     phoneNumber(){
-        return 'tel:+' + this.$store.getters.phoneNumber;
+        return 'tel:' + this.$store.getters.phoneNumber;
     },
     website(){
         return this.$store.getters.website;

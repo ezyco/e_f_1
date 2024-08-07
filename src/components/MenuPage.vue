@@ -33,7 +33,7 @@
       />
     </div>
     <div class=" w-full translate-y-[-21vw] py-[2vw]">
-      <div class="text-center mx-auto text-[4vw]" :style="titleColor">{{ cafeName }}</div>
+      <div class="text-center mx-auto text-[4vw]" :style="titleColor">{{ titleText }}</div>
       <div class="m-[5vw] w-full overflow-hidden " >
      
       </div>
@@ -513,6 +513,10 @@ return {
     titleColor(){
       return 'color:' + this.$store.getters.titleColor;
     },
+    titleText(){
+      return this.$store.getters.title;
+    },
+
         tanBarColor(){
           return 'background-color:'+ this.$store.getters.tanBarColor ;
         },

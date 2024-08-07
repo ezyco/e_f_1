@@ -887,6 +887,7 @@ fontClass:'dm-sans',
       this.website = this.$store.getters.website;
       this.location = this.$store.getters.location;
       this.phoneNumber = this.$store.getters.phoneNumber;
+      this.title = this.$store.getters.title;
       for(let a=0;a<this.fonts.length;a++){
         if(this.fonts[a].fontClass === this.$store.getters.font){
           this.chosenFont = a;
@@ -1077,6 +1078,9 @@ this.chosenLanguage = option
   watch:{
     phoneNumber(newValue){
       this.$store.commit('setPhoneNumber', newValue);
+    },
+    title(newValue){
+      this.$store.commit('setTitle', newValue);
     },
     instagram(newValue){
       this.$store.commit('setInstagram', newValue);

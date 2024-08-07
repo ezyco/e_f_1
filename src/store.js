@@ -14,6 +14,7 @@ const store = createStore({
         location:'https://www.google.com/maps',
         phoneNumber:'+989354886180',
         chosenCurrency:0,
+        title:'Top time cafe',
       };
     },
     mutations: {
@@ -49,6 +50,9 @@ state.location = payload;
       },
       setCurrency(state,payload){
         state.chosenCurrency = payload;
+      },
+      setTitle(state,payload){
+        state.title = payload;
       }
     },
     actions: {
@@ -80,6 +84,7 @@ state.location = payload;
         location:(state)=> state.location,
         phoneNumber:(state)=> state.phoneNumber,
         chosenCurrency:(state)=> state.chosenCurrency,
+        title:(state)=> state.title,
     }
   });
   
