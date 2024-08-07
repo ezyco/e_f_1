@@ -33,7 +33,7 @@
       />
     </div>
     <div class=" w-full translate-y-[-21vw] py-[2vw]">
-      <div class="text-center mx-auto text-[4vw]" :style="titleColor">{{ titleText }}</div>
+      <div class="text-center mx-auto text-[4vw] h-[6vw]" :style="titleColor">{{ titleText }}</div>
       <div class="m-[5vw] w-full overflow-hidden " >
      
       </div>
