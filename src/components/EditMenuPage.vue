@@ -267,7 +267,7 @@
                   <ColorInput disable-text-inputs disable-alpha position="left top" v-model="itemTextColor" />
                 </div>
                <div class=" w-[36.9vw] space-x-[2vw] flex justify-start">
-                <div @click="toggleItemSuggestion(element.id)" :class="{' w-[10vw]  h-[6vw] rounded-full flex px-[0.5vw] items-center transition-all duration-200':true,'bg-[#34C759]':element.isSuggested,'bg-[#9c9c9c]':!element.isSuggested}">
+                <div @click="toggleItemSuggestion(index)" :class="{' w-[10vw]  h-[6vw] rounded-full flex px-[0.5vw] items-center transition-all duration-200':true,'bg-[#34C759]':element.isSuggested,'bg-[#9c9c9c]':!element.isSuggested}">
                     <div :class="{'w-[5.1vw] h-[5.1vw] bg-white rounded-full relative transition-all duration-200':true, 'left-[0%]' : !element.isSuggested ,'left-[42.9%]':element.isSuggested}"></div>
                   </div>
                   <div>Suggested</div>
@@ -909,7 +909,7 @@ export default {
         if(this.categories.length>0){
           let blankItem = {
 
-id: this.itemSeperated[this.focusedCategory][this.itemSeperated[this.focusedCategory].length - 1].id + 1,
+id: this.items[this.items.length -1].id + 1,
 title: '',
 isVisible: true,
 price: '',
@@ -1009,9 +1009,9 @@ this.itemSeperated[this.focusedCategory].push(blankItem);
       }
     },
     toggleItemSuggestion(index){
-      for (let a = 0; a < this.items.length; a++) {
+      for (let a = 0; a < this.itemSeperated[this.focusedCategory].length; a++) {
         if (a == index) {
-          this.items[a].isSuggested = !this.items[a].isSuggested;
+          this.itemSeperated[this.focusedCategory][a].isSuggested = !this.itemSeperated[this.focusedCategory][a].isSuggested;
         }
       }
     }
