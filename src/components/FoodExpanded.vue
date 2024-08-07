@@ -114,7 +114,10 @@
             Suggested
           </div>
         </div> 
+       <div class="flex items-center space-x-[2vw]">
         <div :style="itemTextColor">{{ foodPrice }}</div>
+        <div>  {{ currencies[chosenCurrency] }}</div>
+       </div>
         
         </div>
       </div>
@@ -131,6 +134,7 @@ export default {
       focusedImage: 0,
       loaded:[],
       mainImg:[],
+      currencies:["$","T","£","€","no price","₿","AED"],
     };
   },
   props: {
@@ -200,7 +204,10 @@ export default {
         },
         closeFill(){
           return this.$store.getters.tanBarColor;
-        }
+        },
+        chosenCurrency(){
+            return this.$store.getters.chosenCurrency
+        },
   }
 };
 </script>

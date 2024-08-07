@@ -944,6 +944,7 @@ fontClass:'dm-sans',
     },
     chooseCurrency(option){
 this.chosenCurrency = option;
+this.$store.commit('setCurrency', option);
 this.closeCurrency();
     },
     chooseFont(option){
