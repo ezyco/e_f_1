@@ -839,6 +839,7 @@ export default {
       popupText:'',
       indexForDeletion:0,
       itemToDeleteType:'',
+      loadedImages:[],
     }
   },
   mounted(){
@@ -855,6 +856,7 @@ export default {
   },
     seperateArrays(){
       let newArray = [];
+      let newLoadingArray=[];
       for(let a =0; a<this.categories.length;a++){
         newArray = [];
         for(let i=0; i<this.items.length;i++){
@@ -866,6 +868,24 @@ export default {
           }
         }
       }
+      for(let a=0; a<this.items.length; a++){
+        let loadingArray= [];
+        for(let i=0; i<this.items[a].imagesUrl.length; i++){
+             loadingArray.push(false);
+        }
+       newLoadingArray.push({
+        id: this.items[a].id,
+        loading: loadingArray
+       })
+      }
+        this.loadedImages = newLoadingArray;
+    },
+    onImageLoad(id,index){
+     for(let a=0; a<this.loadedImages.length; a++){
+           if(this.loadedImages[a].id == id){
+              this.loadedImages[a].loading[index] = true;
+           }
+     }
     },
     reOrganizeArrays(){
       this.drag = false;
