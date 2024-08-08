@@ -410,7 +410,7 @@ export default {
       showSocialsTab: false,
       isSocialsExpanded: false,
       closeExpansionTabTime: 300,
-      closePopupTime:300,
+      closePopupTime:400,
       focusedCategory: 0,
       focusedItem: -1,
       isSwitchingCategory:false,
@@ -891,10 +891,10 @@ export default {
   methods: {
     deleteItem(index){
       if(index === this.focusedItem){
-        this.focusedItem =-1;
           this.itemSeperated[this.focusedCategory].splice(index,1);
           this.closePopup();
-    }
+          this.focusedItem =-1;
+        }
   },
     seperateArrays(){
       let newArray = [];

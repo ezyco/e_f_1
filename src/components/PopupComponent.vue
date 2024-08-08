@@ -57,8 +57,6 @@ export default{
         },
         closeTab() {
         this.$emit(this.closeEventName);
-        // console.log(this.imageUrl[0]);
-        setTimeout(() => {}, this.closeTime);
       },
       deleteItem(){
         this.$emit("delete-item",this.index);
@@ -90,14 +88,14 @@ export default{
   }
   .bg-show {
     animation-name: show-bg;
-    animation-duration: 300ms;
+    animation-duration: 400ms;
     animation-fill-mode: forwards;
     animation-direction: forwards;
     animation-timing-function: ease-in-out;
   }
   .bg-hide {
     animation-name: hide-bg;
-    animation-duration: 300ms;
+    animation-duration: 400ms;
     animation-fill-mode: forwards;
     animation-direction: forwards;
     animation-timing-function: ease-in-out;
@@ -105,14 +103,14 @@ export default{
 
   .popup-open {
     animation-name: open-animation;
-    animation-duration: 300ms;
+    animation-duration: 400ms;
     animation-fill-mode: forwards;
     animation-direction: forwards;
     animation-timing-function: ease-in-out;
   }
   .popup-close {
     animation-name: close-animation;
-    animation-duration: 300ms;
+    animation-duration: 400ms;
     animation-fill-mode: forwards;
     animation-direction: forwards;
     animation-timing-function: ease-in-out;
