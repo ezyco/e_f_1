@@ -3,6 +3,11 @@ import MenuPage from '@/components/MenuPage.vue';
 import NotFoundPage from '@/components/NotFoundPage.vue'
 const routes = [
   {
+    path: '/',
+    name:'Not Found',
+    component: NotFoundPage,
+  },
+  {
     path: '/menu/toptime',
     name: 'MenuPage',
     component: MenuPage

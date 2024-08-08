@@ -80,8 +80,8 @@ return {
       price :'15 AED',
       isSuggested: false,
       imagesUrl:[
-  'https://s3-alpha-sig.figma.com/img/bcef/91ad/5e6f8169fad6d98fb1b82c7c9e83b901?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ccGdH76QvAezxzGw~m4JpTNj0R83Q4wf2gY7nFhBf1rHEG4L3ryfAUlh4NtEy4HtDZg8FQy32C9~uuyPQ-zGrvpmNNT3jbVec02G2DYdeW~IcU3axLM5aNs~CaAorLLbCt~7tnaw9bZqcgTE5GTJUcS6AYdedCLqHMMmiPcGiksPEH3yKTlU8vnfHNE0sw1jRFX3Vmc2Xm0KNbrl9q064BdZ4z3-TJQNqXJjRppvEBImgttakmfL~mYljAwK5r-mgzcrfGppyhhpVG~WuMjlGiQB6hiWx2i6oMNM1ALCyKRt~GAUYiYorAFBmbzA5y-8HvJvsTalKerrn--euTC5AQ__'
-],
+'https://s3-alpha-sig.figma.com/img/bcef/91ad/5e6f8169fad6d98fb1b82c7c9e83b901?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ccGdH76QvAezxzGw~m4JpTNj0R83Q4wf2gY7nFhBf1rHEG4L3ryfAUlh4NtEy4HtDZg8FQy32C9~uuyPQ-zGrvpmNNT3jbVec02G2DYdeW~IcU3axLM5aNs~CaAorLLbCt~7tnaw9bZqcgTE5GTJUcS6AYdedCLqHMMmiPcGiksPEH3yKTlU8vnfHNE0sw1jRFX3Vmc2Xm0KNbrl9q064BdZ4z3-TJQNqXJjRppvEBImgttakmfL~mYljAwK5r-mgzcrfGppyhhpVG~WuMjlGiQB6hiWx2i6oMNM1ALCyKRt~GAUYiYorAFBmbzA5y-8HvJvsTalKerrn--euTC5AQ__'
+    ],
       category:'khalta special blue yogurt',
       description:'',
     },
@@ -90,19 +90,19 @@ return {
       price :'15 AED',
       isSuggested: false,
       imagesUrl:[
-       'https://s3-alpha-sig.figma.com/img/668c/0c2c/76984a25241f76c6c0d9a8aaae06dd53?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=j-sWX5mXqNON9SDS0~vGIyeF0grOCm47d0vpmUNXVLRMXiQpyLl9oYDEhYuiVRX5JvmR5Fb3F7kEO8A9iDJ-0RvzyJb1UyGigXttMdwwnRHlFYlYlYhLDUFDvvHQXeA0krrrYKsaIifHNnpNVIhlVLKNnRB93jfScnRc44FFm6Oy7kl4uMgELE-dazDXKcFjpuvOOr0CB5Hd81PE8qxATl6y0FwwrYwbLxn3odt4HH81Cp-aoJuQAAHqrqL8EDFGf-w6~fHjnGTydB~XXRIkTftIWIuOZGAqmUdqn5zgnlvCMw2eR5ad5kSnQ2XY3ZLg5FqOIK5ReYpShQJDnmi17A__'
-          
+'https://s3-alpha-sig.figma.com/img/668c/0c2c/76984a25241f76c6c0d9a8aaae06dd53?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=j-sWX5mXqNON9SDS0~vGIyeF0grOCm47d0vpmUNXVLRMXiQpyLl9oYDEhYuiVRX5JvmR5Fb3F7kEO8A9iDJ-0RvzyJb1UyGigXttMdwwnRHlFYlYlYhLDUFDvvHQXeA0krrrYKsaIifHNnpNVIhlVLKNnRB93jfScnRc44FFm6Oy7kl4uMgELE-dazDXKcFjpuvOOr0CB5Hd81PE8qxATl6y0FwwrYwbLxn3odt4HH81Cp-aoJuQAAHqrqL8EDFGf-w6~fHjnGTydB~XXRIkTftIWIuOZGAqmUdqn5zgnlvCMw2eR5ad5kSnQ2XY3ZLg5FqOIK5ReYpShQJDnmi17A__'
+      
       ],
              category:'khalta special blue yogurt',
       description:'',
     },
     {
       title:'Khalta red taxis with special blue yogurt',
-      price :'15 AED',
+      price :'25 AED',
       isSuggested: false,
       imagesUrl:[
-        'https://s3-alpha-sig.figma.com/img/a77b/8256/79eb601f20b29aab0bc30318c4c765b6?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YRTu5bSDHDQWgB9hskHAYoypcOnU7TmXBYntr0ZORAq8NtCaar0C~mrZiYToZuxv9RrwIWAP5giUDWJcft6t-NpCqbklx0Ref67knQGGyCMDSu9GtlTcU2nN-3NySjh0SOCJovkZs0iz1gXBxwWkWGKRGdxbTcHaA5gUU86L2mpAr26iivp47n1U-gKAMoiYBvMZ~vZhA~8g1mMegPmojIZHeF3BM~BPSi2HWzzb0GabtjV1Ic-RsMUSx0tfY2n628eKoGCgVw1OEjNB9mNVggFQNx8FjU~jivLGgTLQJjnpmh9WcJQZWJ7yrNOtvJMArLR3QzYPgkTXyy-YmfFWvg__'
-     ],
+'https://s3-alpha-sig.figma.com/img/a77b/8256/79eb601f20b29aab0bc30318c4c765b6?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=au~KxTTApbIj7B~mdrOQTo6fg3Q0lW-E2WW34E5X4PQMrU-80Sa1sqh-H-Uw3mc-GbsDnH12qHM86GOUEylMOUMK3SEAoRJXTj9DvpbQQFXmNyH9WsKceEprelTXxqJhk1dhVDsnFZyCizzGi8Wvs-KvX3ANntnXNXnQMPrhPDC2DbFpj~-7LsxMv-l5xAVk70RRuCmTKXUV51r0sY31imBYFwwpJbSVMmlC7r4agOJ4bR4~9Yj~ohdOxiLl9klG~LS-YxvXzNoeKS1Mj6qNqP6q0LRYUwXw~tbQAesiVA6HrtgH9qxJCDODH06iMoUQJbR7Zgl2et3jcAT7JBsqLQ__'
+    ],
      category:'khalta special blue yogurt',
       description:'',
     },
@@ -225,7 +225,29 @@ description:''
             category:'snacks',
             description:''
           },
-    {
+          {
+      title:'Chiken andomi',
+      price :'30 AED',
+      isSuggested: false,
+      imagesUrl:[
+'https://s3-alpha-sig.figma.com/img/367e/a390/1ed3aff2e3ea3315180b9c76fb375884?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qvqgP1YZ40SpqjaUemDL-qJ~Ge3rECIs4n3qL6elsqkTkuu-fLmNfFJ28tlqyfVZLmUQkY9wPRrv9FpdECdQE0GUfDYCh2juPUnV6NyMAiS5~jbHjDackH74~Jneu2YQAD-sn7USqcqlfCx5w7B-7Qvwtbzhmr7xuLj8FIb3dXJrRJJAvCYCWy1jN5Qnq3XPDPRrws98wijxje4RKq-lcc-f~g5EmkiioLheRKrS3G-~9nhgMUEwWzQoXlDFBVYBozQbzjY4Y0cx9EyO3YIITqqyOD9~HhYMly3EvEL1R1hc4VtBNu9T2Msg7JAv197-lszUEcs~NYVQ7pZoSme-Eg__'
+      
+    ],
+            category:'snacks',
+            description:''
+          },
+          {
+      title:'Chiken andomi small size',
+      price :'15 AED',
+      isSuggested: false,
+      imagesUrl:[
+'https://s3-alpha-sig.figma.com/img/367e/a390/1ed3aff2e3ea3315180b9c76fb375884?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qvqgP1YZ40SpqjaUemDL-qJ~Ge3rECIs4n3qL6elsqkTkuu-fLmNfFJ28tlqyfVZLmUQkY9wPRrv9FpdECdQE0GUfDYCh2juPUnV6NyMAiS5~jbHjDackH74~Jneu2YQAD-sn7USqcqlfCx5w7B-7Qvwtbzhmr7xuLj8FIb3dXJrRJJAvCYCWy1jN5Qnq3XPDPRrws98wijxje4RKq-lcc-f~g5EmkiioLheRKrS3G-~9nhgMUEwWzQoXlDFBVYBozQbzjY4Y0cx9EyO3YIITqqyOD9~HhYMly3EvEL1R1hc4VtBNu9T2Msg7JAv197-lszUEcs~NYVQ7pZoSme-Eg__'
+      
+    ],
+            category:'snacks',
+            description:''
+          },
+          {
       title:'Black korean noodles',
       price :'25 AED',
       isSuggested: false,
@@ -275,7 +297,7 @@ description:''
             description:''
           },
     {
-      title:'Sweet corn  with blue yogurt  and oman chips',
+      title:'Sweet corn  with blue yogurt and oman chips',
       price :'35 AED',
       isSuggested: false,
       imagesUrl:[
@@ -305,7 +327,7 @@ description:''
             description:''
           },
     {
-      title:'Trend Fatta waraq anab  with oman chips',
+      title:'Trend Fatta waraq anab with oman chips',
       price :'35 AED',
       isSuggested: false,
       imagesUrl:[
@@ -363,7 +385,7 @@ description:''
       description:''
     },
     {
-      title:'Sweet corn  with blue yogurt  and oman chips',
+      title:'Sweet corn with blue yogurt and oman chips',
       price :'35 AED',
       isSuggested: false,
       imagesUrl:[
@@ -433,7 +455,7 @@ description:''
       description:''
     },
     {
-      title:'Sour skittles amriki have salt',
+      title:'Sour skittles amriki with salt',
       price :'12 AED',
       isSuggested: false,
       imagesUrl:[
@@ -543,7 +565,17 @@ description:''
       description:''
     },
     {
-      title:'Special  blue mojito',
+      title:'Redbull with special red syrup',
+      price :'25 AED',
+      isSuggested: false,
+      imagesUrl:[
+'https://s3-alpha-sig.figma.com/img/38b6/d2bf/2d9f7ded0fa4df5ca5e0ec6d4528d924?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AMxCOTI8W80xHH4rMN2BELhxAyi-RqtvAeo1nQmXCU4t0ftbo-O7AH7p3s2cNfVK7PE23fq3qI8Qv9beV~eJZSuHBVWPoiOY4AH8Z22fJPSphnB4WzjDMnrnWTQIlJlRUBy1jHkL-kRFe8es7GPqdtJ5znhr8J59i87SLSF6SCRqvUhO2sJ28sztqFpqllNnMeQ00rbe~4W-67LgRpPDnnt2xIGiyY7lA-pcq756BhPhjPziHOh7q3-OedTW0506DFiRBic0d~aEFKxJzHY7V4HWXnEL1ct8jVdWHgn2gyUG0~CUA49Spdw9b4QtvuJN6ko0Yeh3lId7I6xaBddDXg__'
+    ],
+      category:'drinks',
+      description:''
+    },
+    {
+      title:'Special blue mojito',
       price :'25 AED',
       isSuggested: false,
       imagesUrl:[
@@ -553,7 +585,7 @@ description:''
       description:''
     },
     {
-      title:'Specila red mojito',
+      title:'Special red mojito',
       price :'25 AED',
       isSuggested: false,
       imagesUrl:[
@@ -563,7 +595,7 @@ description:''
       description:''
     },
     {
-      title:'Black magic  toptime syrup asli',
+      title:'Black magic toptime syrup asli',
       price :'30 AED',
       isSuggested: false,
       imagesUrl:[
