@@ -148,15 +148,23 @@
                       </svg>
 
                     </div>
-                    <div :style="`background-image: url(${element.imagesUrl[0]})`" v-else class="w-full rounded-[2vw] h-full flex justify-end p-[2vw] bg-center bg-cover bg-no-repeat" >
-                             <div @click="removeImage(element.id,0)" class="w-[4.1vw] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
+                    <div  v-else class="w-full rounded-[2vw] h-full relative flex justify-end  bg-center bg-cover bg-no-repeat" >
+                     <div v-show="isImageLoaded(element.id,0)==='loaded'" class="relative">
+                      <img @error="onImageError(element.id,0)" @load="onImageLoad(element.id,0)" :src="element.imagesUrl[0]" :class="{'block rounded-[2vw] object-cover w-full h-full transition-all duration-400':true,'hide-img':isImageLoaded(element.id,0)==='loading','show-img':isImageLoaded(element.id,0)==='loaded'}">
+                             <div @click="removeImage(element.id,0)" class="w-[4.1vw] absolute top-[5%] translate-x-[-95%] translate-y-[-5%] left-[95%] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
                               <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8.00198 16C5.86284 16 3.85046 15.1604 2.34513 13.6554C0.839812 12.1505 0 10.1386 0 8C0 5.86139 0.839812 3.8495 2.34513 2.34455C3.85046 0.839604 5.86284 0 8.00198 0C10.1411 0 12.1535 0.839604 13.6588 2.34455C16.7804 5.46535 16.7804 10.5347 13.6588 13.6554C12.1535 15.1604 10.1411 16 8.00198 16ZM8.00198 0.950495C6.11636 0.950495 4.34167 1.67921 3.01065 3.0099C1.67962 4.34059 0.95073 6.11485 0.95073 8C0.95073 9.88515 1.67962 11.6594 3.01065 12.9901C4.34167 14.3208 6.11636 15.0495 8.00198 15.0495C9.8876 15.0495 11.6623 14.3208 12.9933 12.9901C15.7504 10.2337 15.7504 5.76634 12.9933 3.0099C11.6623 1.67921 9.8876 0.950495 8.00198 0.950495Z" fill="#D10000"/>
 <path d="M11.8256 5.12568L4.79868 11.5158L4.17993 10.9531L11.2068 4.56299L11.8256 5.12568Z" fill="#FFFFFF"/>
 <path d="M4.40601 5.32858L5.03101 4.77441L11.8279 10.9555L11.2029 11.5239L4.40601 5.32858Z" fill="#FFFFFF"/>
 </svg>
-
                              </div>
+                     </div>
+                     <div v-show="isImageLoaded(element.id,0)==='loading'" class="w-full h-full rounded-[2vw] bg-[#c1ebff79] flex justify-center items-center">
+                      <LoadingSpinner/>
+                     </div>
+                     <div v-show="isImageLoaded(element.id,0)==='error'" class="w-full h-full rounded-[2vw] bg-[#c1ebff79] flex justify-center items-center">
+                      <svg class="svg-icon" fill="none" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M0 0m42.666667 0l938.666666 0q42.666667 0 42.666667 42.666667l0 938.666666q0 42.666667-42.666667 42.666667l-938.666666 0q-42.666667 0-42.666667-42.666667l0-938.666666q0-42.666667 42.666667-42.666667Z" fill="none" /><path d="M795.136 320.256a29.226667 29.226667 0 0 0-20.437333-9.386667l-222.378667-8.746666-16.853333 37.12 23.168 69.888-41.856 79.488 17.066666 64 42.24 54.954666 61.184-56.576a14.72 14.72 0 0 1 20.736 0.853334l78.72 85.162666a14.848 14.848 0 0 1 2.56 16.128 14.762667 14.762667 0 0 1-13.909333 8.533334l-215.68-8.448-10.752 30.890666 11.648 27.904 247.978667 9.6a29.354667 29.354667 0 0 0 30.464-28.245333L802.858667 341.333333a29.013333 29.013333 0 0 0-7.722667-21.077333z m-159.36 161.408a44.074667 44.074667 0 1 1 3.456-88.021333 44.074667 44.074667 0 0 1-3.456 88.021333z m-159.872 202.965333l7.466667-32.426666-175.146667 12.074666a14.677333 14.677333 0 0 1-12.117333-24.32l129.792-149.034666a14.677333 14.677333 0 0 1 21.632-0.512l43.434666 45.312-18.688-48.298667 32.938667-83.370667-30.378667-66.730666 12.672-38.656-238.848 16.469333a29.312 29.312 0 0 0-27.221333 31.36l24.234667 351.573333a29.013333 29.013333 0 0 0 9.941333 20.053334c5.888 5.077333 13.568 7.68 21.333333 7.168l213.248-14.72-14.293333-25.941334z" class="fill-[#30617756]" /></svg>
+                     </div>
                     </div>
 
                   </div>
@@ -174,8 +182,10 @@
 
                       </div>
                     </div>
-                    <div :style="`background-image: url(${element.imagesUrl[1]})`" v-else class="w-full rounded-[2vw] h-full flex justify-end p-[1vw] bg-center bg-cover bg-no-repeat" >
-                             <div @click="removeImage(element.id,1)" class="w-[4.1vw] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
+                    <div v-else class="w-full rounded-[2vw] h-full flex justify-end  bg-center bg-cover bg-no-repeat" >
+                     <div v-show="isImageLoaded(element.id,1)==='loaded'" class="relative">
+                      <img @load="onImageLoad(element.id,1)" @error="onImageError(element.id,1)" :src="element.imagesUrl[1]" :class="{'object-cover w-full h-full rounded-[2vw]':true,'hide-img':isImageLoaded(element.id,1)==='loading','show-img': isImageLoaded(element.id,1)==='loaded'}">
+                             <div @click="removeImage(element.id,1)" class="w-[4.1vw] absolute top-[5%] translate-x-[-95%] translate-y-[-5%] left-[95%] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
                               <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8.00198 16C5.86284 16 3.85046 15.1604 2.34513 13.6554C0.839812 12.1505 0 10.1386 0 8C0 5.86139 0.839812 3.8495 2.34513 2.34455C3.85046 0.839604 5.86284 0 8.00198 0C10.1411 0 12.1535 0.839604 13.6588 2.34455C16.7804 5.46535 16.7804 10.5347 13.6588 13.6554C12.1535 15.1604 10.1411 16 8.00198 16ZM8.00198 0.950495C6.11636 0.950495 4.34167 1.67921 3.01065 3.0099C1.67962 4.34059 0.95073 6.11485 0.95073 8C0.95073 9.88515 1.67962 11.6594 3.01065 12.9901C4.34167 14.3208 6.11636 15.0495 8.00198 15.0495C9.8876 15.0495 11.6623 14.3208 12.9933 12.9901C15.7504 10.2337 15.7504 5.76634 12.9933 3.0099C11.6623 1.67921 9.8876 0.950495 8.00198 0.950495Z" fill="#D10000"/>
 <path d="M11.8256 5.12568L4.79868 11.5158L4.17993 10.9531L11.2068 4.56299L11.8256 5.12568Z" fill="#FFFFFF"/>
@@ -183,6 +193,13 @@
 </svg>
 
                              </div>
+                     </div>
+                     <div v-show="isImageLoaded(element.id,1)==='loading'" class="w-full h-full rounded-[2vw] bg-[#c1ebff79] flex justify-center items-center">
+                      <LoadingSpinner class="scale-50"/>
+                     </div>
+                     <div v-show="isImageLoaded(element.id,1)==='error'" class="w-full h-full rounded-[2vw] bg-[#c1ebff79] flex justify-center items-center">
+                      <svg class="svg-icon" fill="none" width="8vw" height="8vw" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M0 0m42.666667 0l938.666666 0q42.666667 0 42.666667 42.666667l0 938.666666q0 42.666667-42.666667 42.666667l-938.666666 0q-42.666667 0-42.666667-42.666667l0-938.666666q0-42.666667 42.666667-42.666667Z" fill="none" /><path d="M795.136 320.256a29.226667 29.226667 0 0 0-20.437333-9.386667l-222.378667-8.746666-16.853333 37.12 23.168 69.888-41.856 79.488 17.066666 64 42.24 54.954666 61.184-56.576a14.72 14.72 0 0 1 20.736 0.853334l78.72 85.162666a14.848 14.848 0 0 1 2.56 16.128 14.762667 14.762667 0 0 1-13.909333 8.533334l-215.68-8.448-10.752 30.890666 11.648 27.904 247.978667 9.6a29.354667 29.354667 0 0 0 30.464-28.245333L802.858667 341.333333a29.013333 29.013333 0 0 0-7.722667-21.077333z m-159.36 161.408a44.074667 44.074667 0 1 1 3.456-88.021333 44.074667 44.074667 0 0 1-3.456 88.021333z m-159.872 202.965333l7.466667-32.426666-175.146667 12.074666a14.677333 14.677333 0 0 1-12.117333-24.32l129.792-149.034666a14.677333 14.677333 0 0 1 21.632-0.512l43.434666 45.312-18.688-48.298667 32.938667-83.370667-30.378667-66.730666 12.672-38.656-238.848 16.469333a29.312 29.312 0 0 0-27.221333 31.36l24.234667 351.573333a29.013333 29.013333 0 0 0 9.941333 20.053334c5.888 5.077333 13.568 7.68 21.333333 7.168l213.248-14.72-14.293333-25.941334z" class="fill-[#30617756]" /></svg>
+                     </div>
                     </div>
                     </div>
                     <div v-if="element.imagesUrl.length>=2"
@@ -198,8 +215,10 @@
 
                       </div>
                     </div>
-                    <div :style="`background-image: url(${element.imagesUrl[2]})`" v-else class="w-full rounded-[2vw] h-full flex justify-end p-[1vw] bg-center bg-cover bg-no-repeat" >
-                             <div @click="removeImage(element.id,2)" class="w-[4.1vw] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
+                    <div v-else class="w-full rounded-[2vw] h-full flex justify-end  bg-center bg-cover bg-no-repeat" >
+                     <div v-show="isImageLoaded(element.id,2)==='loaded'" class="relative">
+                      <img @load="onImageLoad(element.id,2)" @error="onImageError(element.id,2)" :src="element.imagesUrl[2]" :class="{'object-cover w-full h-full rounded-[2vw]':true,'hide-img':isImageLoaded(element.id,2)==='loading','show-img': isImageLoaded(element.id,2)==='loaded'}">
+                             <div @click="removeImage(element.id,2)" class="w-[4.1vw] absolute top-[5%] translate-x-[-95%] translate-y-[-5%] left-[95%] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
                               <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8.00198 16C5.86284 16 3.85046 15.1604 2.34513 13.6554C0.839812 12.1505 0 10.1386 0 8C0 5.86139 0.839812 3.8495 2.34513 2.34455C3.85046 0.839604 5.86284 0 8.00198 0C10.1411 0 12.1535 0.839604 13.6588 2.34455C16.7804 5.46535 16.7804 10.5347 13.6588 13.6554C12.1535 15.1604 10.1411 16 8.00198 16ZM8.00198 0.950495C6.11636 0.950495 4.34167 1.67921 3.01065 3.0099C1.67962 4.34059 0.95073 6.11485 0.95073 8C0.95073 9.88515 1.67962 11.6594 3.01065 12.9901C4.34167 14.3208 6.11636 15.0495 8.00198 15.0495C9.8876 15.0495 11.6623 14.3208 12.9933 12.9901C15.7504 10.2337 15.7504 5.76634 12.9933 3.0099C11.6623 1.67921 9.8876 0.950495 8.00198 0.950495Z" fill="#D10000"/>
 <path d="M11.8256 5.12568L4.79868 11.5158L4.17993 10.9531L11.2068 4.56299L11.8256 5.12568Z" fill="#FFFFFF"/>
@@ -207,6 +226,13 @@
 </svg>
 
                              </div>
+                     </div>
+                     <div v-show="isImageLoaded(element.id,2)==='loading'" class="w-full h-full rounded-[2vw] bg-[#c1ebff79] flex justify-center items-center">
+                      <LoadingSpinner class="scale-50"/>
+                     </div>
+                     <div v-show="isImageLoaded(element.id,2)==='error'" class="w-full h-full rounded-[2vw] bg-[#c1ebff79] flex justify-center items-center">
+                      <svg class="svg-icon" fill="none" width="8vw" height="8vw" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M0 0m42.666667 0l938.666666 0q42.666667 0 42.666667 42.666667l0 938.666666q0 42.666667-42.666667 42.666667l-938.666666 0q-42.666667 0-42.666667-42.666667l0-938.666666q0-42.666667 42.666667-42.666667Z" fill="none" /><path d="M795.136 320.256a29.226667 29.226667 0 0 0-20.437333-9.386667l-222.378667-8.746666-16.853333 37.12 23.168 69.888-41.856 79.488 17.066666 64 42.24 54.954666 61.184-56.576a14.72 14.72 0 0 1 20.736 0.853334l78.72 85.162666a14.848 14.848 0 0 1 2.56 16.128 14.762667 14.762667 0 0 1-13.909333 8.533334l-215.68-8.448-10.752 30.890666 11.648 27.904 247.978667 9.6a29.354667 29.354667 0 0 0 30.464-28.245333L802.858667 341.333333a29.013333 29.013333 0 0 0-7.722667-21.077333z m-159.36 161.408a44.074667 44.074667 0 1 1 3.456-88.021333 44.074667 44.074667 0 0 1-3.456 88.021333z m-159.872 202.965333l7.466667-32.426666-175.146667 12.074666a14.677333 14.677333 0 0 1-12.117333-24.32l129.792-149.034666a14.677333 14.677333 0 0 1 21.632-0.512l43.434666 45.312-18.688-48.298667 32.938667-83.370667-30.378667-66.730666 12.672-38.656-238.848 16.469333a29.312 29.312 0 0 0-27.221333 31.36l24.234667 351.573333a29.013333 29.013333 0 0 0 9.941333 20.053334c5.888 5.077333 13.568 7.68 21.333333 7.168l213.248-14.72-14.293333-25.941334z" class="fill-[#30617756]" /></svg>
+                     </div>
                     </div>
                     </div>
                     <div v-if="element.imagesUrl.length>=3"
@@ -222,8 +248,10 @@
 
                       </div>
                     </div>
-                    <div :style="`background-image: url(${element.imagesUrl[3]})`" v-else class="w-full rounded-[2vw] h-full flex justify-end p-[1vw] bg-center bg-cover bg-no-repeat" >
-                             <div @click="removeImage(element.id,3)" class="w-[4.1vw] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
+                    <div v-else class="w-full rounded-[2vw] h-full flex justify-end  bg-center bg-cover bg-no-repeat" >
+                     <div v-show="isImageLoaded(element.id,3)==='loaded'" class="relative">
+                      <img @load="onImageLoad(element.id,3)" @error="onImageError(element.id,3)" :src="element.imagesUrl[3]" :class="{'object-cover w-full h-full rounded-[2vw]':true,'hide-img':isImageLoaded(element.id,3)==='loading','show-img': isImageLoaded(element.id,3)==='loaded'}">
+                             <div @click="removeImage(element.id,3)" class="w-[4.1vw] absolute top-[5%] translate-x-[-95%] translate-y-[-5%] left-[95%] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
                               <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8.00198 16C5.86284 16 3.85046 15.1604 2.34513 13.6554C0.839812 12.1505 0 10.1386 0 8C0 5.86139 0.839812 3.8495 2.34513 2.34455C3.85046 0.839604 5.86284 0 8.00198 0C10.1411 0 12.1535 0.839604 13.6588 2.34455C16.7804 5.46535 16.7804 10.5347 13.6588 13.6554C12.1535 15.1604 10.1411 16 8.00198 16ZM8.00198 0.950495C6.11636 0.950495 4.34167 1.67921 3.01065 3.0099C1.67962 4.34059 0.95073 6.11485 0.95073 8C0.95073 9.88515 1.67962 11.6594 3.01065 12.9901C4.34167 14.3208 6.11636 15.0495 8.00198 15.0495C9.8876 15.0495 11.6623 14.3208 12.9933 12.9901C15.7504 10.2337 15.7504 5.76634 12.9933 3.0099C11.6623 1.67921 9.8876 0.950495 8.00198 0.950495Z" fill="#D10000"/>
 <path d="M11.8256 5.12568L4.79868 11.5158L4.17993 10.9531L11.2068 4.56299L11.8256 5.12568Z" fill="#FFFFFF"/>
@@ -231,6 +259,13 @@
 </svg>
 
                              </div>
+                     </div>
+                     <div v-show="isImageLoaded(element.id,3)==='loading'" class="w-full h-full rounded-[2vw] bg-[#c1ebff79] flex justify-center items-center">
+                      <LoadingSpinner class="scale-50"/>
+                     </div>
+                     <div v-show="isImageLoaded(element.id,3)==='error'" class="w-full h-full rounded-[2vw] bg-[#c1ebff79] flex justify-center items-center">
+                      <svg class="svg-icon" fill="none" width="8vw" height="8vw" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M0 0m42.666667 0l938.666666 0q42.666667 0 42.666667 42.666667l0 938.666666q0 42.666667-42.666667 42.666667l-938.666666 0q-42.666667 0-42.666667-42.666667l0-938.666666q0-42.666667 42.666667-42.666667Z" fill="none" /><path d="M795.136 320.256a29.226667 29.226667 0 0 0-20.437333-9.386667l-222.378667-8.746666-16.853333 37.12 23.168 69.888-41.856 79.488 17.066666 64 42.24 54.954666 61.184-56.576a14.72 14.72 0 0 1 20.736 0.853334l78.72 85.162666a14.848 14.848 0 0 1 2.56 16.128 14.762667 14.762667 0 0 1-13.909333 8.533334l-215.68-8.448-10.752 30.890666 11.648 27.904 247.978667 9.6a29.354667 29.354667 0 0 0 30.464-28.245333L802.858667 341.333333a29.013333 29.013333 0 0 0-7.722667-21.077333z m-159.36 161.408a44.074667 44.074667 0 1 1 3.456-88.021333 44.074667 44.074667 0 0 1-3.456 88.021333z m-159.872 202.965333l7.466667-32.426666-175.146667 12.074666a14.677333 14.677333 0 0 1-12.117333-24.32l129.792-149.034666a14.677333 14.677333 0 0 1 21.632-0.512l43.434666 45.312-18.688-48.298667 32.938667-83.370667-30.378667-66.730666 12.672-38.656-238.848 16.469333a29.312 29.312 0 0 0-27.221333 31.36l24.234667 351.573333a29.013333 29.013333 0 0 0 9.941333 20.053334c5.888 5.077333 13.568 7.68 21.333333 7.168l213.248-14.72-14.293333-25.941334z" class="fill-[#30617756]" /></svg>
+                     </div>
                     </div>
                     </div>
                     <div v-if="element.imagesUrl.length>=4"
@@ -246,8 +281,10 @@
 
                       </div>
                     </div>
-                    <div :style="`background-image: url(${element.imagesUrl[4]})`" v-else class="w-full rounded-[2vw] h-full flex justify-end p-[1vw] bg-center bg-cover bg-no-repeat" >
-                             <div @click="removeImage(element.id,4)" class="w-[4.1vw] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
+                    <div v-else class="w-full rounded-[2vw] h-full flex justify-end  bg-center bg-cover bg-no-repeat" >
+                     <div v-show="isImageLoaded(element.id,4)==='loaded'" class="relative">
+                      <img @load="onImageLoad(element.id,4)" @error="onImageError(element.id,4)" :src="element.imagesUrl[4]" :class="{'object-cover w-full h-full rounded-[2vw]':true,'hide-img':isImageLoaded(element.id,4)==='loading','show-img': isImageLoaded(element.id,4)==='loaded'}">
+                             <div @click="removeImage(element.id,4)" class="w-[4.1vw] absolute top-[5%] translate-x-[-95%] translate-y-[-5%] left-[95%] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
                               <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8.00198 16C5.86284 16 3.85046 15.1604 2.34513 13.6554C0.839812 12.1505 0 10.1386 0 8C0 5.86139 0.839812 3.8495 2.34513 2.34455C3.85046 0.839604 5.86284 0 8.00198 0C10.1411 0 12.1535 0.839604 13.6588 2.34455C16.7804 5.46535 16.7804 10.5347 13.6588 13.6554C12.1535 15.1604 10.1411 16 8.00198 16ZM8.00198 0.950495C6.11636 0.950495 4.34167 1.67921 3.01065 3.0099C1.67962 4.34059 0.95073 6.11485 0.95073 8C0.95073 9.88515 1.67962 11.6594 3.01065 12.9901C4.34167 14.3208 6.11636 15.0495 8.00198 15.0495C9.8876 15.0495 11.6623 14.3208 12.9933 12.9901C15.7504 10.2337 15.7504 5.76634 12.9933 3.0099C11.6623 1.67921 9.8876 0.950495 8.00198 0.950495Z" fill="#D10000"/>
 <path d="M11.8256 5.12568L4.79868 11.5158L4.17993 10.9531L11.2068 4.56299L11.8256 5.12568Z" fill="#FFFFFF"/>
@@ -255,6 +292,13 @@
 </svg>
 
                              </div>
+                     </div>
+                     <div v-show="isImageLoaded(element.id,4)==='loading'" class="w-full h-full rounded-[2vw] bg-[#c1ebff79] flex justify-center items-center">
+                      <LoadingSpinner class="scale-50"/>
+                     </div>
+                     <div v-show="isImageLoaded(element.id,4)==='error'" class="w-full h-full rounded-[2vw] bg-[#c1ebff79] flex justify-center items-center">
+                      <svg class="svg-icon" fill="none" width="8vw" height="8vw" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M0 0m42.666667 0l938.666666 0q42.666667 0 42.666667 42.666667l0 938.666666q0 42.666667-42.666667 42.666667l-938.666666 0q-42.666667 0-42.666667-42.666667l0-938.666666q0-42.666667 42.666667-42.666667Z" fill="none" /><path d="M795.136 320.256a29.226667 29.226667 0 0 0-20.437333-9.386667l-222.378667-8.746666-16.853333 37.12 23.168 69.888-41.856 79.488 17.066666 64 42.24 54.954666 61.184-56.576a14.72 14.72 0 0 1 20.736 0.853334l78.72 85.162666a14.848 14.848 0 0 1 2.56 16.128 14.762667 14.762667 0 0 1-13.909333 8.533334l-215.68-8.448-10.752 30.890666 11.648 27.904 247.978667 9.6a29.354667 29.354667 0 0 0 30.464-28.245333L802.858667 341.333333a29.013333 29.013333 0 0 0-7.722667-21.077333z m-159.36 161.408a44.074667 44.074667 0 1 1 3.456-88.021333 44.074667 44.074667 0 0 1-3.456 88.021333z m-159.872 202.965333l7.466667-32.426666-175.146667 12.074666a14.677333 14.677333 0 0 1-12.117333-24.32l129.792-149.034666a14.677333 14.677333 0 0 1 21.632-0.512l43.434666 45.312-18.688-48.298667 32.938667-83.370667-30.378667-66.730666 12.672-38.656-238.848 16.469333a29.312 29.312 0 0 0-27.221333 31.36l24.234667 351.573333a29.013333 29.013333 0 0 0 9.941333 20.053334c5.888 5.077333 13.568 7.68 21.333333 7.168l213.248-14.72-14.293333-25.941334z" class="fill-[#30617756]" /></svg>
+                     </div>
                     </div>
                     </div>
                   </div>
@@ -352,6 +396,7 @@
 import ColorInput from 'vue-color-input';
 import Draggable from 'vuedraggable';
 import ExpansionTab from './ExpansionTab.vue';
+import LoadingSpinner from './LoadingSpinner.vue';
 import PopupComponent from './PopupComponent.vue';
 export default {
   name: "EditMenuPage",
@@ -367,7 +412,7 @@ export default {
       closeExpansionTabTime: 300,
       closePopupTime:300,
       focusedCategory: 0,
-      focusedItem: -1,
+      focusedItem: 0,
       isSwitchingCategory:false,
       categorySwitchTime:300,
       items: [
@@ -378,14 +423,11 @@ export default {
           price: 15,
           isSuggested: false,
           imagesUrl: [
-            'https://s3-alpha-sig.figma.com/img/bcef/91ad/5e6f8169fad6d98fb1b82c7c9e83b901?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GqNEdGhEIYu0g2EWsK4aAfv8T2JEK1WYG-SJyXfiNI27K8aDBBgoGMewy6U9bgRX1yyGb2VUwoZ4d85whMJGn~DaipC6jNh7hCt5Z3dwfb~zpWX~mo3VXqdHn57aPUko8mEh4fJhv6iS2ovFRhl3ea5309Oj-AiytbR7c965tOtX3Nn9OjYhBW1crcYDiLECiJgkATOjdByjni28AAgcZ0KWDJEb9LL-1QaSsF~bYvF5WisXou98f-yc6YrWG4A6l89k4V5JinUf~6P0M137ROMVfYxDcOZKZ6DB9thhlicEw5WYtEENh4s~TZEP42wEuvaQtySdbd--RZBcsnPFwg__',
-            'https://s3-alpha-sig.figma.com/img/bcef/91ad/5e6f8169fad6d98fb1b82c7c9e83b901?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GqNEdGhEIYu0g2EWsK4aAfv8T2JEK1WYG-SJyXfiNI27K8aDBBgoGMewy6U9bgRX1yyGb2VUwoZ4d85whMJGn~DaipC6jNh7hCt5Z3dwfb~zpWX~mo3VXqdHn57aPUko8mEh4fJhv6iS2ovFRhl3ea5309Oj-AiytbR7c965tOtX3Nn9OjYhBW1crcYDiLECiJgkATOjdByjni28AAgcZ0KWDJEb9LL-1QaSsF~bYvF5WisXou98f-yc6YrWG4A6l89k4V5JinUf~6P0M137ROMVfYxDcOZKZ6DB9thhlicEw5WYtEENh4s~TZEP42wEuvaQtySdbd--RZBcsnPFwg__',
-            'https://s3-alpha-sig.figma.com/img/bcef/91ad/5e6f8169fad6d98fb1b82c7c9e83b901?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GqNEdGhEIYu0g2EWsK4aAfv8T2JEK1WYG-SJyXfiNI27K8aDBBgoGMewy6U9bgRX1yyGb2VUwoZ4d85whMJGn~DaipC6jNh7hCt5Z3dwfb~zpWX~mo3VXqdHn57aPUko8mEh4fJhv6iS2ovFRhl3ea5309Oj-AiytbR7c965tOtX3Nn9OjYhBW1crcYDiLECiJgkATOjdByjni28AAgcZ0KWDJEb9LL-1QaSsF~bYvF5WisXou98f-yc6YrWG4A6l89k4V5JinUf~6P0M137ROMVfYxDcOZKZ6DB9thhlicEw5WYtEENh4s~TZEP42wEuvaQtySdbd--RZBcsnPFwg__',
-            'https://s3-alpha-sig.figma.com/img/bcef/91ad/5e6f8169fad6d98fb1b82c7c9e83b901?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GqNEdGhEIYu0g2EWsK4aAfv8T2JEK1WYG-SJyXfiNI27K8aDBBgoGMewy6U9bgRX1yyGb2VUwoZ4d85whMJGn~DaipC6jNh7hCt5Z3dwfb~zpWX~mo3VXqdHn57aPUko8mEh4fJhv6iS2ovFRhl3ea5309Oj-AiytbR7c965tOtX3Nn9OjYhBW1crcYDiLECiJgkATOjdByjni28AAgcZ0KWDJEb9LL-1QaSsF~bYvF5WisXou98f-yc6YrWG4A6l89k4V5JinUf~6P0M137ROMVfYxDcOZKZ6DB9thhlicEw5WYtEENh4s~TZEP42wEuvaQtySdbd--RZBcsnPFwg__',
-            'https://s3-alpha-sig.figma.com/img/bcef/91ad/5e6f8169fad6d98fb1b82c7c9e83b901?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GqNEdGhEIYu0g2EWsK4aAfv8T2JEK1WYG-SJyXfiNI27K8aDBBgoGMewy6U9bgRX1yyGb2VUwoZ4d85whMJGn~DaipC6jNh7hCt5Z3dwfb~zpWX~mo3VXqdHn57aPUko8mEh4fJhv6iS2ovFRhl3ea5309Oj-AiytbR7c965tOtX3Nn9OjYhBW1crcYDiLECiJgkATOjdByjni28AAgcZ0KWDJEb9LL-1QaSsF~bYvF5WisXou98f-yc6YrWG4A6l89k4V5JinUf~6P0M137ROMVfYxDcOZKZ6DB9thhlicEw5WYtEENh4s~TZEP42wEuvaQtySdbd--RZBcsnPFwg__',
-            'https://s3-alpha-sig.figma.com/img/bcef/91ad/5e6f8169fad6d98fb1b82c7c9e83b901?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GqNEdGhEIYu0g2EWsK4aAfv8T2JEK1WYG-SJyXfiNI27K8aDBBgoGMewy6U9bgRX1yyGb2VUwoZ4d85whMJGn~DaipC6jNh7hCt5Z3dwfb~zpWX~mo3VXqdHn57aPUko8mEh4fJhv6iS2ovFRhl3ea5309Oj-AiytbR7c965tOtX3Nn9OjYhBW1crcYDiLECiJgkATOjdByjni28AAgcZ0KWDJEb9LL-1QaSsF~bYvF5WisXou98f-yc6YrWG4A6l89k4V5JinUf~6P0M137ROMVfYxDcOZKZ6DB9thhlicEw5WYtEENh4s~TZEP42wEuvaQtySdbd--RZBcsnPFwg__',
-            'https://s3-alpha-sig.figma.com/img/bcef/91ad/5e6f8169fad6d98fb1b82c7c9e83b901?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GqNEdGhEIYu0g2EWsK4aAfv8T2JEK1WYG-SJyXfiNI27K8aDBBgoGMewy6U9bgRX1yyGb2VUwoZ4d85whMJGn~DaipC6jNh7hCt5Z3dwfb~zpWX~mo3VXqdHn57aPUko8mEh4fJhv6iS2ovFRhl3ea5309Oj-AiytbR7c965tOtX3Nn9OjYhBW1crcYDiLECiJgkATOjdByjni28AAgcZ0KWDJEb9LL-1QaSsF~bYvF5WisXou98f-yc6YrWG4A6l89k4V5JinUf~6P0M137ROMVfYxDcOZKZ6DB9thhlicEw5WYtEENh4s~TZEP42wEuvaQtySdbd--RZBcsnPFwg__',
-
+          'https://s3-alpha-sig.figma.com/img/bcef/91ad/5e6f8169fad6d98fb1b82c7c9e83b901?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ccGdH76QvAezxzGw~m4JpTNj0R83Q4wf2gY7nFhBf1rHEG4L3ryfAUlh4NtEy4HtDZg8FQy32C9~uuyPQ-zGrvpmNNT3jbVec02G2DYdeW~IcU3axLM5aNs~CaAorLLbCt~7tnaw9bZqcgTE5GTJUcS6AYdedCLqHMMmiPcGiksPEH3yKTlU8vnfHNE0sw1jRFX3Vmc2Xm0KNbrl9q064BdZ4z3-TJQNqXJjRppvEBImgttakmfL~mYljAwK5r-mgzcrfGppyhhpVG~WuMjlGiQB6hiWx2i6oMNM1ALCyKRt~GAUYiYorAFBmbzA5y-8HvJvsTalKerrn--euTC5AQ__',
+          'https://s3-alpha-sig.figma.com/img/bcef/91ad/5e6f8169fad6d98fb1b82c7c9e83b901?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ccGdH76QvAezxzGw~m4JpTNj0R83Q4wf2gY7nFhBf1rHEG4L3ryfAUlh4NtEy4HtDZg8FQy32C9~uuyPQ-zGrvpmNNT3jbVec02G2DYdeW~IcU3axLM5aNs~CaAorLLbCt~7tnaw9bZqcgTE5GTJUcS6AYdedCLqHMMmiPcGiksPEH3yKTlU8vnfHNE0sw1jRFX3Vmc2Xm0KNbrl9q064BdZ4z3-TJQNqXJjRppvEBImgttakmfL~mYljAwK5r-mgzcrfGppyhhpVG~WuMjlGiQB6hiWx2i6oMNM1ALCyKRt~GAUYiYorAFBmbzA5y-8HvJvsTalKerrn--euTC5AQ__',
+          'https://s3-alpha-sig.figma.com/img/bcef/91ad/5e6f8169fad6d98fb1b82c7c9e83b901?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ccGdH76QvAezxzGw~m4JpTNj0R83Q4wf2gY7nFhBf1rHEG4L3ryfAUlh4NtEy4HtDZg8FQy32C9~uuyPQ-zGrvpmNNT3jbVec02G2DYdeW~IcU3axLM5aNs~CaAorLLbCt~7tnaw9bZqcgTE5GTJUcS6AYdedCLqHMMmiPcGiksPEH3yKTlU8vnfHNE0sw1jRFX3Vmc2Xm0KNbrl9q064BdZ4z3-TJQNqXJjRppvEBImgttakmfL~mYljAwK5r-mgzcrfGppyhhpVG~WuMjlGiQB6hiWx2i6oMNM1ALCyKRt~GAUYiYorAFBmbzA5y-8HvJvsTalKerrn--euTC5AQ__',
+          'https://s3-alpha-sig.figma.com/img/bcef/91ad/5e6f8169fad6d98fb1b82c7c9e83b901?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ccGdH76QvAezxzGw~m4JpTNj0R83Q4wf2gY7nFhBf1rHEG4L3ryfAUlh4NtEy4HtDZg8FQy32C9~uuyPQ-zGrvpmNNT3jbVec02G2DYdeW~IcU3axLM5aNs~CaAorLLbCt~7tnaw9bZqcgTE5GTJUcS6AYdedCLqHMMmiPcGiksPEH3yKTlU8vnfHNE0sw1jRFX3Vmc2Xm0KNbrl9q064BdZ4z3-TJQNqXJjRppvEBImgttakmfL~mYljAwK5r-mgzcrfGppyhhpVG~WuMjlGiQB6hiWx2i6oMNM1ALCyKRt~GAUYiYorAFBmbzA5y-8HvJvsTalKerrn--euTC5AQ__',
+          'https://s3-alpha-sig.figma.com/img/bcef/91ad/5e6f8169fad6d98fb1b82c7c9e83b901?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ccGdH76QvAezxzGw~m4JpTNj0R83Q4wf2gY7nFhBf1rHEG4L3ryfAUlh4NtEy4HtDZg8FQy32C9~uuyPQ-zGrvpmNNT3jbVec02G2DYdeW~IcU3axLM5aNs~CaAorLLbCt~7tnaw9bZqcgTE5GTJUcS6AYdedCLqHMMmiPcGiksPEH3yKTlU8vnfHNE0sw1jRFX3Vmc2Xm0KNbrl9q064BdZ4z3-TJQNqXJjRppvEBImgttakmfL~mYljAwK5r-mgzcrfGppyhhpVG~WuMjlGiQB6hiWx2i6oMNM1ALCyKRt~GAUYiYorAFBmbzA5y-8HvJvsTalKerrn--euTC5AQ__',
           ],
           category: 'khalta special blue yogurt',
           description: 'Khalta cheetos  with special blue yogurt with special blue yogurt  with special blue yogurt  with special blue yogurt  with special blue yogurt  with special blue yogurt',
@@ -871,7 +913,7 @@ export default {
       for(let a=0; a<this.items.length; a++){
         let loadingArray= [];
         for(let i=0; i<this.items[a].imagesUrl.length; i++){
-             loadingArray.push(false);
+             loadingArray.push('loading');
         }
        newLoadingArray.push({
         id: this.items[a].id,
@@ -883,7 +925,14 @@ export default {
     onImageLoad(id,index){
      for(let a=0; a<this.loadedImages.length; a++){
            if(this.loadedImages[a].id == id){
-              this.loadedImages[a].loading[index] = true;
+              this.loadedImages[a].loading[index] = 'loaded';
+           }
+     }
+    },
+    onImageError(id,index){
+     for(let a=0; a<this.loadedImages.length; a++){
+           if(this.loadedImages[a].id == id){
+              this.loadedImages[a].loading[index] = 'error';
            }
      }
     },
@@ -1021,6 +1070,15 @@ this.itemSeperated[this.focusedCategory].push(blankItem);
       this.focusedItem = index;
     }
   },
+  isImageLoaded(id,index){
+        let isLoaded= false;
+        for(let a =0; a<this.loadedImages.length; a++){
+             if(this.loadedImages[a].id===id){
+                isLoaded = this.loadedImages[a].loading[index];
+             }
+        }
+        return isLoaded;
+    },
     toggleItemVisibility(index) {
       for (let a = 0; a < this.items.length; a++) {
         if (a == index) {
@@ -1062,7 +1120,7 @@ this.itemSeperated[this.focusedCategory].push(blankItem);
 
   },
   components: {
-    Draggable, ExpansionTab, ColorInput ,PopupComponent
+    Draggable, ExpansionTab, ColorInput ,PopupComponent,LoadingSpinner
   },
 }
 </script>
@@ -1089,4 +1147,23 @@ this.itemSeperated[this.focusedCategory].push(blankItem);
   opacity: 0.5;
   background: #c8ebfb;
 }
+.hide-img{
+    opacity: 0;
+}
+
+.show-img{
+    animation-name: show-image;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+    animation-direction: forwards;
+    animation-timing-function: ease-in-out;
+}
+@keyframes show-image {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
 </style>
