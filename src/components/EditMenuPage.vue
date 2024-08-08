@@ -149,8 +149,8 @@
 
                     </div>
                     <div  v-else class="w-full rounded-[2vw] h-full relative flex justify-end  bg-center bg-cover bg-no-repeat" >
-                     <div v-show="isImageLoaded(element.id,0)==='loaded'" class="relative">
-                      <img @error="onImageError(element.id,0)" @load="onImageLoad(element.id,0)" :src="element.imagesUrl[0]" :class="{'block rounded-[2vw] object-cover w-full h-full transition-all duration-400':true,'hide-img':isImageLoaded(element.id,0)==='loading','show-img':isImageLoaded(element.id,0)==='loaded'}">
+                     <div v-show="isImageLoaded(element.id,0)==='loaded'" class="relative w-full h-full">
+                      <img @error="onImageError(element.id,0)" @load="onImageLoad(element.id,0)" :src="element.imagesUrl[0]" :class="{'block object-cover rounded-[2vw] w-full h-full transition-all duration-400':true,'hide-img':isImageLoaded(element.id,0)==='loading','show-img':isImageLoaded(element.id,0)==='loaded'}">
                              <div @click="removeImage(element.id,0)" class="w-[4.1vw] absolute top-[5%] translate-x-[-95%] translate-y-[-5%] left-[95%] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
                               <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8.00198 16C5.86284 16 3.85046 15.1604 2.34513 13.6554C0.839812 12.1505 0 10.1386 0 8C0 5.86139 0.839812 3.8495 2.34513 2.34455C3.85046 0.839604 5.86284 0 8.00198 0C10.1411 0 12.1535 0.839604 13.6588 2.34455C16.7804 5.46535 16.7804 10.5347 13.6588 13.6554C12.1535 15.1604 10.1411 16 8.00198 16ZM8.00198 0.950495C6.11636 0.950495 4.34167 1.67921 3.01065 3.0099C1.67962 4.34059 0.95073 6.11485 0.95073 8C0.95073 9.88515 1.67962 11.6594 3.01065 12.9901C4.34167 14.3208 6.11636 15.0495 8.00198 15.0495C9.8876 15.0495 11.6623 14.3208 12.9933 12.9901C15.7504 10.2337 15.7504 5.76634 12.9933 3.0099C11.6623 1.67921 9.8876 0.950495 8.00198 0.950495Z" fill="#D10000"/>
@@ -183,7 +183,7 @@
                       </div>
                     </div>
                     <div v-else class="w-full rounded-[2vw] h-full flex justify-end  bg-center bg-cover bg-no-repeat" >
-                     <div v-show="isImageLoaded(element.id,1)==='loaded'" class="relative">
+                     <div v-show="isImageLoaded(element.id,1)==='loaded'"  class="relative w-full h-full">
                       <img @load="onImageLoad(element.id,1)" @error="onImageError(element.id,1)" :src="element.imagesUrl[1]" :class="{'object-cover w-full h-full rounded-[2vw]':true,'hide-img':isImageLoaded(element.id,1)==='loading','show-img': isImageLoaded(element.id,1)==='loaded'}">
                              <div @click="removeImage(element.id,1)" class="w-[4.1vw] absolute top-[5%] translate-x-[-95%] translate-y-[-5%] left-[95%] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
                               <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -216,7 +216,7 @@
                       </div>
                     </div>
                     <div v-else class="w-full rounded-[2vw] h-full flex justify-end  bg-center bg-cover bg-no-repeat" >
-                     <div v-show="isImageLoaded(element.id,2)==='loaded'" class="relative">
+                     <div v-show="isImageLoaded(element.id,2)==='loaded'"  class="relative w-full h-full">
                       <img @load="onImageLoad(element.id,2)" @error="onImageError(element.id,2)" :src="element.imagesUrl[2]" :class="{'object-cover w-full h-full rounded-[2vw]':true,'hide-img':isImageLoaded(element.id,2)==='loading','show-img': isImageLoaded(element.id,2)==='loaded'}">
                              <div @click="removeImage(element.id,2)" class="w-[4.1vw] absolute top-[5%] translate-x-[-95%] translate-y-[-5%] left-[95%] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
                               <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -249,7 +249,7 @@
                       </div>
                     </div>
                     <div v-else class="w-full rounded-[2vw] h-full flex justify-end  bg-center bg-cover bg-no-repeat" >
-                     <div v-show="isImageLoaded(element.id,3)==='loaded'" class="relative">
+                     <div v-show="isImageLoaded(element.id,3)==='loaded'"  class="relative w-full h-full">
                       <img @load="onImageLoad(element.id,3)" @error="onImageError(element.id,3)" :src="element.imagesUrl[3]" :class="{'object-cover w-full h-full rounded-[2vw]':true,'hide-img':isImageLoaded(element.id,3)==='loading','show-img': isImageLoaded(element.id,3)==='loaded'}">
                              <div @click="removeImage(element.id,3)" class="w-[4.1vw] absolute top-[5%] translate-x-[-95%] translate-y-[-5%] left-[95%] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
                               <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -282,7 +282,7 @@
                       </div>
                     </div>
                     <div v-else class="w-full rounded-[2vw] h-full flex justify-end  bg-center bg-cover bg-no-repeat" >
-                     <div v-show="isImageLoaded(element.id,4)==='loaded'" class="relative">
+                     <div v-show="isImageLoaded(element.id,4)==='loaded'"  class="relative w-full h-full">
                       <img @load="onImageLoad(element.id,4)" @error="onImageError(element.id,4)" :src="element.imagesUrl[4]" :class="{'object-cover w-full h-full rounded-[2vw]':true,'hide-img':isImageLoaded(element.id,4)==='loading','show-img': isImageLoaded(element.id,4)==='loaded'}">
                              <div @click="removeImage(element.id,4)" class="w-[4.1vw] absolute top-[5%] translate-x-[-95%] translate-y-[-5%] left-[95%] h-[4.1vw] rounded-full bg-red-800 flex justify-center items-center">
                               <svg width="4.1vw" height="4.1vw" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -412,7 +412,7 @@ export default {
       closeExpansionTabTime: 300,
       closePopupTime:300,
       focusedCategory: 0,
-      focusedItem: 0,
+      focusedItem: -1,
       isSwitchingCategory:false,
       categorySwitchTime:300,
       items: [
@@ -971,14 +971,20 @@ export default {
       if (file) {
         // Create a URL for the selected image
         this.itemSeperated[this.focusedCategory][this.chosenIdForImage].imagesUrl.push(URL.createObjectURL(file))
+        for(let a=0; a<this.loadedImages.length;a++){
+          if(this.loadedImages[a].id===this.chosenIdForImage) {
+                  this.loadedImages[a].loading.push('loaded');
+            }
+        }
         event.target.value = null;
       }
     },
     addNewItem() {
         if(this.categories.length>0){
+          let newID =   this.items[this.items.length -1].id + 1
           let blankItem = {
 
-id: this.items[this.items.length -1].id + 1,
+id: newID,
 title: '',
 isVisible: true,
 price: '',
@@ -988,6 +994,10 @@ imagesUrl: [
 category: this.categories[this.focusedCategory],
 description: '',
 }
+this.loadedImages.push({
+        id: newID,
+        loading: []
+       })
 this.itemSeperated[this.focusedCategory].push(blankItem);
         }
     },
@@ -995,6 +1005,11 @@ this.itemSeperated[this.focusedCategory].push(blankItem);
       for (let a = 0; a < this.itemSeperated[this.focusedCategory].length; a++) {
         if (id == this.itemSeperated[this.focusedCategory][a].id) {
           this.itemSeperated[this.focusedCategory][a].imagesUrl.splice(index,1);
+          for(let i=0;i<this.loadedImages.length;i++){
+            if(id=== this.loadedImages[i].id){
+              this.loadedImages[i].loading.splice(index,1)
+            }
+          }
         }
       }
     },
