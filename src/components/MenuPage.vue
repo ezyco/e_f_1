@@ -600,7 +600,17 @@ description:''
       price :'30 AED',
       isSuggested: false,
       imagesUrl:[
-'https://s3-alpha-sig.figma.com/img/e27f/32d1/63341532ee01036ee4fe5197d4272099?Expires=1724025600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mmP62Vbw6gH2BKCULs4WrA7Sgz~AcLQp4q~6HR3-BJcF1ZfA3JD1ZIwqXSnyrhNjJuzM0e2J4o-3R88TChig0By7GeRX8UsELL~UsSKleqcC~Ssal~Y-9m5~Y0iAcAJjLCtqdV6Q9uGOj6WQQc0dau9P3eZrsWrbrK2w5hudFQRH-luSug1BJxaiVftAJdPwGVKSx7Kq3OIpZXTfogHFotraSeXd8sO1A1kiQY8PEbNy5C4SOqjsOHQ7fYBuPQC6DjtYEKIJpx0~DE5OYSBcawxR3wdB2x2KO-HjwDmwm9URGU2VQetl~qe-D0FYZyFLRm5SMJ2lqXbKgiIE771Drg__'
+'https://i.ibb.co/dcQ54Rv/63341532ee01036ee4fe5197d4272099-Expires-1724025600-Key-Pair-Id-APKAQ4-GOSFWCVNEHN3-O4-Signature-mm.png'
+    ],
+      category:'drinks',
+      description:''
+    },
+    {
+      title:'Waraq anab',
+      price :'35 AED',
+      isSuggested: false,
+      imagesUrl:[
+'https://i.ibb.co/y6V5Jts/photo-2024-08-09-23-35-10.jpg'
     ],
       category:'drinks',
       description:''
