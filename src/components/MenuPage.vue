@@ -87,7 +87,7 @@ return {
     },
     {
       title:'Khalta blue taxis with special blue yogurt',
-      price :'15 AED',
+      price :'25 AED',
       isSuggested: false,
       imagesUrl:[
 'https://i.ibb.co/sPL8PpF/76984a25241f76c6c0d9a8aaae06dd53-Expires-1724025600-Key-Pair-Id-APKAQ4-GOSFWCVNEHN3-O4-Signature-j-s.png'      
@@ -375,7 +375,7 @@ description:''
     description:''
     },
     {
-      title:'Cheesecake raspberry',
+      title:'Cheesecake mango',
       price :'40 AED',
       isSuggested: false,
       imagesUrl:[
@@ -385,8 +385,8 @@ description:''
       description:''
     },
     {
-      title:'Sweet corn with blue yogurt and oman chips',
-      price :'35 AED',
+      title:'Cheesecake raspberry',
+      price :'40 AED',
       isSuggested: false,
       imagesUrl:[
 'https://i.ibb.co/KXSd1c5/e02fd199d0411fc74ccfad566c666e14-Expires-1724025600-Key-Pair-Id-APKAQ4-GOSFWCVNEHN3-O4-Signature-j-L.png'
