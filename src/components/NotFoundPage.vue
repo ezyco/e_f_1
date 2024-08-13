@@ -48,9 +48,7 @@
             <div class="text">
                 <article>
                     <p class="w-[80vw] drop-shadow-lg roboto font-bold">Oops! The page your looking for doesnt exist!</p>
-                    <button class="flex justify-center items-center">
-                        <div @click="goToLogin" class="roboto font-black text-[6vw]">Login</div>
-                    </button>
+                    
                 </article>
             </div>
 

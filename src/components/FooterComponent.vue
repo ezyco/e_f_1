@@ -50,7 +50,6 @@
     </div>   
     </div>
    </div>
-   <div class="w-full h-[30vw] " :style="backgroundColor"></div>
 </template>
 
 

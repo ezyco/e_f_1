@@ -3,7 +3,7 @@
 
       <div class="overflow-x-hidden">
         <router-view/>
-        <FooterNav v-if="!isLoginRoute"/>
+        <FooterNav v-if="false"/>
 </div>
 </TonConnectUIProvider>
 

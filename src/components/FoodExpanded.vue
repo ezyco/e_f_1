@@ -1,8 +1,9 @@
 <template>
   <div
     @click="closeTab"
+    style="z-index:100"
     :class="{
-      'w-full h-full  flex flex-col justify-end fixed top-0 z-40 bg-[rgba(23,23,23,0.5)]  backdrop-blur-sm': true,
+      'w-full h-full  flex flex-col justify-end fixed top-0 z-100 bg-[rgba(23,23,23,0.5)]  backdrop-blur-sm': true,
       'bg-show': isOpen,
       'bg-hide': !isOpen,
     }"
@@ -14,6 +15,7 @@
       'drawer-open': isOpen,
       'drawer-close': !isOpen,
     }"
+    style="z-index:100"
   >
     <div :style="itemBackgroundColor" class=" w-full h-full rounded-t-[4vw]">
       <div
@@ -70,7 +72,8 @@
           >
             <div class="overflow-hidden absolute rounded-xl w-full h-[63vw]">
               <img v-show="mainImg[index]" @load="onMainImageLoad(index)"
-              :src="image" :class="{'h-[63vw] pr-[6vw] w-[100vw] rounded-xl':true,'image-hide':focusedImage !== index,
+              style="border-radius: 18px;"
+              :src="image" :class="{'h-[63vw] ':true,'image-hide':focusedImage !== index,
   'image-show' :focusedImage === index}" />
      <div class="w-full h-full rounded-[1vw]  bg-[#c1ebff79] flex justify-center items-center" v-show="!loaded[index]">
             <LoadingSpinner/>

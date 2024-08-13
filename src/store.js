@@ -13,7 +13,7 @@ const store = createStore({
         website:'https://ezy.company/cv.menu',
         location:'https://www.google.com/maps',
         phoneNumber:'+989354886180',
-        chosenCurrency:0,
+        chosenCurrency:6,
         title:'Top time cafe',
       };
     },
