@@ -1,0 +1,20 @@
+name: ezyton
+
+services:
+  ton-vue-nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ton-vue-nginx
+    restart: unless-stopped
+    ports:
+      - "12771:80"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - ton_net
+
+# Networks
+networks:
+  ton_net:
+    driver: bridge
